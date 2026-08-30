@@ -17,10 +17,13 @@ A wiki repository about tutorials of IsaacLab and IsaacSim.
 
 ## 本地预览
 
-本地网页预览是构建产物，位于 `build/preview/`（mkdocs-material，`build/` 已在 `.gitignore` 中，不提交）。执行：
+本地网页预览使用 mkdocs-material：
+
+- 脚本（版本化）：`script/serve.sh`、`script/build.py`、`script/mkdocs.yml`
+- 构建产物（已 gitignore）：`build/preview/`（`.venv`、`docs`、`site`、日志）
 
 ```bash
-./build/preview/serve.sh
+./script/serve.sh
 ```
 
 浏览器打开 `http://127.0.0.1:8000/`。
