@@ -27,26 +27,34 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - https://unpkg.com/mermaid@11.4.1/dist/mermaid.min.js
+
 nav:
   - 首页: index.md
-  - L0 概念启蒙:
-      - Isaac Sim 是什么: L0-Isaac-Sim是什么.md
-      - Isaac Lab 是什么: L0-Isaac-Lab是什么.md
-      - 安装与环境配置: L0-安装与环境配置.md
-      - 运行第一个 Demo: L0-运行第一个Demo.md
-      - 学习路线与下一步: L0-学习路线与下一步.md
-  - L1 入门:
-      - 强化学习核心概念: L1-强化学习核心概念.md
-      - 项目结构与训练流程: L1-Isaac-Lab项目结构与训练流程.md
-      - 第一个训练任务: L1-第一个训练任务.md
+  - intro 概念启蒙:
+      - Isaac Sim 是什么: Isaac-Sim是什么.md
+      - Isaac Lab 是什么: Isaac-Lab是什么.md
+  - setup 环境与 Demo:
+      - 安装与环境配置: 安装与环境配置.md
+      - 运行第一个 Demo: 运行第一个Demo.md
+      - 学习路线与下一步: 学习路线与下一步.md
+  - train 训练入门:
+      - 强化学习核心概念: 强化学习核心概念.md
+      - 项目结构与训练流程: Isaac-Lab项目结构与训练流程.md
+      - 第一个训练任务: 第一个训练任务.md
   - 关于:
       - Wiki 状态: _META.md
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
   - pymdownx.highlight
   - tables
   - toc:
       permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format

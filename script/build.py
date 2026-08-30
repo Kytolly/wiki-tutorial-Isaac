@@ -2,6 +2,7 @@
 # 本地预览构建脚本（版本化，放在 script/）：把 page/** 拍平并转换链接，
 # 生成 mkdocs 可渲染的 build/preview/docs/。
 import os
+import shutil
 
 HERE = os.path.dirname(os.path.abspath(__file__))   # .../doc/wiki/script
 ROOT = os.path.dirname(HERE)                        # .../doc/wiki
@@ -37,6 +38,7 @@ def convert(text):
         i += 1
     return "".join(out)
 
+shutil.rmtree(DOCS, ignore_errors=True)   # 清掉旧产物，避免残留过期页面
 os.makedirs(DOCS, exist_ok=True)
 for root, _, files in os.walk(SRC):
     for f in files:

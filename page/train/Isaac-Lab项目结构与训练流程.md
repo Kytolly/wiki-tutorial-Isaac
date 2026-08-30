@@ -1,7 +1,7 @@
-# L1-Isaac-Lab项目结构与训练流程
+# Isaac-Lab项目结构与训练流程
 
-> 本页属于：L1 入门
-> 前置知识：[[L1-强化学习核心概念]]
+> 本页属于：train 训练入门
+> 前置知识：[[强化学习核心概念]]
 > 预计阅读时间：15 分钟
 
 ## 这是什么工具？
@@ -54,19 +54,21 @@ IsaacLab/
 | 适合 | 快速原型、自定义小众任务 | 通用开发、复杂机器人任务 |
 | 代表任务 | `Isaac-Cartpole-Direct-v0` | `Isaac-Cartpole-v0` |
 
-本讲义 L1 第一次自建任务推荐 **Direct**（更快跑通），进阶后再学 Manager-Based。
+本讲义 train 第一次自建任务推荐 **Direct**（更快跑通），进阶后再学 Manager-Based。
 
 ## 训练流程（`train.py` 背后）
 
-```text
-1. 解析命令行/Hydra 配置（--task、--num_envs、--headless…）
-2. 启动 Isaac Sim App（AppLauncher）
-3. 按任务名从 Gymnasium 注册表找到环境类与 Config
-4. 创建向量化环境（同时 N 份）
-5. RL 后端采样：策略给动作 → 环境 step → 收集 (obs, action, reward)
-6. 算法更新策略（如 PPO 小步更新）
-7. 周期性评估并把权重写入 logs/
-8. 循环 5-7，直到收敛或达到步数上限
+```mermaid
+flowchart TD
+    A[解析命令行/Hydra 配置] --> B[启动 Isaac Sim App AppLauncher]
+    B --> C[按任务名从 Gymnasium 注册表找环境类与 Config]
+    C --> D[创建向量化环境 同时 N 份]
+    D --> E[RL 后端采样: 策略给动作 → 环境 step → 收集 obs/action/reward]
+    E --> F[算法更新策略 如 PPO 小步更新]
+    F --> G[周期性评估并写入 logs/]
+    G --> H{收敛或达到步数上限?}
+    H -- 否 --> E
+    H -- 是 --> I[结束]
 ```
 
 ## 常见问题 FAQ
@@ -81,7 +83,7 @@ IsaacLab/
 换脚本目录即可：`scripts/reinforcement_learning/rsl_rl/train.py` → `.../skrl/train.py` 等。
 
 **Q4：`isaaclab_tasks` 里找不到我想要的任务？**
-自建任务放自己的项目里，用 `./isaaclab.sh --new` 生成模板，见 [[L1-第一个训练任务]]。
+自建任务放自己的项目里，用 `./isaaclab.sh --new` 生成模板，见 [[第一个训练任务]]。
 
 ## 速查卡片
 
@@ -102,8 +104,8 @@ IsaacLab/
 
 ## 下一步
 
-- 上一页：[[L1-强化学习核心概念]]
-- 下一页：[[L1-第一个训练任务]]
+- 上一页：[[强化学习核心概念]]
+- 下一页：[[第一个训练任务]]
 - 返回：[[Home]]
 
 ## 更新日志

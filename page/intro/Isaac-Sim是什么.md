@@ -1,6 +1,6 @@
-# L0-Isaac-Sim是什么
+# Isaac-Sim是什么
 
-> 本页属于：L0 概念启蒙
+> 本页属于：intro 概念启蒙
 > 前置知识：无
 > 预计阅读时间：10 分钟
 
@@ -61,7 +61,7 @@ for i in range(100):
 simulation_app.close()
 ```
 
-> 这段代码你现在看不懂很正常，L0 的目标只是建立直觉：**Isaac Sim 是一个可以被 Python 驱动的、会算物理的 3D 世界**。
+> 这段代码你现在看不懂很正常，intro 的目标只是建立直觉：**Isaac Sim 是一个可以被 Python 驱动的、会算物理的 3D 世界**。
 
 ## ✏️ 小练习
 
@@ -99,7 +99,7 @@ simulation_app.close()
 ## 下一步
 
 - 上一页：[[Home]]
-- 下一页：[[L0-Isaac-Lab是什么]]
+- 下一页：[[Isaac-Lab是什么]]
 - 返回：[[Home]]
 
 ## 更新日志
