@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Obsidian vault local config (not part of the wiki pages)
+.obsidian/
