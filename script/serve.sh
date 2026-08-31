@@ -3,6 +3,7 @@
 # 产物（.venv/docs/site）都在 build/preview/，该目录已被 .gitignore 忽略。
 set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"   # doc/wiki
+export NO_MKDOCS_2_WARNING=1
 
 python3 "$ROOT/script/build.py"
 exec "$ROOT/build/preview/.venv/bin/mkdocs" serve -f "$ROOT/script/mkdocs.yml" -a 127.0.0.1:8000

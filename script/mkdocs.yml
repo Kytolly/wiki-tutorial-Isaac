@@ -32,17 +32,60 @@ extra_javascript:
 
 nav:
   - 首页: index.md
-  - intro 概念启蒙:
-      - Isaac Sim 是什么: Isaac-Sim是什么.md
-      - Isaac Lab 是什么: Isaac-Lab是什么.md
-  - setup 环境与 Demo:
-      - 安装与环境配置: 安装与环境配置.md
-      - 运行第一个 Demo: 运行第一个Demo.md
-      - 学习路线与下一步: 学习路线与下一步.md
-  - train 训练入门:
-      - 强化学习核心概念: 强化学习核心概念.md
-      - 项目结构与训练流程: Isaac-Lab项目结构与训练流程.md
-      - 第一个训练任务: 第一个训练任务.md
+  - 概念启蒙:
+      - 领域概览:
+          - Isaac Sim 是什么: Isaac-Sim是什么.md
+          - Isaac Lab 是什么: Isaac-Lab是什么.md
+      - 平台架构:
+          - Isaac Sim 架构与核心概念: Isaac Sim架构与核心概念.md
+      - 双工具协作:
+          - Isaac Sim 与 Isaac Lab 如何协作: Isaac-Sim与Isaac-Lab如何协作.md
+  - 环境与Demo:
+      - 环境搭建:
+          - 安装与环境配置: 安装与环境配置.md
+      - 快速体验:
+          - 运行第一个 Demo: 运行第一个Demo.md
+      - 场景与物理:
+          - USD 场景入门: USD场景入门.md
+          - 物理仿真设置: 物理仿真设置.md
+      - 学习路线:
+          - 学习路线与下一步: 学习路线与下一步.md
+  - 训练入门:
+      - 理论基石:
+          - 强化学习核心概念: 强化学习核心概念.md
+      - 传感器与数据:
+          - 传感器与合成数据: 传感器与合成数据.md
+          - 渲染与 LiDAR 感知: 渲染与LiDAR感知.md
+      - 框架与流程:
+          - 项目结构与训练流程: Isaac-Lab项目结构与训练流程.md
+      - 动手训练:
+          - 第一个训练任务: 第一个训练任务.md
+  - 自建进阶:
+      - Direct 工作流:
+          - Direct 环境类深入: Direct环境类深入.md
+      - 奖励与观测:
+          - 奖励设计与观测修改: 奖励设计与观测修改.md
+      - 调参与调试:
+          - 训练调参与调试: 训练调参与调试.md
+      - Manager-Based 工作流:
+          - Manager-Based 工作流入门: Manager-Based工作流入门.md
+      - 工作流对比:
+          - Direct 与 Manager-Based 对比迁移: Direct与Manager-Based对比迁移.md
+      - 自定义资产:
+          - 自定义机器人资产导入: 自定义机器人资产导入.md
+      - 扩展开发:
+          - Isaac Sim 扩展开发入门: Isaac Sim扩展开发入门.md
+      - Sim2Real 与随机化:
+          - Domain 随机化与 Sim2Real: Domain随机化与Sim2Real.md
+      - 实战案例:
+          - 端到端实战案例: 端到端实战案例.md
+  - 部署与性能:
+      - 分布式训练:
+          - 多卡与分布式训练: 多卡与分布式训练.md
+      - 仿真加速:
+          - 仿真加速与性能优化: 仿真加速与性能优化.md
+      - 真机部署:
+          - 真机部署: 真机部署.md
   - 关于:
       - Wiki 状态: _META.md
 
