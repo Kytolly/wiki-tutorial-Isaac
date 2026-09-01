@@ -35,5 +35,5 @@ $buildPy = Join-Path $ROOT "script\build.py"
 if ($LASTEXITCODE -ne 0) { Write-Host "ERROR: build.py failed"; exit 1 }
 
 $cfg = Join-Path $ROOT "script\mkdocs.yml"
-Write-Host "==> Preview: http://127.0.0.1:8000/"
-& $venvMk serve -f $cfg -a 127.0.0.1:8000
+Write-Host "==> Preview: http://127.0.0.1:8001/"
+& $venvMk serve -f $cfg -a 127.0.0.1:8001
