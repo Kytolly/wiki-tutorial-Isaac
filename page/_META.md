@@ -19,6 +19,7 @@
 - [x] setup/USD场景入门（2026-08-31）
 - [x] setup/物理仿真设置（2026-08-31）
 - [x] setup/学习路线与下一步（2026-08-31）
+- [x] setup/版本与API速查（2026-09-01）
 - [x] train/强化学习核心概念（2026-08-31）
 - [x] train/传感器与合成数据（2026-08-31）
 - [x] train/渲染与LiDAR感知（2026-08-31）
@@ -36,6 +37,10 @@
 - [x] deploy/多卡与分布式训练（2026-08-31）
 - [x] deploy/仿真加速与性能优化（2026-08-31）
 - [x] deploy/真机部署（2026-08-31）
+- [x] advance/进阶方向概览（2026-09-01）
+- [x] advance/模仿学习与数据采集（2026-09-01）
+- [x] advance/RL后端对比与选型（2026-09-01）
+- [x] advance/容器化与Docker复现（2026-09-01）
 - [ ] Isaac Lab v3.0 正式版发布后的版本核对与 API 更新（规划中）
 
 ## changelog
@@ -48,4 +53,6 @@
 - 2026-08-31：新增 deploy 分级与"部署与性能"tab（第 7 个），完成 3 页（多卡与分布式训练、仿真加速与性能优化、真机部署），四级全部完成（共 17 页）。来源：Isaac Lab Multi-GPU 文档、isaac_ros_deploy、策略部署文档（详见各页更新日志）。
 - 2026-08-31：Isaac Sim 专项扩充批（共 4 页）：新增 Isaac Sim架构与核心概念（intro）、USD场景入门与物理仿真设置（setup）、传感器与合成数据（train），并深化 Isaac-Sim是什么（能力地图+对比）；上一页/下一页链同步重排，总页数 17→21。来源：Isaac Sim 官方文档（架构/USD/物理/Replicator），详见各页更新日志。
 - 2026-08-31：联动改造 + 双侧深化批（共 5 页 + 全局互链）：新增全景联动页
+- 2026-09-01：新增 **setup/版本与API速查** 页（版本/API 速查与 3.0 迁移提示），并把版本说明从 Home 收敛到该页。
+- 2026-09-01：新增 **advance 进阶方向** 分级（进阶方向概览、模仿学习与数据采集、RL后端对比与选型、容器化与Docker复现），导航/学习地图/侧边栏同步更新。
 - 2026-09-01：**补齐先前缺失的 build 级 9 页**（Direct环境类深入、奖励设计与观测修改、训练调参与调试、Manager-Based工作流入门、Direct与Manager-Based对比迁移、自定义机器人资产导入、Isaac Sim扩展开发入门、Domain随机化与Sim2Real、端到端实战案例），打通 train→build→deploy 学习链；同步修正 Home 学习顺序；升级 build.py / publish-wiki.sh 支持 page/assets 图片管线。来源：Isaac Lab 官方教程与源码（详见各页更新日志，访问于 2026-09-01）。（Isaac-Sim与Isaac-Lab如何协作）、Isaac Sim 深化（Isaac Sim扩展开发入门、渲染与LiDAR感知）、Isaac Lab 深化（Direct与Manager-Based对比迁移、端到端实战案例）；为 build 级 6 页与架构页补"与另一工具的联系"小节并打通双向链接；总页数 21→26。来源：Isaac Sim 扩展/渲染/LiDAR 文档、Isaac Lab 环境设计文档（详见各页更新日志）。
