@@ -53,6 +53,10 @@ flowchart TD
 
 关键点：**Isaac Sim 本身就是"一堆扩展组装成的 Kit 应用"**；Isaac Lab 又是架在 Isaac Sim 之上的另一层。你写训练代码时，其实在同时使用这三层。
 
+![Isaac Sim 图形界面（Base Ref GUI 平台）](assets/images/isim_4.0_base_ref_gui_platform.png)
+
+> 图 2 官方 Isaac Sim GUI 平台示意（来源：<https://docs.isaacsim.omniverse.nvidia.com/latest/overview.html>，访问于 2026-09-01）
+
 ## 📝 启动方式对比（pip 版 vs 独立版）
 
 | | **pip 版（推荐）** | **独立桌面版（弃用中）** |

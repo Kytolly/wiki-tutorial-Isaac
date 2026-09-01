@@ -219,3 +219,7 @@ __marimo__/
 
 # Obsidian vault local config (not part of the wiki pages)
 .obsidian/
+
+# 注意：page/build/ 是源内容目录（wiki 分级），不要把它当成构建产物 build/ 忽略!
+!page/build/
+!page/build/**

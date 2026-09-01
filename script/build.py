@@ -50,6 +50,12 @@ for root, _, files in os.walk(SRC):
         open(os.path.join(DOCS, dst_name), "w", encoding="utf-8").write(text)
         print("built", dst_name)
 
+# 复制本地图片资产（page/assets/** → docs/assets/**），供 Markdown 相对路径引用
+asset_src = os.path.join(SRC, "assets")
+if os.path.isdir(asset_src):
+    shutil.copytree(asset_src, os.path.join(DOCS, "assets"), dirs_exist_ok=True)
+    print("built assets/")
+
 css_dir = os.path.join(DOCS, "stylesheets")
 os.makedirs(css_dir, exist_ok=True)
 open(os.path.join(css_dir, "extra.css"), "w", encoding="utf-8").write(EXTRA_CSS)

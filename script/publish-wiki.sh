@@ -17,6 +17,11 @@ while IFS= read -r f; do
   cp "$f" "$TMP_DIR/$(basename "$f")"
 done < <(find "$PAGE_DIR" -type f -name '*.md' | sort)
 
+# 复制本地图片资产（保持子目录，供相对路径引用）
+if [ -d "$PAGE_DIR/assets" ]; then
+  cp -r "$PAGE_DIR/assets" "$TMP_DIR/"
+fi
+
 cd "$TMP_DIR"
 git add -A
 git -c user.name="${GIT_AUTHOR_NAME:-kytolly}" \
