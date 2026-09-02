@@ -37,7 +37,7 @@ flowchart LR
     B --> D[skrl]
     B --> E[sb3]
     B --> F[rl_games]
-    C/D/E/F -->|同一环境| G[训练/回放]
+    C & D & E & F -->|同一环境| G[训练/回放]
 ```
 
 ## 📝 切换方法（3.0 新 CLI 示例）

@@ -32,11 +32,11 @@
 
 ```mermaid
 flowchart LR
-    D["Direct: _setup_scene"] -->|改| M1["Manager: scene 配置 + 资产 cfg"]
-    D["Direct: _pre_physics_step / _apply_action"] -->|改| M2["Manager: actions 字典 ActionManager"]
-    D["Direct: _get_observations"] -->|改| M3["Manager: observations 字典 ObservationManager"]
-    D["Direct: _get_rewards"] -->|改| M4["Manager: rewards 字典 RewardManager"]
-    D["Direct: _reset_idx / 终止判断"] -->|改| M5["Manager: events + terminations 字典"]
+    D1["Direct: _setup_scene"] -->|改| M1["Manager: scene 配置 + 资产 cfg"]
+    D2["Direct: _pre_physics_step / _apply_action"] -->|改| M2["Manager: actions 字典 ActionManager"]
+    D3["Direct: _get_observations"] -->|改| M3["Manager: observations 字典 ObservationManager"]
+    D4["Direct: _get_rewards"] -->|改| M4["Manager: rewards 字典 RewardManager"]
+    D5["Direct: _reset_idx / 终止判断"] -->|改| M5["Manager: events + terminations 字典"]
 ```
 
 ## 📝 迁移步骤（Direct → Manager）

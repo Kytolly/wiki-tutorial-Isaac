@@ -35,7 +35,7 @@
 
 ```mermaid
 flowchart TD
-    A[env.step(action)] --> B[_pre_physics_step: 把 action 写进关节/执行器目标]
+    A["env.step(action)"] --> B["_pre_physics_step: 把 action 写进关节/执行器目标"]
     B --> C[推进 decimation 个物理步<br/>SimulationCfg.dt × decimation]
     C --> D[_get_observations: 读机器人/传感器状态]
     D --> E[_get_rewards: 按奖励公式算 reward]
