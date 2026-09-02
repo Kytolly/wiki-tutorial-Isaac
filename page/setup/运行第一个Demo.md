@@ -33,8 +33,7 @@ cd IsaacLab
   --task Isaac-Cartpole-v0 --num_envs 32 --headless
 
 # 第 3 步：回放训练好的策略（带画面，看杆子被稳稳立住）
-./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/play.py \
-  --task Isaac-Cartpole-v0 --num_envs 32
+./isaaclab.sh play --rl_library rsl_rl --task Isaac-Cartpole-v0 --num_envs 4 --viz kit
 ```
 
 > 若想换后端，把 `rsl_rl` 换成 `skrl` 即可，例如 `python scripts/reinforcement_learning/skrl/train.py --task=Isaac-Ant-v0`（Ant 四足行走，训练更久）。
