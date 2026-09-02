@@ -223,3 +223,6 @@ __marimo__/
 # 注意：page/build/ 是源内容目录（wiki 分级），不要把它当成构建产物 build/ 忽略!
 !page/build/
 !page/build/**
+
+# VS Code 自动生成
+.vscode/
