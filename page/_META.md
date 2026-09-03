@@ -4,7 +4,7 @@
 - 分级：按任务自定（`intro → setup → train → build → deploy → advance → stackforce 机器狗实战`）
 - 导航：阶段式 tab（概念启蒙 / 环境与Demo / 训练入门 / 自建进阶 / 部署与性能 / 进阶方向 / StackForce实战 / 关于，+首页），每 tab 下按"技术主题 → 文章"分组；tab 数量控制在 4-8 个，新内容并入已有 tab 或新增主题
 - 关联仓库：<https://github.com/Kytolly/wiki-tutorial-Isaac>
-- 当前进度：**六级 + 进阶方向 + StackForce 机器狗实战（含 M1 实操 5 页 + URDF 实操 5 页），共 48 个内容页；待办：v3.0 正式版核对**
+- 当前进度：**六级 + 进阶方向 + StackForce 机器狗实战（含 M1 实操 5 页 + M2 实操 5 页），共 48 个内容页；待办：v3.0 正式版核对**
 - 信息截止：2026-08-31
 
 ## 页面清单
@@ -53,17 +53,17 @@
 - [x] stackforce/M4-Isaac-Lab训练（2026-09-02）
 - [x] stackforce/M5-鲁棒性（2026-09-02）
 - [x] stackforce/M6-Sim2Real部署（2026-09-02）
-- [x] stackforce/URDF-01-自由度与命名（2026-09-02）
-- [x] stackforce/URDF-02-零件与腿部运动学（2026-09-02）
-- [x] stackforce/URDF-03-最小骨架与验证（2026-09-02）
-- [x] stackforce/URDF-04-视觉碰撞与动力学（2026-09-02）
-- [x] stackforce/URDF-05-到Isaac-Lab与系统辨识（2026-09-02）
+- [x] stackforce/M2-01-自由度与命名（2026-09-02）
+- [x] stackforce/M2-02-零件与腿部运动学（2026-09-02）
+- [x] stackforce/M2-03-最小骨架与验证（2026-09-02）
+- [x] stackforce/M2-04-视觉碰撞与动力学（2026-09-02）
+- [x] stackforce/M2-05-到Isaac-Lab与系统辨识（2026-09-02）
 - [ ] Isaac Lab v3.0 正式版发布后的版本核对与 API 更新（规划中）
 
 ## changelog
 
 - 2026-09-02：新增 **stackforce/M1 实操 5 页**（硬件清单与传感器、Joint-Map与单执行器、控制接口与频率延迟、机械参数与重量、硬件API与安全），展开 M1 硬件吃透路线（M1.1–M1.6 + 机械/重量/API/Logger/安全 + 验收标准）。来源：用户 M1 实操路线。
-- 2026-09-02：新增 **stackforce/URDF 实操 5 页**（自由度与命名、零件与腿部运动学、最小骨架与验证、视觉碰撞与动力学、到Isaac-Lab与系统辨识），展开 M2 的 14 阶段 URDF 建模路线；补充本地 Mini URDF（bipedal_wheeled_robot/20250820_1.urdf）的腿部 origin/axis/limit/inertia 数据。来源：用户 URDF 路线 + 本地仓库。
+- 2026-09-02：新增 **stackforce/M2 实操 5 页**（自由度与命名、零件与腿部运动学、最小骨架与验证、视觉碰撞与动力学、到Isaac-Lab与系统辨识），展开 M2 的 14 阶段 URDF 建模路线；补充本地 Mini URDF（bipedal_wheeled_robot/20250820_1.urdf）的腿部 origin/axis/limit/inertia 数据。来源：用户 URDF 路线 + 本地仓库。
 - 2026-09-02：按用户 Roadmap 重构机器狗实战为 **stackforce 分级**（7 页：Roadmap与里程碑 + M1–M6 六里程碑），取代原 robot 初稿；六里程碑结构：Hardware→URDF→Dynamics→RL→Robustness→Sim2Real。来源：用户 Roadmap + 本地仓库 `quadrupedal-wheeled-robot`。
 - 2026-08-31：新增 robot 机器狗实战初稿（8 页），后被 stackforce 分级取代。来源：本地仓库 `/home/kytolly/Library/quadrupedal-wheeled-robot`（SF_IMU/SF_Servo/kinematics/gait/PID）。
 - 2026-08-31：新建 Home、_Sidebar、_META、_Footer，完成 intro/setup/train 三级（原 L0/L1）。
