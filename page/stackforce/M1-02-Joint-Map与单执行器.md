@@ -96,7 +96,7 @@ q_sim > 0  和  q_real > 0  必须表示同一个物理运动
 | 左后-后舵机 | 6 | servoBackRightFront | -5° | UNKNOWN |
 | 左后-前舵机 | 5 | servoBackRightRear | +3° | UNKNOWN |
 
-驱动参数：PCA9685@0x40，PWM 50Hz，angle API 0–300°，pulse 500–2500μs，enable GPIO42，无反馈。`0–300°` 是 API 映射范围，**不等于** URDF joint limit。
+驱动参数：PCA9685@0x40，PWM 50Hz，angle API 0–300°，pulse 500–2500μs，enable GPIO42，无反馈。`0–300°` 是 API 映射范围，**不等于** URDF joint limit。实际舵机型号、机械角度范围、关节零位、正方向仍 UNKNOWN（对应 U01–U04）。
 
 **4 轮电机**：
 
@@ -123,4 +123,5 @@ q_sim > 0  和  q_real > 0  必须表示同一个物理运动
 
 ## 更新日志
 
+- 2026-09-03：同步 `doc/research` M1-1 最新源码结论：舵机驱动参数补"实际型号/机械角度范围/关节零位/正方向 UNKNOWN（对应 U01–U04）"。来源：本地 `doc/research/02_actuator_map.md`。
 - 2026-09-02：新增本页。来源：用户 M1 实操路线（M1.3–M1.4）。
