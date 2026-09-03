@@ -1,10 +1,10 @@
 # Wiki 状态
 
 - 领域：NVIDIA Isaac Lab（机器人强化学习框架）+ Isaac Sim（Omniverse 物理仿真器）
-- 分级：按任务自定（`intro 概念启蒙 → setup 环境与 Demo → train 训练入门 → build 自建环境进阶 → deploy 部署与性能 → robot 机器狗实战`）
-- 导航：阶段式 tab（概念启蒙 / 环境与Demo / 训练入门 / 自建进阶 / 部署与性能 / 关于，+首页共 7 个），每 tab 下按"技术主题 → 文章"分组；tab 数量控制在 4-8 个，新内容并入已有 tab 或新增主题
+- 分级：按任务自定（`intro → setup → train → build → deploy → advance → stackforce 机器狗实战`）
+- 导航：阶段式 tab（概念启蒙 / 环境与Demo / 训练入门 / 自建进阶 / 部署与性能 / 进阶方向 / StackForce实战 / 关于，+首页），每 tab 下按"技术主题 → 文章"分组；tab 数量控制在 4-8 个，新内容并入已有 tab 或新增主题
 - 关联仓库：<https://github.com/Kytolly/wiki-tutorial-Isaac>
-- 当前进度：**六级 + 进阶方向 + 机器狗实战，共 39 个内容页；待办：v3.0 正式版核对**
+- 当前进度：**六级 + 进阶方向 + StackForce 机器狗实战，共 38 个内容页；待办：v3.0 正式版核对**
 - 信息截止：2026-08-31
 
 ## 页面清单
@@ -41,19 +41,19 @@
 - [x] advance/模仿学习与数据采集（2026-09-01）
 - [x] advance/RL后端对比与选型（2026-09-01）
 - [x] advance/容器化与Docker复现（2026-09-01）
-- [x] robot/硬件与接口（2026-08-31）
-- [x] robot/模型与URDF（2026-08-31）
-- [x] robot/导入Isaac-Lab（2026-08-31）
-- [x] robot/运动任务设计（2026-08-31）
-- [x] robot/训练与调参（2026-08-31）
-- [x] robot/策略导出与真机部署（2026-08-31）
-- [x] robot/sim2real对齐与安全（2026-08-31）
-- [x] robot/常见问题（2026-08-31）
+- [x] stackforce/Roadmap与里程碑（2026-09-02）
+- [x] stackforce/M1-硬件吃透（2026-09-02）
+- [x] stackforce/M2-URDF建模（2026-09-02）
+- [x] stackforce/M3-动力学对齐（2026-09-02）
+- [x] stackforce/M4-Isaac-Lab训练（2026-09-02）
+- [x] stackforce/M5-鲁棒性（2026-09-02）
+- [x] stackforce/M6-Sim2Real部署（2026-09-02）
 - [ ] Isaac Lab v3.0 正式版发布后的版本核对与 API 更新（规划中）
 
 ## changelog
 
-- 2026-08-31：新增 **robot 机器狗实战** 分级（8 页：硬件与接口、模型与URDF、导入Isaac-Lab、运动任务设计、训练与调参、策略导出与真机部署、sim2real对齐与安全、常见问题），接入导航/学习地图/侧边栏。来源：本地仓库 `/home/kytolly/Library/quadrupedal-wheeled-robot`（SF_IMU/SF_Servo/kinematics/gait/PID）。
+- 2026-09-02：按用户 Roadmap 重构机器狗实战为 **stackforce 分级**（7 页：Roadmap与里程碑 + M1–M6 六里程碑），取代原 robot 初稿；六里程碑结构：Hardware→URDF→Dynamics→RL→Robustness→Sim2Real。来源：用户 Roadmap + 本地仓库 `quadrupedal-wheeled-robot`。
+- 2026-08-31：新增 robot 机器狗实战初稿（8 页），后被 stackforce 分级取代。来源：本地仓库 `/home/kytolly/Library/quadrupedal-wheeled-robot`（SF_IMU/SF_Servo/kinematics/gait/PID）。
 - 2026-08-31：新建 Home、_Sidebar、_META、_Footer，完成 intro/setup/train 三级（原 L0/L1）。
 - 2026-08-31：按更新后的 skill 规范，分级从 L0/L1 迁移为 intro/setup/train，页面去掉分级前缀。
 - 2026-08-31：完成 build 首批 3 页（Direct环境类深入、奖励设计与观测修改、训练调参与调试），导航/学习地图/学习路线同步更新。来源：Isaac Lab 官方文档与源码、GitHub 讨论区（详见各页更新日志）。

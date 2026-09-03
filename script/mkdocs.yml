@@ -97,18 +97,16 @@ nav:
           - RL 后端对比与选型: RL后端对比与选型.md
       - 容器复现:
           - 容器化与 Docker 复现: 容器化与Docker复现.md
-  - 机器狗实战:
-      - 硬件认知:
-          - 硬件与接口: 硬件与接口.md
-          - 模型与 URDF: 模型与URDF.md
-      - 仿真接入:
-          - 导入 Isaac Lab: 导入Isaac-Lab.md
-          - 运动任务设计: 运动任务设计.md
-          - 训练与调参: 训练与调参.md
-      - 部署落地:
-          - 策略导出与真机部署: 策略导出与真机部署.md
-          - sim2real 对齐与安全: sim2real对齐与安全.md
-          - 常见问题: 常见问题.md
+  - StackForce 实战:
+      - 总览:
+          - Roadmap 与里程碑: Roadmap与里程碑.md
+      - 里程碑:
+          - M1 硬件吃透: M1-硬件吃透.md
+          - M2 URDF 建模: M2-URDF建模.md
+          - M3 动力学对齐: M3-动力学对齐.md
+          - M4 Isaac Lab 训练: M4-Isaac-Lab训练.md
+          - M5 鲁棒性: M5-鲁棒性.md
+          - M6 Sim2Real 部署: M6-Sim2Real部署.md
   - 关于:
       - Wiki 状态: _META.md
 
