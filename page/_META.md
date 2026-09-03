@@ -62,6 +62,7 @@
 
 ## changelog
 
+- 2026-09-02：把 `M1_outcome` 5 份源码分析文档并入 M1 实操（M1-01/02/03/05 补"M1-1 源码基线结论"）：系统架构（双 ESP32-S3、I2C/CAN/Serial2/PPM）、8 舵机 actuator map、4 轮 BLDC（setModes(4,4)=TORQUE_MODE）、通信协议（CAN 8 字节命令帧）、U01–U24 验证清单与 M1-1 退出条件。来源：本地 `doc/StackForceDog/M1_outcome/*.md`。
 - 2026-09-02：新增 **stackforce/M1 实操 5 页**（硬件清单与传感器、Joint-Map与单执行器、控制接口与频率延迟、机械参数与重量、硬件API与安全），展开 M1 硬件吃透路线（M1.1–M1.6 + 机械/重量/API/Logger/安全 + 验收标准）。来源：用户 M1 实操路线。
 - 2026-09-02：新增 **stackforce/M2 实操 5 页**（自由度与命名、零件与腿部运动学、最小骨架与验证、视觉碰撞与动力学、到Isaac-Lab与系统辨识），展开 M2 的 14 阶段 URDF 建模路线；补充本地 Mini URDF（bipedal_wheeled_robot/20250820_1.urdf）的腿部 origin/axis/limit/inertia 数据。来源：用户 URDF 路线 + 本地仓库。
 - 2026-09-02：按用户 Roadmap 重构机器狗实战为 **stackforce 分级**（7 页：Roadmap与里程碑 + M1–M6 六里程碑），取代原 robot 初稿；六里程碑结构：Hardware→URDF→Dynamics→RL→Robustness→Sim2Real。来源：用户 Roadmap + 本地仓库 `quadrupedal-wheeled-robot`。

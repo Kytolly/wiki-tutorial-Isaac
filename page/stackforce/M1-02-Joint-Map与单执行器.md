@@ -81,6 +81,34 @@ q_sim > 0  和  q_real > 0  必须表示同一个物理运动
 避免机器人因动作落地/移动造成意外，只验证单个关节运动方向，安全。
 </details>
 
+## M1-1 源码基线结论（Actuator Map）
+
+**8 路舵机**（PCA9685 channel；源码保留"前/后舵机"称呼，暂不命名为 hip/knee）：
+
+| 逻辑位置 | channel | 源码变量 | servo_off | 物理关节语义 |
+|----------|---------|----------|-----------|--------------|
+| 左前-前舵机 | 3 | servoLeftFront | -5° | UNKNOWN |
+| 左前-后舵机 | 4 | servoLeftRear | -7° | UNKNOWN |
+| 右前-前舵机 | 2 | servoRightFront | +5° | UNKNOWN |
+| 右前-后舵机 | 1 | servoRightRear | +3° | UNKNOWN |
+| 右后-后舵机 | 7 | servoBackLeftFront | -8° | UNKNOWN |
+| 右后-前舵机 | 8 | servoBackLeftRear | +8° | UNKNOWN |
+| 左后-后舵机 | 6 | servoBackRightFront | -5° | UNKNOWN |
+| 左后-前舵机 | 5 | servoBackRightRear | +3° | UNKNOWN |
+
+驱动参数：PCA9685@0x40，PWM 50Hz，angle API 0–300°，pulse 500–2500μs，enable GPIO42，无反馈。`0–300°` 是 API 映射范围，**不等于** URDF joint limit。
+
+**4 轮电机**：
+
+| 物理轮 | BLDC | 所属控制器 | command sign | feedback sign |
+|--------|------|-----------|--------------|---------------|
+| 左后 | M0 | Device 0x01 | +1 | +1 |
+| 右后 | M1 | Device 0x01 | -1 | -1 |
+| 左前 | target2 发送 | Device 0x02 | +1(M3Dir) | UNKNOWN |
+| 右前 | target1 发送 | Device 0x02 | -1(M4Dir) | UNKNOWN |
+
+> **重要**：整机程序调用 `motors.setModes(4,4)`，底层 `SF_Motor.h` 定义 mode 4 = **TORQUE_MODE**（1=VELOCITY，2=FORCE_ANGLE，3=VEL_ANGLE）。即当前四轮 BLDC 底层是 torque mode，不能仅凭变量名"目标速度"误判。
+
 ## 本章小结
 
 - Joint Map：12 行，Hardware ID/Zero/方向/限位。
