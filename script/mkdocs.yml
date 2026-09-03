@@ -107,6 +107,12 @@ nav:
           - M4 Isaac Lab 训练: M4-Isaac-Lab训练.md
           - M5 鲁棒性: M5-鲁棒性.md
           - M6 Sim2Real 部署: M6-Sim2Real部署.md
+      - M1 实操:
+          - 硬件清单与传感器: M1-01-硬件清单与传感器.md
+          - Joint Map 与单执行器: M1-02-Joint-Map与单执行器.md
+          - 控制接口与频率延迟: M1-03-控制接口与频率延迟.md
+          - 机械参数与重量: M1-04-机械参数与重量.md
+          - 硬件 API 与安全: M1-05-硬件API与安全.md
       - URDF 实操:
           - 自由度与命名: URDF-01-自由度与命名.md
           - 零件与腿部运动学: URDF-02-零件与腿部运动学.md
