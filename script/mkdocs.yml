@@ -107,6 +107,12 @@ nav:
           - M4 Isaac Lab 训练: M4-Isaac-Lab训练.md
           - M5 鲁棒性: M5-鲁棒性.md
           - M6 Sim2Real 部署: M6-Sim2Real部署.md
+      - URDF 实操:
+          - 自由度与命名: URDF-01-自由度与命名.md
+          - 零件与腿部运动学: URDF-02-零件与腿部运动学.md
+          - 最小骨架与验证: URDF-03-最小骨架与验证.md
+          - 视觉碰撞与动力学: URDF-04-视觉碰撞与动力学.md
+          - 到 Isaac Lab 与系统辨识: URDF-05-到Isaac-Lab与系统辨识.md
   - 关于:
       - Wiki 状态: _META.md
 
