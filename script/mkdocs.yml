@@ -102,7 +102,7 @@ nav:
           - Roadmap 与里程碑: Roadmap与里程碑.md
       - 里程碑:
           - M1 硬件吃透: M1-硬件吃透.md
-          - M2 URDF 建模: M2-URDF建模.md
+          - M2 资产检查: M2-资产检查.md
           - M3 动力学对齐: M3-动力学对齐.md
           - M4 Isaac Lab 训练: M4-Isaac-Lab训练.md
           - M5 鲁棒性: M5-鲁棒性.md
@@ -113,12 +113,18 @@ nav:
           - 控制接口与频率延迟: M1-03-控制接口与频率延迟.md
           - 机械参数与重量: M1-04-机械参数与重量.md
           - 硬件 API 与安全: M1-05-硬件API与安全.md
-      - M2 实操:
-          - 自由度与命名: M2-01-自由度与命名.md
-          - 零件与腿部运动学: M2-02-零件与腿部运动学.md
-          - 最小骨架与验证: M2-03-最小骨架与验证.md
-          - 视觉碰撞与动力学: M2-04-视觉碰撞与动力学.md
-          - 到 Isaac Lab 与系统辨识: M2-05-到Isaac-Lab与系统辨识.md
+      - M2 资产检查:
+          - 资产来源与版本: M2-01-资产来源与版本.md
+          - 机械结构审核: M2-02-机械结构审核.md
+          - 几何审核: M2-03-几何审核.md
+          - 物理资产审核: M2-04-物理资产审核.md
+          - Isaac Sim 验证: M2-05-Isaac-Sim验证.md
+          - Isaac Lab 接入: M2-06-Isaac-Lab接入.md
+      - 证据与归档:
+          - 机械模型证据: mechanical-model.md
+          - 几何基线证据: geometry-baseline.md
+          - 来源清单证据: source-inventory.md
+          - 逆向工程归档: M2-reverse-engineering.md
   - 关于:
       - Wiki 状态: _META.md
 

@@ -4,7 +4,7 @@
 - 分级：按任务自定（`intro → setup → train → build → deploy → advance → stackforce 机器狗实战`）
 - 导航：阶段式 tab（概念启蒙 / 环境与Demo / 训练入门 / 自建进阶 / 部署与性能 / 进阶方向 / StackForce实战 / 关于，+首页），每 tab 下按"技术主题 → 文章"分组；tab 数量控制在 4-8 个，新内容并入已有 tab 或新增主题
 - 关联仓库：<https://github.com/Kytolly/wiki-tutorial-Isaac>
-- 当前进度：**六级 + 进阶方向 + StackForce 机器狗实战（含 M1 实操 5 页 + M2 实操 5 页），共 48 个内容页；待办：v3.0 正式版核对**
+- 当前进度：**六级 + 进阶方向 + StackForce 机器狗实战（M1 实操 5 页 + M2 资产检查 6 页 + 证据 3 页 + 归档 1 页），共 53 个内容页；待办：v3.0 正式版核对**
 - 信息截止：2026-08-31
 
 ## 页面清单
@@ -48,21 +48,27 @@
 - [x] stackforce/M1-03-控制接口与频率延迟（2026-09-02）
 - [x] stackforce/M1-04-机械参数与重量（2026-09-02）
 - [x] stackforce/M1-05-硬件API与安全（2026-09-02）
-- [x] stackforce/M2-URDF建模（2026-09-02）
+- [x] stackforce/M2-资产检查（2026-09-02）
 - [x] stackforce/M3-动力学对齐（2026-09-02）
 - [x] stackforce/M4-Isaac-Lab训练（2026-09-02）
 - [x] stackforce/M5-鲁棒性（2026-09-02）
 - [x] stackforce/M6-Sim2Real部署（2026-09-02）
-- [x] stackforce/M2-01-自由度与命名（2026-09-02）
-- [x] stackforce/M2-02-零件与腿部运动学（2026-09-02）
-- [x] stackforce/M2-03-最小骨架与验证（2026-09-02）
-- [x] stackforce/M2-04-视觉碰撞与动力学（2026-09-02）
-- [x] stackforce/M2-05-到Isaac-Lab与系统辨识（2026-09-02）
+- [x] stackforce/M2-01-资产来源与版本（2026-09-03）
+- [x] stackforce/M2-02-机械结构审核（2026-09-03）
+- [x] stackforce/M2-03-几何审核（2026-09-03）
+- [x] stackforce/M2-04-物理资产审核（2026-09-03）
+- [x] stackforce/M2-05-Isaac-Sim验证（2026-09-03）
+- [x] stackforce/M2-06-Isaac-Lab接入（2026-09-03）
+- [x] stackforce/evidence/mechanical-model（2026-09-03）
+- [x] stackforce/evidence/geometry-baseline（2026-09-03）
+- [x] stackforce/evidence/source-inventory（2026-09-03）
+- [x] stackforce/archive/M2-reverse-engineering（2026-09-03）
 - [ ] Isaac Lab v3.0 正式版发布后的版本核对与 API 更新（规划中）
 
 ## changelog
 
 - 2026-09-03：按用户反馈重新整理 M1 实操页——把 `doc/research` 最新源码结论**就地合并进正文**（不再追加页尾、保留旧的 `?` 占位）：M1-01 硬件清单表预填主控/IMU/舵机/编码器/通信等确认项，数据流/引脚表/控制职责并入 M1.1，传感器接口与符号线索并入 M1.2；M1-02 Actuator Map 上移到 Joint Map 小节、12-DOF 目标表预填源码已知项；M1-03 就地定案 command 类型（腿=开环 PWM position 无反馈、轮=torque mode4）；M1-硬件吃透 更新 Hardware Interface Table 与"课程代码已确认"表。来源：本地 `doc/research/*.md`。
+- 2026-09-03：M2 信息架构重构——"M2 URDF 建模"更名"**M2 资产检查**"（Robot Asset Audit/Validation）；目标从"自建 URDF"改为"审核验证可信数字机器人资产"；引入候选资产 `Stackforce-simready-111-isaac-lab/sf_robot.usda`（CANDIDATE_ASSET/UNDER_AUDIT，仅 visual load PASS）；M2 子页重构为 6 页（来源/机械/几何/物理/Isaac Sim/Isaac Lab）；新增 evidence 3 页 + archive 1 页；旧自建 URDF/FreeCAD 候选按 REJECTED/HISTORICAL 归档；M1/M2 改为可并行、M3 前汇合。
 - 2026-09-02：把 `M1_outcome` 5 份源码分析文档并入 M1 实操（M1-01/02/03/05 补"M1-1 源码基线结论"）：系统架构（双 ESP32-S3、I2C/CAN/Serial2/PPM）、8 舵机 actuator map、4 轮 BLDC（setModes(4,4)=TORQUE_MODE）、通信协议（CAN 8 字节命令帧）、U01–U24 验证清单与 M1-1 退出条件。来源：本地 `doc/StackForceDog/M1_outcome/*.md`。
 - 2026-09-02：新增 **stackforce/M1 实操 5 页**（硬件清单与传感器、Joint-Map与单执行器、控制接口与频率延迟、机械参数与重量、硬件API与安全），展开 M1 硬件吃透路线（M1.1–M1.6 + 机械/重量/API/Logger/安全 + 验收标准）。来源：用户 M1 实操路线。
 - 2026-09-02：新增 **stackforce/M2 实操 5 页**（自由度与命名、零件与腿部运动学、最小骨架与验证、视觉碰撞与动力学、到Isaac-Lab与系统辨识），展开 M2 的 14 阶段 URDF 建模路线；补充本地 Mini URDF（bipedal_wheeled_robot/20250820_1.urdf）的腿部 origin/axis/limit/inertia 数据。来源：用户 URDF 路线 + 本地仓库。
