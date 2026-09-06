@@ -1,84 +1,66 @@
-# Roadmap与里程碑
+# StackForce 工程 Roadmap
 
-> 本页属于：stackforce 机器狗实战
-> 前置知识：[[自定义机器人资产导入]]、[[真机部署]]
-> 预计阅读时间：10 分钟
+## Project Goal
 
-## 🎯 为什么需要这个？
+让 StackForce 四轮足机器人从可验证的实机基线出发，经过仿真资产、动力学校准、运动、鲁棒性和分级部署，最终安全完成真实目标运动任务。
 
-把 StackForce 四轮足桌面机器狗从"官方资料"做到"实机稳定运动"，是一条很长的链。如果第一天就写 RL、训一个"万能机器狗"，大概率会卡在某个方向/频率/动力学不匹配上。所以先立路线图，**按里程碑走，每步都有验收标准**。
+## Current Status
 
-## 💡 一个类比
+| Milestone | Goal | Gates | PASS | Status |
+|---|---|---:|---:|---|
+| [[M1-Hardware-Ground-Truth]] | 描述真实机器人 | 10 | 0 | IN PROGRESS |
+| [[M2-Simulation-Asset]] | 建立可运行数字机器人 | 8 | 0 | IN PROGRESS |
+| [[M3-Dynamics-Calibration]] | 对齐 Sim/Real 响应 | 6 | 0 | TODO |
+| [[M4-Locomotion]] | 完成仿真运动任务 | 6 | 0 | IN PROGRESS |
+| [[M5-Robustness]] | 抵抗合理误差和扰动 | 6 | 0 | TODO |
+| [[M6-Sim-to-Real]] | 完成安全实机运动 | 8 | 0 | TODO |
 
-这像造车六步：**先摸清零件（Hardware）→ 审数字资产（Asset）→ 校准台架（Dynamics）→ 学驾驶（RL）→ 抗干扰（Robustness）→ 上路（Sim2Real）**。顺序不能乱。
+Progress: 0 / 44 Gates PASS
 
-## 🐍 6 个里程碑
-
-| Milestone | 目标 | 验收标准 |
-|-----------|------|----------|
-| **M1 Hardware** | 吃透 StackForce | 能独立读传感器、控制全部 actuator |
-| **M2 资产检查** | 可信数字机器人资产 | 经过来源/机械结构/几何/物理/Isaac Lab 接口审核 |
-| **M3 Dynamics** | Sim/Real 对齐 | step response 基本吻合 |
-| **M4 RL** | Isaac Lab | 仿真稳定 balance + velocity tracking |
-| **M5 Robustness** | DR + latency/noise | 参数随机后仍稳定 |
-| **M6 Sim2Real** | 实机部署 | 安全实现 balance → locomotion |
-
-## 🖼️ 总路线图
-
-图 1 六里程碑主链（自绘 Mermaid，本地预览渲染；访问于 2026-09-02）
+## Dependency
 
 ```mermaid
 flowchart LR
-    M1[Hardware 硬件吃透] --> M2[资产检查 数字机器人]
-    M2 --> M3[Dynamics Sim/Real 对齐]
-    M3 --> M4[RL Isaac Lab 训练]
-    M4 --> M5[Robustness 域随机化]
-    M5 --> M6[Sim2Real 实机部署]
+    M1[M1 Hardware Ground Truth] --> M3[M3 Dynamics Calibration]
+    M2[M2 Simulation Asset] --> M3
+    M2 --> M4[M4 Locomotion]
+    M3 --> M4
+    M4 --> M5[M5 Robustness]
+    M5 --> M6[M6 Sim-to-Real]
+    M1 --> M6
 ```
 
-## Phase → Milestone 映射
+M1 与 M2 可以并行，但必须在 M3 汇合。M4 已有 `sf_quad` Direct 代码，因此状态为 IN PROGRESS；在 M2/M3 baseline 冻结前产生的训练结果只能作为开发证据，不能作为最终 locomotion PASS 证据。
 
-| Phase | 内容 | 归入 |
-|-------|------|------|
-| Phase 0–1 | 吃透官方资料 + 实机原厂控制 | M1 |
-| Phase 2–6 | 资产审核：来源 / 机械结构 / 几何 / 物理 / Isaac Sim / Isaac Lab | M2 |
-| Phase 6 | Sim↔Real 对齐（step response） | M3 |
-| Phase 7–9 | Stand/Balance + Action + Curriculum | M4 |
-| Phase 10 | Domain Randomization | M5 |
-| Phase 11–12 | 统一接口 + 实机测试顺序 | M6 |
+## Current Work
 
-## ✏️ 小练习
+- M1：把源码级 hardware audit 推进为实机测量 Ground Truth。
+- M2：审核 `sf_robot` 的来源、拓扑、几何、物理行为和 `sf_quad` 接入。
+- M4：修正 Direct 环境并建立当前项目自己的 smoke test 与评测证据。
 
-**1.** 为什么"第一天上 RL"是错的？
+## Current Blockers
 
-<details>
-<summary>查看答案</summary>
+- 关节语义、零位、方向、限位、IMU frame、控制频率和延迟仍缺实机结果。
+- M2 候选资产的闭环、碰撞和物理行为尚未完成验证。
+- `sf_quad` 没有归档自身运行日志；参考工程日志不能替代当前项目证据。
+- `sf_quad` Manager-Based 配置仍是 Cartpole 模板。
 
-因为 joint 方向、零位、频率、动力学都没标定，RL 训练出来的策略一上实机就是灾难；必须先 Hardware→URDF→Dynamics 对齐，再谈 RL。
-</details>
+## Evidence Boundary
 
-## M1 与 M2 的关系
+- `sf_quad/`：当前实现的代码真源。
+- Wiki：工程结论、Evidence、进度和决策的知识真源。
+- `doc/StackForceDog/`：阶段调查和历史测量资料。
+- `Stackforce-simready-111-isaac-lab/`：read-only reference，不是实机 Ground Truth。
 
-M1 与 M2 可**部分并行**，但必须在 M3 Dynamics 前汇合。M1 负责 Hardware Ground Truth（actuator/servo zero/joint direction/limits/wheel direction/通信/频率/安全/标定）；M2 负责资产审核，凡是必须实机确认的参数标 **M1_REQUIRED**，不猜。
+## Status Rules
 
-## M2 当前 TODO
+- `TODO`：尚未开始或只有意图。
+- `IN PROGRESS`：已有工作，但 Acceptance Criteria 未全部满足。
+- `BLOCKED`：已知前置证据或资源缺失，当前不能验收。
+- `PASS`：全部 Acceptance Criteria 满足并有 Evidence。
 
-- **M2 — 资产检查 [CURRENT]**
-- **NEXT: M2-01 Asset Provenance Audit**（审 `Stackforce-simready-111-isaac-lab` 的 `sf_robot.usda` / README / source URDF / meshes / USD composition / Isaac Lab config / 版本 commit）
-- FreeCAD：**HOLD / FALLBACK ONLY**
+Milestone 只有在所属 Gate 全部 PASS 后才能 PASS。
 
-## 本章小结
+## Next
 
-- 六个里程碑顺序：Hardware → Asset → Dynamics → RL → Robustness → Sim2Real。
-- 每个里程碑有明确验收标准。
-- 本分级 7 页：本页 + M1–M6。
-
-## 下一步
-
-- 上一页：[[自定义机器人资产导入]]
-- 下一页：[[M1-硬件吃透]]
-- 返回：[[Home]]
-
-## 更新日志
-
-- 2026-09-02：新增本页。来源：用户 Roadmap（StackForce 四轮足机器狗 RL 实战路线）。
+从 [[M1-G01-硬件清点]]、[[M1-G03-执行器映射]] 和 [[M2-G01-来源冻结]] 开始补齐已有资料；随后进行 M1 实机实验和 M2 仿真行为测试。

@@ -99,41 +99,103 @@ nav:
           - 容器化与 Docker 复现: 容器化与Docker复现.md
   - StackForce 实战:
       - 总览:
-          - Roadmap 与里程碑: Roadmap与里程碑.md
-      - 里程碑:
-          - M1 硬件吃透: M1-硬件吃透.md
-          - M2 资产检查: M2-资产检查.md
-          - M3 动力学对齐: M3-动力学对齐.md
-          - M4 Isaac Lab 训练: M4-Isaac-Lab训练.md
-          - M5 鲁棒性: M5-鲁棒性.md
-          - M6 Sim2Real 部署: M6-Sim2Real部署.md
-      - M1 实操:
-          - 硬件清单与传感器: M1-01-硬件清单与传感器.md
-          - Joint Map 与单执行器: M1-02-Joint-Map与单执行器.md
-          - 控制接口与频率延迟: M1-03-控制接口与频率延迟.md
-          - 机械参数与重量: M1-04-机械参数与重量.md
-          - 硬件 API 与安全: M1-05-硬件API与安全.md
-      - M2 资产检查:
-          - 资产来源与版本: M2-01-资产来源与版本.md
-          - 机械结构审核: M2-02-机械结构审核.md
-          - 几何审核: M2-03-几何审核.md
-          - 物理资产审核: M2-04-物理资产审核.md
-          - Isaac Sim 验证: M2-05-Isaac-Sim验证.md
-          - Isaac Lab 接入: M2-06-Isaac-Lab接入.md
+          - 工程 Roadmap: Roadmap与里程碑.md
+      - Milestones:
+          - M1 Hardware Ground Truth: M1-Hardware-Ground-Truth.md
+          - M2 Simulation Asset: M2-Simulation-Asset.md
+          - M3 Dynamics Calibration: M3-Dynamics-Calibration.md
+          - M4 Locomotion: M4-Locomotion.md
+          - M5 Robustness: M5-Robustness.md
+          - M6 Sim-to-Real: M6-Sim-to-Real.md
+      - M1 Hardware Ground Truth:
+          - G01 硬件清点: M1-G01-硬件清点.md
+          - G02 传感器映射: M1-G02-传感器映射.md
+          - G03 执行器映射: M1-G03-执行器映射.md
+          - G04 关节标定: M1-G04-关节标定.md
+          - G05 指令定性: M1-G05-指令定性.md
+          - G06 控制测频: M1-G06-控制测频.md
+          - G07 延迟测量: M1-G07-延迟测量.md
+          - G08 尺寸测量: M1-G08-尺寸测量.md
+          - G09 质量测量: M1-G09-质量测量.md
+          - G10 停机验证: M1-G10-停机验证.md
+      - M2 Simulation Asset:
+          - G01 来源冻结: M2-G01-来源冻结.md
+          - G02 拓扑对齐: M2-G02-拓扑对齐.md
+          - G03 几何对齐: M2-G03-几何对齐.md
+          - G04 坐标对齐: M2-G04-坐标对齐.md
+          - G05 惯性完备: M2-G05-惯性完备.md
+          - G06 碰撞可用: M2-G06-碰撞可用.md
+          - G07 关节可动: M2-G07-关节可动.md
+          - G08 Lab 载入: M2-G08-Lab载入.md
+      - M3 Dynamics Calibration:
+          - G01 激励冻结: M3-G01-激励冻结.md
+          - G02 实机采样: M3-G02-实机采样.md
+          - G03 舵机标定: M3-G03-舵机标定.md
+          - G04 轮机标定: M3-G04-轮机标定.md
+          - G05 接触标定: M3-G05-接触标定.md
+          - G06 响应对齐: M3-G06-响应对齐.md
+      - M4 Locomotion:
+          - G01 环境验收: M4-G01-环境验收.md
+          - G02 站立达标: M4-G02-站立达标.md
+          - G03 平衡达标: M4-G03-平衡达标.md
+          - G04 速度达标: M4-G04-速度达标.md
+          - G05 策略复现: M4-G05-策略复现.md
+          - G06 策略导出: M4-G06-策略导出.md
+      - M5 Robustness:
+          - G01 范围冻结: M5-G01-范围冻结.md
+          - G02 参数随机: M5-G02-参数随机.md
+          - G03 观测扰动: M5-G03-观测扰动.md
+          - G04 延迟注入: M5-G04-延迟注入.md
+          - G05 推扰恢复: M5-G05-推扰恢复.md
+          - G06 泛化达标: M5-G06-泛化达标.md
+      - M6 Sim-to-Real:
+          - G01 观测对齐: M6-G01-观测对齐.md
+          - G02 动作对齐: M6-G02-动作对齐.md
+          - G03 安全联锁: M6-G03-安全联锁.md
+          - G04 影子推理: M6-G04-影子推理.md
+          - G05 悬空执行: M6-G05-悬空执行.md
+          - G06 实机站立: M6-G06-实机站立.md
+          - G07 实机平衡: M6-G07-实机平衡.md
+          - G08 实机运动: M6-G08-实机运动.md
+      - Topics:
+          - M1 硬件基线: M1-T01-硬件基线.md
+          - M1 执行器映射: M1-T02-执行器映射.md
+          - M1 传感器数据: M1-T03-传感器数据.md
+          - M1 控制时序: M1-T04-控制时序.md
+          - M1 尺寸质量测量: M1-T05-尺寸质量测量.md
+          - M1 空间限制: M1-T06-空间限制.md
+          - M2 资产来源: M2-T01-资产来源.md
+          - M2 机械拓扑: M2-T02-机械拓扑.md
+          - M2 几何装配: M2-T03-几何装配.md
+          - M2 物理属性: M2-T04-物理属性.md
+          - M2 仿真行为: M2-T05-仿真行为.md
+          - M2 Lab 接入: M2-T06-实验室接入.md
+          - M2 坐标约定: M2-T07-坐标约定.md
+          - M3 响应对齐: M3-T01-响应对齐.md
+          - M4 运动任务: M4-T01-运动任务.md
+          - M5 随机化扰动: M5-T01-随机化扰动.md
+          - M6 部署流程: M6-T01-部署流程.md
+          - 机器人接口: T01-机器人接口.md
+          - 实验日志: T02-实验日志.md
+          - 安全联锁: T03-安全联锁.md
+          - 参考工程边界: T04-参考工程边界.md
       - 证据与归档:
           - 机械模型证据: mechanical-model.md
           - 几何基线证据: geometry-baseline.md
           - 来源清单证据: source-inventory.md
           - 逆向工程归档: M2-reverse-engineering.md
+          - 重构迁移索引: 重构迁移索引.md
   - 关于:
       - Wiki 状态: _META.md
-
+  
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.highlight
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - tables
   - toc:
       permalink: true

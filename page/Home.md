@@ -1,7 +1,7 @@
 # Home
 
 > 这是一份**新手友好、中文、分级**的学习讲义：同时带你学会 NVIDIA 的两个机器人仿真学习工具——**Isaac Sim**（物理仿真器）和 **Isaac Lab**（强化学习框架）。
-> 本知识库采用"按任务自定"分级（`intro → setup → train → build → deploy`），导航按"**阶段 tab → 技术主题 → 文章**"组织（顶部/侧边共 6 个 tab，每 tab 下分主题），并同步维护 `_Sidebar` 导航、`_META` 状态和每页互链。
+> 本知识库包含 `intro → setup → train → build → deploy → advance` 学习路径，以及按 **Milestone → Gate → Topic → Acceptance → Evidence** 管理的 StackForce 工程知识库。
 
 ## 一句话理解这套知识库
 
@@ -25,7 +25,7 @@
 | **build 自建环境进阶** | 自建环境与调试 | Direct环境类深入、奖励设计与观测修改、训练调参与调试、Manager-Based工作流入门、Direct与Manager-Based对比迁移、自定义机器人资产导入、Isaac Sim扩展开发入门、Domain随机化与Sim2Real、端到端实战案例 | 两种工作流自由切换、自建环境、导入自研资产、写扩展、Sim2Real，并串起完整项目 |
 | **deploy 部署与性能** | 加速与落地 | 多卡与分布式训练、仿真加速与性能优化、真机部署 | 多卡/分布式训练、仿真加速调优、策略导出与真机部署 |
 | **advance 进阶方向** | 五级之后继续深入 | 进阶方向概览、模仿学习与数据采集、RL后端对比与选型、容器化与Docker复现 | 知道五级之后有哪些高价值方向，能跑通至少一个进阶小项目 |
-| **stackforce 机器狗实战** | 用 StackForce 四轮足机器狗按里程碑走通全流程 | Roadmap与里程碑、M1硬件吃透、M2 资产检查、M3动力学对齐、M4 Isaac Lab训练、M5鲁棒性、M6 Sim2Real部署 | 按 Hardware→URDF→Dynamics→RL→Robustness→Sim2Real 六里程碑走通 |
+| **stackforce 机器狗实战** | 用可验收 Gate 推进四轮足项目 | Roadmap、六个 Milestone Dashboard、44 个原子 Gate、专题、证据和归档 | Hardware Ground Truth → Simulation Asset → Dynamics Calibration → Locomotion → Robustness → Sim-to-Real |
 
 ## 学习顺序（推荐）
 
@@ -33,7 +33,7 @@
 
 > 两工具按"逐环节协作"学习（见 [[Isaac-Sim与Isaac-Lab如何协作]]）：每个环节都有 Isaac Sim 页 ↔ Isaac Lab 页成对。
 > 五级之后可进入 **进阶方向**：[[进阶方向概览]] → [[模仿学习与数据采集]] / [[RL后端对比与选型]] / [[容器化与Docker复现]]。
-> **StackForce 机器狗实战路线**：[[Roadmap与里程碑]] → [[M1-硬件吃透]] → [[M2-资产检查]] → [[M3-动力学对齐]] → [[M4-Isaac-Lab训练]] → [[M5-鲁棒性]] → [[M6-Sim2Real部署]]。
+> **StackForce 工程路线**：[[Roadmap与里程碑]] → [[M1-Hardware-Ground-Truth]] / [[M2-Simulation-Asset]] → [[M3-Dynamics-Calibration]] → [[M4-Locomotion]] → [[M5-Robustness]] → [[M6-Sim-to-Real]]。
 > 待办：Isaac Lab v3.0 正式版发布后的版本核对与 API 更新。
 
 ## 版本说明（截至 2026-08-31）
