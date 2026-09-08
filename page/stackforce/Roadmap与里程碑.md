@@ -64,6 +64,15 @@ Milestone 只有在所属 Gate 全部 PASS 后才能 PASS。
 
 先冻结 [[M1-G01-硬件清点]] 的 firmware baseline 并关闭 [[M1-G10-停机验证]] 的 P0 风险，再按低风险顺序完成 M1 实机注册与测量；M2 baseline 可并行供 M3/M4 使用。
 
+### M3/M4 可立即使用的 M2 输入
+
+- reduced serial topology、名义 geometry 与 coordinate contract；
+- 数学合法的 inertial baseline 和可运行 collision/joint configuration；
+- Direct 与 Manager-Based 的 12-action / 48-observation runtime contract。
+
+这些输入允许继续仿真开发，但 M3 的 actuator/contact identification 和 M6 的 action adapter 仍必须等待 M1 实机证据。
+
 ## 更新日志
 
+- 2026-09-08：补充 M1/M2 Evidence Snapshot，并明确 M3/M4 可消费的 M2 输入。
 - 2026-09-08：同步 M1/M2 outcome；M2 以 8/8 PASS 收口，总进度更新为 8/44。

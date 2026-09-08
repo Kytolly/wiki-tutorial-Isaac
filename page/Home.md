@@ -41,9 +41,11 @@
 - M1 Hardware Ground Truth：0/10 PASS。G01–G10 静态审计已展开，目标 firmware、实机注册/测量仍待完成；G10 存在 timeout/failsafe 与 last-command persistence 的 P0 安全缺口。
 - M2 Simulation Asset：8/8 PASS。来源、拓扑边界、几何、坐标、惯性、碰撞、关节可动和 Direct/Manager-Based Lab 载入均已验收。
 - 总进度：8/44 Gates PASS。详情见 [[Roadmap与里程碑]]。
+- M1/M2 Dashboard 已提供逐 Gate 的关键证据、PASS 边界和剩余验收项，适合作为每日推进入口。
 
 ## 更新日志
 
+- 2026-09-08：补充 M1/M2 Dashboard 的逐 Gate Evidence Snapshot。
 - 2026-09-08：同步 StackForce M1/M2 outcome，更新为 8/44 Gates PASS。
 
 ## 版本说明（截至 2026-08-31）
