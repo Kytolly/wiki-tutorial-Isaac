@@ -45,6 +45,7 @@
 
 ## 更新日志
 
+- 2026-09-08：同步 StackForce M1/M2 Topic 层的证据路径、runtime 状态和验收边界。
 - 2026-09-08：补充 M1/M2 Dashboard 的逐 Gate Evidence Snapshot。
 - 2026-09-08：同步 StackForce M1/M2 outcome，更新为 8/44 Gates PASS。
 

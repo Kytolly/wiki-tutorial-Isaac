@@ -39,6 +39,7 @@ Gate 状态：`TODO` / `IN PROGRESS` / `BLOCKED` / `PASS`。
 
 ## Last Update
 
+- 2026-09-08：同步 M1-T01–T05 与 M2-T01–T07，清理旧 evidence 路径并消除与 M2 PASS 冲突的专题描述。
 - 2026-09-08：为 M1/M2 Milestone Dashboard 增加逐 Gate Evidence Snapshot、PASS 边界和剩余验收项。
 - 2026-09-08：同步 `doc/StackForceDog/M1_outcome` 与 `M2_outcome`；M2 以 8/8 PASS 收口，总进度更新为 8/44，并记录 M1-G10 P0 安全缺口。
 - 2026-09-06：按 Milestone → Gate → Topic → Acceptance → Evidence 重构 StackForce 信息架构，建立六个 Dashboard、44 个原子 Gate、21 个 Topic 和迁移归档。
