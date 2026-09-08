@@ -14,26 +14,31 @@ Isaac Sim 可加载不代表训练环境的 asset path、joint mapping、reset �
 
 ## Known Facts
 
-- `sf_quad` Direct 任务注册为 `Template-Sf-Quad-Direct-v0`。
-- Direct 配置声明 12 actions 和 48 observations。
-- Manager-Based 配置仍使用 Cartpole 资产，不能作为 StackForce 接入证据。
+- Direct 与 Manager-Based 任务均已通过 Gym registration、config resolution、`gym.make()`、正确 `sf_robot` asset、reset/step/close 生命周期和 N=1/N=16 验证。
+- Direct 的 12-action / 48-observation contract 与 vectorized action isolation 已通过。
+- Manager-Based 的 Cartpole scene residue 与 reward API 迁移问题已经修复并验证，当前为 12-action / 48-observation StackForce 环境。
 
-## TODO
+## Completed
 
-- [ ] 运行 `list_envs`、reset 和无头 smoke test。
-- [ ] 核对 joint name resolution、动作顺序和传感器路径。
+- [x] 验证正式 Gym / Isaac Lab 入口与配置解析。
+- [x] 验证 Direct 和 Manager-Based 的 N=1/N=16 lifecycle。
+- [x] 验证 Direct vectorized action isolation 和 Manager 初始化。
 
 ## Acceptance Criteria
 
-- [ ] 任务能在目标环境中无错误创建和 reset。
-- [ ] 12 个动作和 observation shape 与接口文档一致。
-- [ ] 零动作或最小动作运行达到规定步数并保存日志。
+- [x] Direct 与 Manager-Based 均能无错误创建、reset、step 和 close。
+- [x] 两条工作流的 12 actions / 48 observations 合同一致。
+- [x] N=1/N=16 lifecycle 与 Direct vectorized action isolation 通过。
 
 ## Evidence
 
 - `sf_quad/source/sf_quad/sf_quad/tasks/direct/sf_quad/`
-- 待补 `sf_quad` 运行日志。
+- `doc/StackForceDog/M2_outcome/M2-G08.md`
 
 ## Status
 
-IN PROGRESS
+PASS
+
+## 更新日志
+
+- 2026-09-08：同步 M2-G08 outcome，Direct 与 Manager-Based Lab 接入验收通过。

@@ -9,13 +9,13 @@
 | Milestone | Goal | Gates | PASS | Status |
 |---|---|---:|---:|---|
 | [[M1-Hardware-Ground-Truth]] | 描述真实机器人 | 10 | 0 | IN PROGRESS |
-| [[M2-Simulation-Asset]] | 建立可运行数字机器人 | 8 | 0 | IN PROGRESS |
+| [[M2-Simulation-Asset]] | 建立可运行数字机器人 | 8 | 8 | PASS |
 | [[M3-Dynamics-Calibration]] | 对齐 Sim/Real 响应 | 6 | 0 | TODO |
 | [[M4-Locomotion]] | 完成仿真运动任务 | 6 | 0 | IN PROGRESS |
 | [[M5-Robustness]] | 抵抗合理误差和扰动 | 6 | 0 | TODO |
 | [[M6-Sim-to-Real]] | 完成安全实机运动 | 8 | 0 | TODO |
 
-Progress: 0 / 44 Gates PASS
+Progress: 8 / 44 Gates PASS
 
 ## Dependency
 
@@ -35,15 +35,14 @@ M1 与 M2 可以并行，但必须在 M3 汇合。M4 已有 `sf_quad` Direct 代
 ## Current Work
 
 - M1：把源码级 hardware audit 推进为实机测量 Ground Truth。
-- M2：审核 `sf_robot` 的来源、拓扑、几何、物理行为和 `sf_quad` 接入。
+- M2：8/8 Gates PASS，官方 reduced serial training model 已冻结为当前 simulation baseline。
 - M4：修正 Direct 环境并建立当前项目自己的 smoke test 与评测证据。
 
 ## Current Blockers
 
 - 关节语义、零位、方向、限位、IMU frame、控制频率和延迟仍缺实机结果。
-- M2 候选资产的闭环、碰撞和物理行为尚未完成验证。
-- `sf_quad` 没有归档自身运行日志；参考工程日志不能替代当前项目证据。
-- `sf_quad` Manager-Based 配置仍是 Cartpole 模板。
+- M1 目标 firmware 尚未冻结，G10 已发现 timeout/failsafe 与 last-command persistence P0 缺口。
+- M2 PASS 不替代 M1 实测或 M3 动力学校准，reduced serial model 与真实 five-bar topology 仍需 Sim2Real adapter。
 
 ## Evidence Boundary
 
@@ -63,4 +62,8 @@ Milestone 只有在所属 Gate 全部 PASS 后才能 PASS。
 
 ## Next
 
-从 [[M1-G01-硬件清点]]、[[M1-G03-执行器映射]] 和 [[M2-G01-来源冻结]] 开始补齐已有资料；随后进行 M1 实机实验和 M2 仿真行为测试。
+先冻结 [[M1-G01-硬件清点]] 的 firmware baseline 并关闭 [[M1-G10-停机验证]] 的 P0 风险，再按低风险顺序完成 M1 实机注册与测量；M2 baseline 可并行供 M3/M4 使用。
+
+## 更新日志
+
+- 2026-09-08：同步 M1/M2 outcome；M2 以 8/8 PASS 收口，总进度更新为 8/44。

@@ -13,20 +13,20 @@
 | Milestone | PASS | Total | Status |
 |---|---:|---:|---|
 | M1 Hardware Ground Truth | 0 | 10 | IN PROGRESS |
-| M2 Simulation Asset | 0 | 8 | IN PROGRESS |
+| M2 Simulation Asset | 8 | 8 | PASS |
 | M3 Dynamics Calibration | 0 | 6 | TODO |
 | M4 Locomotion | 0 | 6 | IN PROGRESS |
 | M5 Robustness | 0 | 6 | TODO |
 | M6 Sim-to-Real | 0 | 8 | TODO |
 
-总进度：0 / 44 Gates PASS。
+总进度：8 / 44 Gates PASS。
 
 ## Current Findings
 
-- M1 已有较完整源码级 hardware audit，但关节、传感器、时序、尺寸和质量仍缺实机验证。
-- M2 已有机械拓扑和几何证据；`sf_robot.usda` 仅 visual load PASS，物理行为未完成验收。
-- M4 的 `sf_quad` Direct 环境已有代码实现，但没有当前项目自己的运行与评测日志。
-- `sf_quad` Manager-Based 配置仍引用 Cartpole 模板，不能作为 StackForce 环境证据。
+- M1 的 10 个 Gate 均已有静态审计进展，但 firmware baseline、关节/传感器注册、时序、尺寸、质量和 stop test 仍缺实机验证。
+- M1-G10 发现 P0 安全缺口：`flat=1` 固定 wheel target，CAN/PPM/Serial2 路径缺少已证明的统一 timeout/last-command 清零机制。
+- M2 已完成 8/8 Gates：reduced asset 的来源、拓扑边界、几何、坐标、惯性、碰撞、关节可动与 Lab integration 均 PASS。
+- Direct 与 Manager-Based 均已通过 N=1/N=16 lifecycle；Manager-Based 的 Cartpole residue 与 reward API 迁移问题已修复验证。
 - 参考工程的日志和 checkpoint 不计入 `sf_quad` Gate PASS。
 
 ## Status Vocabulary
@@ -39,4 +39,5 @@ Gate 状态：`TODO` / `IN PROGRESS` / `BLOCKED` / `PASS`。
 
 ## Last Update
 
-2026-09-06：按 Milestone → Gate → Topic → Acceptance → Evidence 重构 StackForce 信息架构，建立六个 Dashboard、44 个原子 Gate、21 个 Topic 和迁移归档。
+- 2026-09-08：同步 `doc/StackForceDog/M1_outcome` 与 `M2_outcome`；M2 以 8/8 PASS 收口，总进度更新为 8/44，并记录 M1-G10 P0 安全缺口。
+- 2026-09-06：按 Milestone → Gate → Topic → Acceptance → Evidence 重构 StackForce 信息架构，建立六个 Dashboard、44 个原子 Gate、21 个 Topic 和迁移归档。
