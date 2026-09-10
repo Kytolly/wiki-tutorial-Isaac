@@ -1,0 +1,12 @@
+- id: O-M1-CH7-REPAIR
+  topic: ch7/ch8 physical isolation, repair, and return validation
+  reason: Safety blocker; no safe powered work is accepted before repair.
+  status: open
+- id: O-M1-ACTION-SIGNS
+  topic: ch1-ch3/ch8 and four-wheel physical identity and polarity
+  reason: Incomplete or unsafe to continue after ch7 failure.
+  status: open
+- id: O-M1-HIGH-FIDELITY-DYNAMICS
+  topic: Assembled metrology, mass, inertia, CoM, friction, and SI wheel scale
+  reason: Explicit non-blocking evidence debt for the first kinematic model.
+  status: deferred

@@ -1,0 +1,16 @@
+- id: actuator-rail
+  canonical_en: actuator rail
+  zh: 执行器供电轨
+  abbreviation: null
+  definition: Powers the robot actuators; it remains off while the ch7 safety blocker is open.
+  source_definition: E-M1-PHYSICAL-20260910
+  first_occurrence: page/stackforce/topic/M1-现场产物归档.md
+  related_concepts: [actuator-safety]
+- id: evidence-debt
+  canonical_en: evidence debt
+  zh: 证据债务
+  abbreviation: null
+  definition: A declared evidence limitation that bounds a conclusion without being silently treated as verified.
+  source_definition: E-M1-OUTCOME-20260910
+  first_occurrence: page/stackforce/topic/M1-现场产物归档.md
+  related_concepts: [M1-hardware-ground-truth]

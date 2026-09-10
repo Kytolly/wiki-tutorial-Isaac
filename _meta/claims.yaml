@@ -1,0 +1,35 @@
+- id: C-M1-STATUS
+  claim: "M1 is BLOCKED: G01 and G02 are PASS, G05-G09 are closed with stated evidence debt, and G03/G04/G10 are blocked."
+  claim_type: status
+  concept_ids: [M1-hardware-ground-truth]
+  evidence_ids: [E-M1-OUTCOME-20260910]
+  status: verified
+  confidence: high
+- id: C-M1-CH7-SAFETY
+  claim: "Channel 7 continued raising after firmware timeout and explicit STOP; actuator power must remain off pending isolation, repair, and unloaded return validation."
+  claim_type: safety
+  concept_ids: [actuator-safety, actuator-registration]
+  evidence_ids: [E-M1-PHYSICAL-20260910]
+  status: verified
+  confidence: high
+- id: C-M1-IMU
+  claim: "The current-real IMU update-call timing was measured at about 175.3 Hz with mean period 5.704 ms and jitter about 0.790 ms."
+  claim_type: measurement
+  concept_ids: [imu-timing]
+  evidence_ids: [E-M1-PHYSICAL-20260910]
+  status: verified
+  confidence: high
+- id: C-M1-RESPONSE-BOUND
+  claim: "Representative servo, local-wheel, and remote-wheel paths had observable response within the bounded command window; normal automatic returns were recorded at 501.535-502.498 ms."
+  claim_type: measurement
+  concept_ids: [response-bound]
+  evidence_ids: [E-M1-PHYSICAL-20260910]
+  status: verified
+  confidence: medium
+- id: C-M1-OFFLINE-BOUNDARY
+  claim: "Offline interface design and first kinematic Reference-B may continue, while powered real-robot actuation and locomotion are not accepted."
+  claim_type: decision
+  concept_ids: [m1-hardware-ground-truth]
+  evidence_ids: [E-M1-OUTCOME-20260910]
+  status: verified
+  confidence: high

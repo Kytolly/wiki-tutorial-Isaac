@@ -1,0 +1,19 @@
+- id: M1-ARTIFACTS-20260910
+  title: StackForceDog M1 artifacts
+  path: project/IsaacProject/doc/StackForceDog/artifacts/
+  type: local-experiment-artifact
+  priority: 1
+  status: ingested
+  covered_pages:
+    - page/stackforce/topic/M1-现场产物归档.md
+    - page/stackforce/milestone/M1-Hardware-Ground-Truth.md
+    - page/stackforce/gate/M1-G01-硬件清点.md
+    - page/stackforce/gate/M1-G02-传感器映射.md
+    - page/stackforce/gate/M1-G03-执行器映射.md
+    - page/stackforce/gate/M1-G04-关节标定.md
+    - page/stackforce/gate/M1-G05-指令定性.md
+    - page/stackforce/gate/M1-G06-控制测频.md
+    - page/stackforce/gate/M1-G07-延迟测量.md
+    - page/stackforce/gate/M1-G08-尺寸测量.md
+    - page/stackforce/gate/M1-G09-质量测量.md
+    - page/stackforce/gate/M1-G10-停机验证.md

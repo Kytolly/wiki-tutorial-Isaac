@@ -1,0 +1,25 @@
+- id: M1-hardware-ground-truth
+  label: M1 Hardware Ground Truth
+  relations:
+    - type: part_of
+      target: stackforce-roadmap
+- id: actuator-safety
+  label: Actuator safety
+  relations:
+    - type: blocks
+      target: actuator-registration
+- id: actuator-registration
+  label: Physical actuator registration
+  relations:
+    - type: prerequisite
+      target: sim-to-real-action-adapter
+- id: imu-timing
+  label: IMU update-call timing
+  relations:
+    - type: measured_by
+      target: E-M1-PHYSICAL-20260910
+- id: response-bound
+  label: Representative response and stop bound
+  relations:
+    - type: measured_by
+      target: E-M1-PHYSICAL-20260910
