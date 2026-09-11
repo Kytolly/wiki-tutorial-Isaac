@@ -12,7 +12,7 @@
 | Q-DEBUG | `3调试文档.pdf` | 8 舵机布局/校零、轮电机方向调试 | CONFIRMED |
 | Q-STL | `quadrupedal-wheeled-robot/Structure/` | 官方零件名称/数量/几何 | CONFIRMED |
 | Q-CODE | `课程代码/lesson4_Gait/src/`（commit 8d7f79c） | 双支链 IK、名义杆长、8 舵机输出 | SUPPORTED |
-| M1-ARTIFACTS | `project/IsaacProject/doc/StackForceDog/artifacts/` | 2026-09-10 实机会话、Gate outcome、执行器/时延/安全记录 | CONFIRMED |
+| M1-ARTIFACTS | `doc/StackForceDog/M1_outcome/`、`doc/StackForceDog/artifacts/` | 2026-09-10 实机会话、Gate outcome、执行器/时延/安全记录 | CONFIRMED |
 | MINI-URDF | `bipedal_wheeled_robot/.../20250820_1.urdf` | 仅 URDF 格式/局部尺寸交叉检查 | SUPERSEDED（不可作四轮足 tree） |
 
 ## 状态定义
@@ -21,5 +21,6 @@
 
 ## 更新日志
 
+- 2026-09-11：修正 M1 outcome 与 artifacts 的实际来源路径。
 - 2026-09-03：由 `mini_vs_quadruped.md` 证据基线迁移为 evidence。
 - 2026-09-10：加入 M1 现场 artifacts；见 [[M1-现场产物归档]]。

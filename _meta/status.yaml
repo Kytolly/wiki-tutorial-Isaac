@@ -1,12 +1,12 @@
 wiki_mode: project-docs
-last_verified: 2026-09-10
+last_verified: 2026-09-11
 ingestion:
-  source: project/IsaacProject/doc/StackForceDog/artifacts/
+  source: doc/StackForceDog/M1_outcome/ and doc/StackForceDog/artifacts/
   scope: M1 outcome and physical-session artifacts
   visual_evidence_status: unverified
 milestones:
   M1:
     strict_pass: 2
-    closed_with_evidence_debt: 6
+    closed_with_evidence_debt: 5
     blocked: 3
     status: BLOCKED

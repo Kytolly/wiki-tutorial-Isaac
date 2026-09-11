@@ -1,6 +1,6 @@
 - id: M1-ARTIFACTS-20260910
   title: StackForceDog M1 artifacts
-  path: project/IsaacProject/doc/StackForceDog/artifacts/
+  path: doc/StackForceDog/
   type: local-experiment-artifact
   priority: 1
   status: ingested

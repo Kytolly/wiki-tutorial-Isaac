@@ -1,7 +1,7 @@
 - id: E-M1-OUTCOME-20260910
   source_type: local-artifact
   source_title: StackForceDog M1 outcome package
-  source_url: project/IsaacProject/doc/StackForceDog/artifacts/M1_outcome/
+  source_url: doc/StackForceDog/M1_outcome/
   source_locator: M1-final-status.md; M1-hardware-ground-truth.md; M1-open-evidence-debt.md
   accessed_at: 2026-09-10
   claim_ids: [C-M1-STATUS, C-M1-OFFLINE-BOUNDARY]
@@ -10,7 +10,7 @@
 - id: E-M1-PHYSICAL-20260910
   source_type: local-artifact
   source_title: StackForceDog M1 lifted physical-session records
-  source_url: project/IsaacProject/doc/StackForceDog/artifacts/artifacts/M1/
+  source_url: doc/StackForceDog/artifacts/
   source_locator: physical_session_log.md; actuator_registration.csv; timing_latency.csv; safety_validation.md; m1_unified_serial_completion.log
   accessed_at: 2026-09-10
   claim_ids: [C-M1-IMU, C-M1-CH7-SAFETY, C-M1-RESPONSE-BOUND]

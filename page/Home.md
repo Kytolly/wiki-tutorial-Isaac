@@ -25,7 +25,7 @@
 | **build 自建环境进阶** | 自建环境与调试 | Direct环境类深入、奖励设计与观测修改、训练调参与调试、Manager-Based工作流入门、Direct与Manager-Based对比迁移、自定义机器人资产导入、Isaac Sim扩展开发入门、Domain随机化与Sim2Real、端到端实战案例 | 两种工作流自由切换、自建环境、导入自研资产、写扩展、Sim2Real，并串起完整项目 |
 | **deploy 部署与性能** | 加速与落地 | 多卡与分布式训练、仿真加速与性能优化、真机部署 | 多卡/分布式训练、仿真加速调优、策略导出与真机部署 |
 | **advance 进阶方向** | 五级之后继续深入 | 进阶方向概览、模仿学习与数据采集、RL后端对比与选型、容器化与Docker复现 | 知道五级之后有哪些高价值方向，能跑通至少一个进阶小项目 |
-| **stackforce 机器狗实战** | 用可验收 Gate 推进四轮足项目 | Roadmap、六个 Milestone Dashboard、44 个原子 Gate、专题、证据和归档 | 当前 8/44 PASS；M2 Simulation Asset 已收口，M1 待实机验证与安全缺口关闭 |
+| **stackforce 机器狗实战** | 用可验收 Gate 推进四轮足项目 | Roadmap、六个 Milestone Dashboard、44 个原子 Gate、专题、证据和归档 | 当前 15/44 closed；M2 已收口，M1 因 ch7 实机安全异常 BLOCKED |
 
 ## 学习顺序（推荐）
 
@@ -36,15 +36,16 @@
 > **StackForce 工程路线**：[[Roadmap与里程碑]] → [[M1-Hardware-Ground-Truth]] / [[M2-Simulation-Asset]] → [[M3-Dynamics-Calibration]] → [[M4-Locomotion]] → [[M5-Robustness]] → [[M6-Sim-to-Real]]。
 > 待办：Isaac Lab v3.0 正式版发布后的版本核对与 API 更新。
 
-## StackForce 当前进度（2026-09-08）
+## StackForce 当前进度（2026-09-11）
 
-- M1 Hardware Ground Truth：0/10 PASS。G01–G10 静态审计已展开，目标 firmware、实机注册/测量仍待完成；G10 存在 timeout/failsafe 与 last-command persistence 的 P0 安全缺口。
+- M1 Hardware Ground Truth：7/10 closed，Milestone BLOCKED。两次架空 session 已冻结 hardware/firmware、IMU、command、timing、代表性 latency 与 kinematic geometry；ch7 在 return/STOP 后仍上抬，修复前 actuator rail 必须断电。
 - M2 Simulation Asset：8/8 PASS。来源、拓扑边界、几何、坐标、惯性、碰撞、关节可动和 Direct/Manager-Based Lab 载入均已验收。
-- 总进度：8/44 Gates PASS。详情见 [[Roadmap与里程碑]]。
+- 总进度：15/44 Gates closed。详情见 [[Roadmap与里程碑]] 与 [[M1-现场产物归档]]。
 - M1/M2 Dashboard 已提供逐 Gate 的关键证据、PASS 边界和剩余验收项，适合作为每日推进入口。
 
 ## 更新日志
 
+- 2026-09-11：同步 M1 两次架空实机 session；更新为 15/44，并记录 ch7 powered-actuation blocker。
 - 2026-09-08：同步 StackForce M1/M2 Topic 层的证据路径、runtime 状态和验收边界。
 - 2026-09-08：补充 M1/M2 Dashboard 的逐 Gate Evidence Snapshot。
 - 2026-09-08：同步 StackForce M1/M2 outcome，更新为 8/44 Gates PASS。

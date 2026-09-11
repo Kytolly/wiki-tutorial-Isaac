@@ -6,16 +6,16 @@
 
 ## Current Status
 
-| Milestone | Goal | Gates | PASS | Status |
+| Milestone | Goal | Gates | Closed | Status |
 |---|---|---:|---:|---|
-| [[M1-Hardware-Ground-Truth]] | 描述真实机器人 | 10 | 0 | IN PROGRESS |
+| [[M1-Hardware-Ground-Truth]] | 描述真实机器人 | 10 | 7 | BLOCKED |
 | [[M2-Simulation-Asset]] | 建立可运行数字机器人 | 8 | 8 | PASS |
 | [[M3-Dynamics-Calibration]] | 对齐 Sim/Real 响应 | 6 | 0 | TODO |
 | [[M4-Locomotion]] | 完成仿真运动任务 | 6 | 0 | IN PROGRESS |
 | [[M5-Robustness]] | 抵抗合理误差和扰动 | 6 | 0 | TODO |
 | [[M6-Sim-to-Real]] | 完成安全实机运动 | 8 | 0 | TODO |
 
-Progress: 8 / 44 Gates PASS
+Progress: 15 / 44 Gates closed
 
 ## Dependency
 
@@ -34,14 +34,14 @@ M1 与 M2 可以并行，但必须在 M3 汇合。M4 已有 `sf_quad` Direct 代
 
 ## Current Work
 
-- M1：把源码级 hardware audit 推进为实机测量 Ground Truth。
+- M1：已形成可审计实机 contract；离线 Reference-B/interface 可继续，powered actuation 被 ch7 failure 阻塞。
 - M2：8/8 Gates PASS，官方 reduced serial training model 已冻结为当前 simulation baseline。
 - M4：修正 Direct 环境并建立当前项目自己的 smoke test 与评测证据。
 
 ## Current Blockers
 
-- 关节语义、零位、方向、限位、IMU frame、控制频率和延迟仍缺实机结果。
-- M1 目标 firmware 尚未冻结，G10 已发现 timeout/failsafe 与 last-command persistence P0 缺口。
+- ch7 在 firmware return/STOP 后仍持续上抬，ch8 可能被动耦合；修复验证前 actuator rail 必须断电。
+- final real-action adapter 仍缺部分 servo/wheel polarity 与 rear feedback sign。
 - M2 PASS 不替代 M1 实测或 M3 动力学校准，reduced serial model 与真实 five-bar topology 仍需 Sim2Real adapter。
 
 ## Evidence Boundary
@@ -62,7 +62,7 @@ Milestone 只有在所属 Gate 全部 PASS 后才能 PASS。
 
 ## Next
 
-先冻结 [[M1-G01-硬件清点]] 的 firmware baseline 并关闭 [[M1-G10-停机验证]] 的 P0 风险，再按低风险顺序完成 M1 实机注册与测量；M2 baseline 可并行供 M3/M4 使用。
+先隔离、维修 ch7/ch8，并完成 unloaded/installed tiny return test；安全恢复后补齐 polarity/identity。离线 RL interface 与首版 kinematic Reference-B 可继续，真机 RL/locomotion 不可验收。
 
 ### M3/M4 可立即使用的 M2 输入
 
@@ -74,5 +74,6 @@ Milestone 只有在所属 Gate 全部 PASS 后才能 PASS。
 
 ## 更新日志
 
+- 2026-09-11：同步 M1 实机 session；总进度更新为 15/44，M1 因 ch7 hardware/mechanical failure 保持 BLOCKED。
 - 2026-09-08：补充 M1/M2 Evidence Snapshot，并明确 M3/M4 可消费的 M2 输入。
 - 2026-09-08：同步 M1/M2 outcome；M2 以 8/8 PASS 收口，总进度更新为 8/44。
