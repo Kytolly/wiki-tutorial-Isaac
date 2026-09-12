@@ -122,13 +122,16 @@
 - [[T02-实验日志]]
 - [[T03-安全联锁]]
 - [[T04-参考工程边界]]
+- [[闭环恢复架构与产物映射]]
 
 **Evidence 与 Archive**
 - [[mechanical-model]]
 - [[geometry-baseline]]
 - [[source-inventory]]
 - [[M2-reverse-engineering]]
+- [[C6-registration-history]]
 - [[重构迁移索引]]
 
 **关于**
 - [[_META]]
+

@@ -33,3 +33,53 @@
   evidence_ids: [E-M1-OUTCOME-20260910]
   status: verified
   confidence: high
+- id: C-GEOMETRY-PASS
+  claim: "Four-leg inner-chain rod lengths (60mm/100mm), P2 surface gap (0.150mm), W1/W2 axial offset (-44.950mm), and collinear radial residual (<2e-14m) verified PASS."
+  claim_type: measurement
+  concept_ids: [robot-geometry]
+  evidence_ids: [E-CLOSED-FOUR-INNER-CHAINS-JSON]
+  status: verified
+  confidence: high
+- id: C-SYMMETRY-PASS
+  claim: "Four-leg inner chains derived from FR template via exact chassis reflections and face winding reversal with symmetry error <= 6.14e-6 mm."
+  claim_type: property
+  concept_ids: [robot-symmetry]
+  evidence_ids: [E-CLOSED-FOUR-INNER-CHAINS-JSON]
+  status: verified
+  confidence: high
+- id: C-TREE-URDF-PASS
+  claim: "Loop-cut URDF contains 29 links and 28 joints in a strict tree topology with unique root base_link and deliberate loop-cut at W2."
+  claim_type: property
+  concept_ids: [robot-urdf]
+  evidence_ids: [E-LOOP-CUT-URDF, E-VALIDATE-ASSET-PY]
+  status: verified
+  confidence: high
+- id: C-CLOSURE-FRAMES-PASS
+  claim: "Explicit closure frames W1/W2 and mechanical axis tokens preserved across URDF/USD toolchain in closure_frames.json."
+  claim_type: property
+  concept_ids: [closure-metadata]
+  evidence_ids: [E-CLOSURE-FRAMES-JSON]
+  status: verified
+  confidence: high
+- id: C-CLOSURE-RECOVERY-IMPL
+  claim: "Post-import PhysX script creates four PhysicsRevoluteJoint constraints with independent local frame transforms and excludeFromArticulation=true."
+  claim_type: implementation
+  concept_ids: [closure-recovery]
+  evidence_ids: [E-RECOVER-CLOSED-LOOPS-PY]
+  status: verified
+  confidence: high
+- id: C-STATIC-ASSET-PASS
+  claim: "Static asset validator confirms tree topology, root uniqueness, link completeness, binary STL validity, and radial residual <= 2.0e-6 m."
+  claim_type: verification
+  concept_ids: [asset-validation]
+  evidence_ids: [E-VALIDATE-ASSET-PY]
+  status: verified
+  confidence: high
+- id: C-DYNAMIC-VALIDATION-NEXT
+  claim: "Dynamic physics closed-loop simulation remains unverified; existing test scripts were executed strictly with timeline stopped (DO NOT PLAY)."
+  claim_type: status
+  concept_ids: [dynamic-validation]
+  evidence_ids: [E-RECOVER-CLOSED-LOOPS-PY]
+  status: verified
+  confidence: high
+

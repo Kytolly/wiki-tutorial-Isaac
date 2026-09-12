@@ -25,7 +25,7 @@
 | **build 自建环境进阶** | 自建环境与调试 | Direct环境类深入、奖励设计与观测修改、训练调参与调试、Manager-Based工作流入门、Direct与Manager-Based对比迁移、自定义机器人资产导入、Isaac Sim扩展开发入门、Domain随机化与Sim2Real、端到端实战案例 | 两种工作流自由切换、自建环境、导入自研资产、写扩展、Sim2Real，并串起完整项目 |
 | **deploy 部署与性能** | 加速与落地 | 多卡与分布式训练、仿真加速与性能优化、真机部署 | 多卡/分布式训练、仿真加速调优、策略导出与真机部署 |
 | **advance 进阶方向** | 五级之后继续深入 | 进阶方向概览、模仿学习与数据采集、RL后端对比与选型、容器化与Docker复现 | 知道五级之后有哪些高价值方向，能跑通至少一个进阶小项目 |
-| **stackforce 机器狗实战** | 用可验收 Gate 推进四轮足项目 | Roadmap、六个 Milestone Dashboard、44 个原子 Gate、专题、证据和归档 | 当前 15/44 closed；M2 已收口，M1 因 ch7 实机安全异常 BLOCKED |
+| **stackforce 机器狗实战** | 用可验收 Gate 推进四轮足项目 | Roadmap、高层 M1–M8 里程碑、闭链架构、证据与产物映射 | 宏观 15/44 closed（M1 7/10 BLOCKED，M2 8/8 PASS）；闭链数字资产静态验证通过（M1–M7 PASS），进入 M8 动态仿真验证（NEXT） |
 
 ## 学习顺序（推荐）
 
@@ -36,16 +36,26 @@
 > **StackForce 工程路线**：[[Roadmap与里程碑]] → [[M1-Hardware-Ground-Truth]] / [[M2-Simulation-Asset]] → [[M3-Dynamics-Calibration]] → [[M4-Locomotion]] → [[M5-Robustness]] → [[M6-Sim-to-Real]]。
 > 待办：Isaac Lab v3.0 正式版发布后的版本核对与 API 更新。
 
-## StackForce 当前进度（2026-09-11）
+## StackForce 当前工程状态（2026-09-13）
 
-- M1 Hardware Ground Truth：7/10 closed，Milestone BLOCKED。两次架空 session 已冻结 hardware/firmware、IMU、command、timing、代表性 latency 与 kinematic geometry；ch7 在 return/STOP 后仍上抬，修复前 actuator rail 必须断电。
-- M2 Simulation Asset：8/8 PASS。来源、拓扑边界、几何、坐标、惯性、碰撞、关节可动和 Direct/Manager-Based Lab 载入均已验收。
-- 总进度：15/44 Gates closed。详情见 [[Roadmap与里程碑]] 与 [[M1-现场产物归档]]。
-- M1/M2 Dashboard 已提供逐 Gate 的关键证据、PASS 边界和剩余验收项，适合作为每日推进入口。
+- **实机与硬件基线（M1）**：7/10 closed，Milestone BLOCKED。两次架空 session 已冻结 hardware/firmware、IMU、command、timing、代表性 latency 与 kinematic geometry；ch7 在 return/STOP 后仍上抬，修复前 actuator rail 必须断电。
+- **闭链数字资产（M2/Closed-Link）**：已完成静态八链装配与拓扑校验（Static Asset Validated），进入 **M8 动态闭环物理仿真验证（Dynamic Closed-Loop Validation）**。
+- **高层里程碑已完成（M1–M7 PASS）**：
+  - **M1 机械几何识别**：60 mm / 100 mm / 40 mm 双支链五杆机构基线冻结（PASS）。
+  - **M2 FR 主内链注册**：右前腿经典几何定位，P2 间隙 0.150 mm，W1/W2 轴向偏置 -44.950 mm，径向残差 1.83e-14 mm（PASS）。
+  - **M3 四腿内链构建**：底盘对称反射与单平面绕向反转，四腿对称误差 <= 6.14e-6 mm（PASS）。
+  - **M4 八链 Loop-Cut URDF**：29 links / 28 joints 严格单父级树状 URDF 生成，W2 显式切断（PASS）。
+  - **M5 闭环元数据持久化**：`closure_frames.json` 机器可读留存机械轴、三维基座坐标与偏置（PASS）。
+  - **M6 Isaac USD 导入与闭环恢复**：`recover_closed_loops.py` 独立反算位姿生成 4 个 PhysX 闭环副（PASS）。
+  - **M7 静态资产校验**：`validate_asset.py` 自动化通过 29 links / 28 joints / 21 meshes / 4 pairs 校验（PASS）。
+- **当前验证边界与未决项（M8 NEXT）**：
+  - **动态闭环物理仿真尚未完成（DO NOT CLAIM PASS）**：已有工程日志均在 `timeline stopped` 下执行；重力稳态下沉（zero-command settle）、单关节驱动响应与物理副求解器稳定性仍待动态验证。
+- 详情见 [[Roadmap与里程碑]] 及 [[闭环恢复架构与产物映射]]。
 
 ## 更新日志
 
-- 2026-09-11：同步 M1 两次架空实机 session；更新为 15/44，并记录 ch7 powered-actuation blocker。
+- 2026-09-13：更新 StackForce 状态至闭链资产静态验证 PASS，重构 M1–M8 高层里程碑体系，明确动态物理仿真为 M8 NEXT 边界。
+- 2026-09-11：同步 M1 两次架空实机 session；更新宏观进度为 15/44，并记录 ch7 powered-actuation blocker。
 - 2026-09-08：同步 StackForce M1/M2 Topic 层的证据路径、runtime 状态和验收边界。
 - 2026-09-08：补充 M1/M2 Dashboard 的逐 Gate Evidence Snapshot。
 - 2026-09-08：同步 StackForce M1/M2 outcome，更新为 8/44 Gates PASS。
