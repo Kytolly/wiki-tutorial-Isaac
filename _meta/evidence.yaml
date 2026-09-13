@@ -15,11 +15,12 @@
   accessed_at: 2026-09-10
   claim_ids: [C-M1-IMU, C-M1-CH7-SAFETY, C-M1-RESPONSE-BOUND]
   confidence: high
-  notes: Two auditable lifted sessions; no video was recorded.
+  notes: Two auditable lifted sessions; channel 7 failed to return/stop, requiring actuator rail power isolation.
 - id: E-CLOSED-FOUR-INNER-CHAINS-JSON
   source_type: local-artifact
   source_title: Machine-readable four inner chains validation report
-  source_url: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/closed_link_robot/ref_b_real_fr/four_inner_chains_validation.json
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/closed_link_robot/ref_b_real_fr/four_inner_chains_validation.json
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/closed_link_robot/ref_b_real_fr/four_inner_chains_validation.json
   source_locator: four_inner_chains_validation.json
   accessed_at: 2026-09-13
   claim_ids: [C-GEOMETRY-PASS, C-SYMMETRY-PASS]
@@ -28,16 +29,18 @@
 - id: E-LOOP-CUT-URDF
   source_type: local-artifact
   source_title: Stackforce quadrupedal wheeled robot canonical loop-cut URDF
-  source_url: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/urdf/stackforce_quadrupedal_wheeled_robot.urdf
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/urdf/stackforce_quadrupedal_wheeled_robot.urdf
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/urdf/stackforce_quadrupedal_wheeled_robot.urdf
   source_locator: stackforce_quadrupedal_wheeled_robot.urdf
   accessed_at: 2026-09-13
-  claim_ids: [C-TREE-URDF-PASS]
+  claim_ids: [C-TREE-URDF-PASS, C-ACTUATION-PARTITION]
   confidence: high
   notes: 29 links, 28 joints, strict single-parent tree, W2 cut.
 - id: E-CLOSURE-FRAMES-JSON
   source_type: local-artifact
   source_title: Closure frames configuration and metadata
-  source_url: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/config/closure_frames.json
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/config/closure_frames.json
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/config/closure_frames.json
   source_locator: closure_frames.json
   accessed_at: 2026-09-13
   claim_ids: [C-CLOSURE-FRAMES-PASS]
@@ -46,7 +49,8 @@
 - id: E-VALIDATE-ASSET-PY
   source_type: local-artifact
   source_title: Static asset validator execution output
-  source_url: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/validate_asset.py
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/validate_asset.py
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/validate_asset.py
   source_locator: validate_asset.py
   accessed_at: 2026-09-13
   claim_ids: [C-STATIC-ASSET-PASS]
@@ -55,10 +59,30 @@
 - id: E-RECOVER-CLOSED-LOOPS-PY
   source_type: local-artifact
   source_title: Post-import PhysX closed loop recovery script and generated USD
-  source_url: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/recover_closed_loops.py
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/recover_closed_loops.py
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/recover_closed_loops.py
   source_locator: recover_closed_loops.py; stackforce_quadrupedal_wheeled_robot_closed.usda
   accessed_at: 2026-09-13
-  claim_ids: [C-CLOSURE-RECOVERY-IMPL, C-DYNAMIC-VALIDATION-NEXT]
+  claim_ids: [C-CLOSURE-RECOVERY-IMPL]
   confidence: high
-  notes: Creates four PhysicsRevoluteJoint with excludeFromArticulation=true. Dynamic play unverified.
-
+  notes: Creates four PhysicsRevoluteJoint with excludeFromArticulation=true.
+- id: E-SIMULATION-REPORT-JSON
+  source_type: local-artifact
+  source_title: 2400-step suspended-base CPU physics smoke test report
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/validation/simulation_report.json
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/validation/simulation_report.json
+  source_locator: simulation_report.json
+  accessed_at: 2026-09-14
+  claim_ids: [C-PHYSICS-SMOKE-PASS, C-RL-READY-FALSE]
+  confidence: high
+  notes: 2400 steps @ 240 Hz, link motion 0.0906 m, max drift 0.0595 mm, axis error 5.23e-6 rad, simulation_status PASS, rl_ready false.
+- id: E-NEGATIVE-CONTROL-REPORT-JSON
+  source_type: local-artifact
+  source_title: Negative control physics test report with disabled closure joints
+  source_url: $PROJECT_ROOT/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/validation/negative_control_report.json
+  local_locator: /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/validation/negative_control_report.json
+  source_locator: negative_control_report.json
+  accessed_at: 2026-09-14
+  claim_ids: [C-PHYSICS-SMOKE-PASS]
+  confidence: high
+  notes: Disabling closures causes drift to reach ~129 mm, crashing at step 480 (2.0 s) with RuntimeError.

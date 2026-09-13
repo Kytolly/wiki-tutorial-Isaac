@@ -54,6 +54,13 @@
   evidence_ids: [E-LOOP-CUT-URDF, E-VALIDATE-ASSET-PY]
   status: verified
   confidence: high
+- id: C-ACTUATION-PARTITION
+  claim: "Robot comprises 20 tree revolute joints, 12 active actuated DOFs (4 M1, 4 M2, 4 W1), 8 passive revolute joints (4 P1, 4 P2), and 4 PhysX closure constraints."
+  claim_type: property
+  concept_ids: [robot-topology]
+  evidence_ids: [E-LOOP-CUT-URDF]
+  status: verified
+  confidence: high
 - id: C-CLOSURE-FRAMES-PASS
   claim: "Explicit closure frames W1/W2 and mechanical axis tokens preserved across URDF/USD toolchain in closure_frames.json."
   claim_type: property
@@ -75,11 +82,17 @@
   evidence_ids: [E-VALIDATE-ASSET-PY]
   status: verified
   confidence: high
-- id: C-DYNAMIC-VALIDATION-NEXT
-  claim: "Dynamic physics closed-loop simulation remains unverified; existing test scripts were executed strictly with timeline stopped (DO NOT PLAY)."
-  claim_type: status
-  concept_ids: [dynamic-validation]
-  evidence_ids: [E-RECOVER-CLOSED-LOOPS-PY]
+- id: C-PHYSICS-SMOKE-PASS
+  claim: "Suspended-base CPU gravity smoke test (2400 steps @ 240 Hz) passed with link motion 0.0906 m, max drift 0.0595 mm <= 0.060 mm, and negative control 129 mm drift crash."
+  claim_type: verification
+  concept_ids: [physics-validation]
+  evidence_ids: [E-SIMULATION-REPORT-JSON, E-NEGATIVE-CONTROL-REPORT-JSON]
   status: verified
   confidence: high
-
+- id: C-RL-READY-FALSE
+  claim: "Actuator dynamics qualification and ground contact calibration remain incomplete; rl_ready is explicitly false."
+  claim_type: status
+  concept_ids: [rl-readiness]
+  evidence_ids: [E-SIMULATION-REPORT-JSON]
+  status: verified
+  confidence: high

@@ -48,7 +48,6 @@
 - [[M1-G03-执行器映射]]
 - [[M1-G04-关节标定]]
 - [[M1-G05-指令定性]]
-- [[M1-G06-G10-static-summary]]
 - [[M1-G06-控制测频]]
 - [[M1-G07-延迟测量]]
 - [[M1-G08-尺寸测量]]
@@ -125,6 +124,7 @@
 - [[闭环恢复架构与产物映射]]
 
 **Evidence 与 Archive**
+- [[evidence-registry]]
 - [[mechanical-model]]
 - [[geometry-baseline]]
 - [[source-inventory]]

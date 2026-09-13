@@ -7,7 +7,7 @@
 
 ## 核心拓扑抽象
 
-StackForce 四轮足机器人的每条腿不是单串联链，而是包含 1 个闭环的**双支链五杆机构**。整机具备：**20 个运动构件、24 个转动铰接、4 个闭环、12 个独立控制输入**。
+StackForce 四轮足机器人的每条腿不是单串联链，而是包含 1 个闭环的**双支链五杆机构**。整机自由度与驱动拓扑严谨划分为：**20 个树状转动关节（Tree Revolute Joints）、12 个主动驱动自由度（Active Actuated DOFs: 4 M1 + 4 M2 + 4 W1）、8 个被动机械铰接（Passive Revolute Joints: 4 P1 + 4 P2）以及 4 个闭环约束副（Closure Constraints: 4 W2 PhysX Revolute Joints，excludeFromArticulation=true）**。严禁表述为“20 自由度”或“20 active DOF”（见 `E-MECH-002`）。
 
 在工程实现中，机器人被规范形式化为 **4 条 Outer chains（外链/主运动链） + 4 条 Inner chains（内链/闭环支承链）**：
 
@@ -81,17 +81,18 @@ $$W_2 - W_1 = \Delta_{\text{axial}} \cdot \mathbf{a} + \mathbf{r}_{\text{radial}
 
 ---
 
-## 验证凭证文件
+## 验证凭证文件（统一索引至 [[evidence-registry]]）
 
-- `sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/config/closure_frames.json`
-- `sf_quad/source/sf_quad/sf_quad/assets/robots/closed_link_robot/ref_b_real_fr/four_inner_chains_validation.json`
-- `sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/urdf/stackforce_quadrupedal_wheeled_robot.urdf`
-- `sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/validate_asset.py`
+- 闭环参考系元数据：`sf_quad/.../config/closure_frames.json` (`E-ASSET-002`)
+- 四腿几何验证报告：`sf_quad/.../ref_b_real_fr/four_inner_chains_validation.json` (`E-MECH-001`)
+- 规范树状 URDF：`sf_quad/.../urdf/stackforce_quadrupedal_wheeled_robot.urdf` (`E-ASSET-001`, `E-MECH-002`)
+- 静态资产校验器：`sf_quad/.../scripts/validate_asset.py` (`E-ASSET-004`)
 
 ---
 
 ## 更新日志
 
+- 2026-09-14：补充严格驱动与关节划分（20 树关节 / 12 主动 / 8 被动 / 4 约束）；统一接入 [[evidence-registry]] 并消除绝对路径。
 - 2026-09-13：根据四腿闭环交付物与校验 JSON 全面更新；将原 UNKNOWN 项升级为精确机器测量值；规范内外八链拓扑与闭环轴向/径向数学关系。
 - 2026-09-03：由 `mechanical_model.md` 迁移为 evidence。
 

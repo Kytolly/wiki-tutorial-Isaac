@@ -36,7 +36,7 @@ M1 已完成两次可审计的架空现场 session：硬件/firmware、IMU、com
 | [[M1-G09-质量测量]] | prior/unknown 分类和 fidelity impact 已冻结 | real mass/inertia/CoM/dynamics 未标定 |
 | [[M1-G10-停机验证]] | current-source freshness/timeout；baseline restore；实机 stop evidence | ch7 在 firmware return/STOP 后仍上抬 |
 
-G06–G10 的横向结论见 [[M1-G06-G10-static-summary]]。
+G06–G10 的横向结论与实验证据统一见 [[evidence-registry]]。
 
 ## Current TODO
 
