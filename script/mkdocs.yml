@@ -113,7 +113,6 @@ nav:
           - G03 执行器映射: M1-G03-执行器映射.md
           - G04 关节标定: M1-G04-关节标定.md
           - G05 指令定性: M1-G05-指令定性.md
-          - G06-G10 静态审计汇总: M1-G06-G10-static-summary.md
           - G06 控制测频: M1-G06-控制测频.md
           - G07 延迟测量: M1-G07-延迟测量.md
           - G08 尺寸测量: M1-G08-尺寸测量.md
@@ -181,10 +180,13 @@ nav:
           - 实验日志: T02-实验日志.md
           - 安全联锁: T03-安全联锁.md
           - 参考工程边界: T04-参考工程边界.md
+          - 闭环恢复架构与产物映射: 闭环恢复架构与产物映射.md
       - 证据与归档:
+          - 证据注册表: evidence-registry.md
           - 机械模型证据: mechanical-model.md
           - 几何基线证据: geometry-baseline.md
           - 来源清单证据: source-inventory.md
+          - C6 注册历史: C6-registration-history.md
           - 逆向工程归档: M2-reverse-engineering.md
           - 重构迁移索引: 重构迁移索引.md
   - 关于:
