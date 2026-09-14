@@ -32,8 +32,8 @@
 | Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts | 落地状态 |
 |---|---|---|---|---|
 | **E-FW-001** | 双足轮腿舵机标定固件项目 | `2程序/bipedal_calibrate/` | `P01`: PlatformIO 工程构建配置与硬件目标平台（ESP32-S3）<br>`P02`: 8通道舵机交互式串口标定协议与基准零位偏置解算<br>`P03`: PCA9685 I2C 舵机驱动器硬件使能与 12-bit PWM 定时器寄存器映射<br>`P04`: MPU6050 六轴惯导零偏校准与一阶互补滤波姿态解算<br>`P05`: BLDC 轮电机多闭环控制数据结构与双核 FreeRTOS 抽象层 | **LANDED** |
-| **E-FW-002** | 接收机 PPM 中断解码与遥控通道映射固件 | `2程序/SF_serveo_control/src/main.cpp` | `P01`: GPIO 40 上升沿外部中断与脉宽计时<br>`P02`: 8 通道 PPM 脉宽低通滤波算法<br>`P03`: 遥控器摇杆量程与机器人腿高/翻滚映射 | PLANNED |
-| **E-FW-003** | 轮电机 CAN 报文压缩编码与双板驱动同步固件 | `2程序/BLDC_Control/` | `P01`: 浮点目标向 16 位整型定点压缩算法<br>`P02`: CAN ID 0x02 周期下发与解压赋予驱动器 | PLANNED |
+| **E-FW-002** | BLDC轮电机驱动固件项目 | `2程序/BLDC_Control/` | `P01`: PlatformIO 构建环境与目标芯片架构（ESP32-WROOM / esp32dev）<br>`P02`: 双三相全桥逆变器 MCPWM 硬件引脚分配与使能架构<br>`P03`: 磁编码器双协议硬件总线接口（MT6701 SPI vs AS5600 I2C）<br>`P04`: FOC 核心初始化、电角度校准电压（3V）与四种控制模式<br>`P05`: 双板间 UART 串口通信协议帧结构与 FreeRTOS 异步任务分发 | **LANDED** |
+| **E-FW-003** | 接收机 PPM 中断解码与遥控通道映射固件 | `2程序/SF_serveo_control/` | `P01`: GPIO 40 上升沿外部中断与脉宽计时<br>`P02`: 8 通道 PPM 脉宽低通滤波算法<br>`P03`: 遥控器摇杆量程与机器人腿高/翻滚映射 | PLANNED |
 | **E-FW-004** | 主控控制循环时序与通讯超时停机看门狗固件 | `2程序/SF_serveo_control_device2/` | `P01`: Arduino `loop()` 100Hz 软件计时调度<br>`P02`: 500ms 超时判定与主动发送 `"STOP"` 停机合同 | PLANNED |
 
 ### 1.4 仿真数字资产与运动学模型类（Namespace: `E-SIM`，角色: `CONFIG` / `IMPLEMENTATION`）
