@@ -29,12 +29,12 @@
 | **E-HW-004** | 板间 TWAI/CAN 总线收发与电气隔离原理图 | `CAN.pdf` | `P01`: SN65HVD230 CAN 收发电路<br>`P02`: 120Ω 终端匹配电阻与隔离光耦 |
 
 ### 1.3 嵌入式固件实现类（Namespace: `E-FW`，角色: `IMPLEMENTATION`）
-| Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts |
-|---|---|---|---|
-| **E-FW-001** | 接收机 PPM 中断解码与遥控通道映射固件 | `SF_serveo_control/src/main.cpp` | `P01`: GPIO 40 上升沿外部中断与脉宽计时<br>`P02`: 8 通道 PPM 脉宽低通滤波算法<br>`P03`: 遥控器摇杆量程与机器人腿高/翻滚映射 |
-| **E-FW-002** | PCA9685 舵机开环脉宽控制与寄存器写入固件 | `SF_Servo.cpp`, `SF_Servo.h` | `P01`: 50 Hz 周期基数与 12-bit 关断寄存器换算<br>`P02`: 开环角度 Degree API 合同（`setAngle`） |
-| **E-FW-003** | 轮电机 CAN 报文压缩编码与双板驱动同步固件 | `Device01 main.cpp`<br>`Device02 main.cpp` | `P01`: 浮点目标向 16 位整型定点压缩算法<br>`P02`: CAN ID 0x02 周期下发与解压赋予驱动器 |
-| **E-FW-004** | 主控控制循环时序与通讯超时停机看门狗固件 | `SF_serveo_control/src/main.cpp` | `P01`: Arduino `loop()` 100Hz 软件计时调度<br>`P02`: 500ms 超时判定与主动发送 `"STOP"` 停机合同 |
+| Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts | 落地状态 |
+|---|---|---|---|---|
+| **E-FW-001** | 双足轮腿舵机标定固件项目 | `2程序/bipedal_calibrate/` | `P01`: PlatformIO 工程构建配置与硬件目标平台（ESP32-S3）<br>`P02`: 8通道舵机交互式串口标定协议与基准零位偏置解算<br>`P03`: PCA9685 I2C 舵机驱动器硬件使能与 12-bit PWM 定时器寄存器映射<br>`P04`: MPU6050 六轴惯导零偏校准与一阶互补滤波姿态解算<br>`P05`: BLDC 轮电机多闭环控制数据结构与双核 FreeRTOS 抽象层 | **LANDED** |
+| **E-FW-002** | 接收机 PPM 中断解码与遥控通道映射固件 | `2程序/SF_serveo_control/src/main.cpp` | `P01`: GPIO 40 上升沿外部中断与脉宽计时<br>`P02`: 8 通道 PPM 脉宽低通滤波算法<br>`P03`: 遥控器摇杆量程与机器人腿高/翻滚映射 | PLANNED |
+| **E-FW-003** | 轮电机 CAN 报文压缩编码与双板驱动同步固件 | `2程序/BLDC_Control/` | `P01`: 浮点目标向 16 位整型定点压缩算法<br>`P02`: CAN ID 0x02 周期下发与解压赋予驱动器 | PLANNED |
+| **E-FW-004** | 主控控制循环时序与通讯超时停机看门狗固件 | `2程序/SF_serveo_control_device2/` | `P01`: Arduino `loop()` 100Hz 软件计时调度<br>`P02`: 500ms 超时判定与主动发送 `"STOP"` 停机合同 | PLANNED |
 
 ### 1.4 仿真数字资产与运动学模型类（Namespace: `E-SIM`，角色: `CONFIG` / `IMPLEMENTATION`）
 | Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts |
