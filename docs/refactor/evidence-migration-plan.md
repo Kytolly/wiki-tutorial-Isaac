@@ -44,19 +44,19 @@
 | **E-FW-008** | 芯片唯一eFuse硬件信息与设备指纹读取固件 | `5客户获取注册码/getInfo/getInfo.ino` | `P01`: S1 驱动核心单次执行运行时架构<br>`P02`: 115200 高速串口异步通信接口与定界符<br>`P03`: 64 位 eFuse 硬件只读 MAC 地址提取<br>`P04`: 硅片型号、核心数与修订版本元数据<br>`P05`: 设备指纹向出厂注册码映射与闭源静态库授权校验闭环 | **LANDED** |
 
 ### 1.4 仿真数字资产与运动学模型类（Namespace: `E-SIM`，角色: `CONFIG` / `IMPLEMENTATION`）
-| Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts |
-|---|---|---|---|
-| **E-SIM-001** | 闭链机器人单父树 Loop-Cut 规范 URDF 资产 | `urdf`, `build_asset.py` | `P01`: 29 links, 28 joints 严格单父有向无环树<br>`P02`: 闭环回路切断点选定在 W2（内小腿末端）<br>`P03`: 关节树 Featherstone 动力学拓扑约束 |
-| **E-SIM-002** | 双支链闭环几何装配不变量与参考系配置 | `closure_frames.json` | `P01`: W1 与 W2 沿 Y 轴恒定 -44.950 mm 偏置<br>`P02`: 径向共线投影残差小于 1.83e-17 m<br>`P03`: P2 间隙 0.150 mm 与偏置 13.650 mm |
-| **E-SIM-003** | PhysX 闭环副自动重构与 USD 后处理实现 | `recover_closed_loops.py` | `P01`: USD PhysicsRevoluteJoint 自动注入<br>`P02`: `excludeFromArticulation=true` 解耦配置 |
+| Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts | 落地状态 |
+|---|---|---|---|---|
+| **E-SIM-001** | 闭链机器人单父树 Loop-Cut 规范 URDF 资产 | `urdf/stackforce_quadrupedal_wheeled_robot.urdf` | `P01`: 29 links, 28 joints 严格单父有向无环树<br>`P02`: 闭环回路切断点选定在 W2（内小腿末端）<br>`P03`: 关节树 Featherstone 动力学拓扑约束 | **LANDED** |
+| **E-SIM-002** | 双支链闭环几何装配不变量与参考系配置 | `config/closure_frames.json` | `P01`: W1 与 W2 沿 Y 轴恒定 -44.950 mm 偏置<br>`P02`: 径向共线投影残差小于 1.83e-17 m<br>`P03`: P2 间隙 0.150 mm 与偏置 13.650 mm | **LANDED** |
+| **E-SIM-003** | PhysX 闭环副自动重构与 USD 后处理实现 | `scripts/recover_closed_loops.py` | `P01`: USD PhysicsRevoluteJoint 自动注入<br>`P02`: `excludeFromArticulation=true` 解耦配置 | **LANDED** |
 
 ### 1.5 实验测试、验证与标定类（Namespace: `E-TEST`, `E-VAL`, `E-CAL`，角色: `RUNTIME` / `PHYSICAL`）
-| Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts |
-|---|---|---|---|
-| **E-VAL-001** | 规范资产静态数学拓扑与网格合法性校验报告 | `validate_asset.py` | `P01`: 单父树与关节数量自动化断言输出<br>`P02`: 二进制 STL 网格朝向与无退化面验证 |
-| **E-VAL-002** | 2400 步 CPU 悬空重力物理烟囱测试报告 | `simulation_report.json` | `P01`: 2400 步闭环约束最大漂移 0.0595 mm<br>`P02`: 闭环禁用负对照崩溃触发（对比漂移 129 mm） |
-| **E-TEST-001** | 实机架空通信时序、指令响应与超时停机测定 | `timing_latency.csv`<br>`physical_session_log.md` | `P01`: IMU 实际刷新率 175.3 Hz 与抖动 0.790 ms<br>`P02`: 固件 501.5~502.5 ms 精确触发停机时间戳 |
-| **E-CAL-001** | 执行器单通道动作隔离、极性定性与故障阻断记录 | `actuator_registration.csv`<br>`m1_serial_completion.log` | `P01`: 7 路健康执行器动作隔离与正反转极性<br>`P02`: ch7 物理回中失败持续上抬导致手动断电事实 |
+| Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts | 落地状态 |
+|---|---|---|---|---|
+| **E-VAL-001** | 仿真资产静态执行器与被动关节空间划分校验报告 | `validation/actuator_partition.json` | `P01`: 12 主动受控关节与 3 执行器组定义<br>`P02`: 8 从动被动关节与 4 闭环副隔离<br>`P03`: 策略动作空间 12 维纯洁性断言 | **LANDED** |
+| **E-VAL-002** | 强化学习闭环约束收敛与悬空重力烟囱测试报告 | `validation/rl_qualification.json` | `P01`: 5 处接触传感器绑定与张量维度断言<br>`P02`: 悬空 240 步无发散烟囱测试与闭环残差收敛<br>`P03`: M1/M2 阶跃激励跟随与越界指令拦截 | **LANDED** |
+| **E-TEST-001** | 实机架空通信时序、指令响应与超时停机测定 | `timing_latency.csv`<br>`physical_session_log.md` | `P01`: 架空安全台架测试环境搭建<br>`P02`: PCA9685 舵机通道时窗与时钟精度测定<br>`P03`: 固件 501.5~502.5 ms 精确触发超时停机 | **LANDED** |
+| **E-CAL-001** | 执行器单通道动作隔离、极性定性与故障阻断记录 | `actuator_registration.csv`<br>`safety_validation.md` | `P01`: 8 路舵机物理通道出厂偏置角矩阵<br>`P02`: 7 路健康执行器动作隔离与旋向定性<br>`P03`: 通道 7 持续上抬故障与手动母线断电阻断事实 | **LANDED** |
 
 ---
 
