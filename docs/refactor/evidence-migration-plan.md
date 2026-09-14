@@ -34,7 +34,7 @@
 | **E-FW-001** | 双足轮腿舵机标定固件项目 | `2程序/bipedal_calibrate/` | `P01`: PlatformIO 工程构建配置与硬件目标平台（ESP32-S3）<br>`P02`: 8通道舵机交互式串口标定协议与基准零位偏置解算<br>`P03`: PCA9685 I2C 舵机驱动器硬件使能与 12-bit PWM 定时器寄存器映射<br>`P04`: MPU6050 六轴惯导零偏校准与一阶互补滤波姿态解算<br>`P05`: BLDC 轮电机多闭环控制数据结构与双核 FreeRTOS 抽象层 | **LANDED** |
 | **E-FW-002** | BLDC轮电机驱动固件项目 | `2程序/BLDC_Control/` | `P01`: PlatformIO 构建环境与目标芯片架构（ESP32-WROOM / esp32dev）<br>`P02`: 双三相全桥逆变器 MCPWM 硬件引脚分配与使能架构<br>`P03`: 磁编码器双协议硬件总线接口（MT6701 SPI vs AS5600 I2C）<br>`P04`: FOC 核心初始化、电角度校准电压（3V）与四种控制模式<br>`P05`: 双板间 UART 串口通信协议帧结构与 FreeRTOS 异步任务分发 | **LANDED** |
 | **E-FW-003** | 四足轮腿运动解算与总线控制固件项目 | `2程序/SF_serveo_control/` | `P01`: PlatformIO 构建环境与目标平台定义（ESP32-S3 @ 240MHz）<br>`P02`: PPM 脉宽调制接收机硬件中断捕获与一阶滤波通道解码<br>`P03`: 五连杆闭链逆运动学（IK）解析几何方程与物理坐标偏置补偿<br>`P04`: 对角小跑（Trot）步态发生器与姿态误差 PID 闭环补偿<br>`P05`: 1Mbps TWAI/CAN 总线协议、定点数压缩与分布式轮电机驱动 | **LANDED** |
-| **E-FW-004** | 主控控制循环时序与通讯超时停机看门狗固件 | `2程序/SF_serveo_control_device2/` | `P01`: Arduino `loop()` 100Hz 软件计时调度<br>`P02`: 500ms 超时判定与主动发送 `"STOP"` 停机合同 | PLANNED |
+| **E-FW-004** | 前从控板CAN节点与轮电机驱动固件项目 | `2程序/SF_serveo_control_device2/` | `P01`: PlatformIO 构建配置与硬件目标平台（ESP32-S3）<br>`P02`: TWAI/CAN 从节点通信接口与地址拓扑（CAN ID 0x02）<br>`P03`: 16位定点数向浮点物理量解压缩算法与前轮速度目标解析<br>`P04`: `SF_BLDC` 串口桥接、初始化时序与工作模态配置<br>`P05`: 主控制循环降频调度、串口监控输出与协议预留 | **LANDED** |
 
 ### 1.4 仿真数字资产与运动学模型类（Namespace: `E-SIM`，角色: `CONFIG` / `IMPLEMENTATION`）
 | Target Evidence ID | 规范标题 | 承接原始物料 (Source) | 产生原子 Parts |
