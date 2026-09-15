@@ -1,18 +1,17 @@
 ---
 id: E-TEST-001
 title: 实机架空通信时序与固件超时停机测定
-type: test
-role: physical
 source_files:
-  - /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/timing_latency.csv
-  - /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/physical_session_log.md
-status: verified
+- /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/timing_latency.csv
+- /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/physical_session_log.md
+status: VALID
 tags:
-  - timing-latency
-  - physical-measurement
-  - watchdog-timeout
-  - hardware-bench
-  - ground-truth
+- timing-latency
+- physical-measurement
+- watchdog-timeout
+- hardware-bench
+- ground-truth
+epistemic_role: RUNTIME
 ---
 
 # E-TEST-001 实机架空通信时序与固件超时停机测定

@@ -1,17 +1,16 @@
 ---
 id: E-FW-004
 title: 前从控板CAN节点与轮电机驱动固件项目
-type: IMPLEMENTATION
 track: FIRMWARE
 source_files:
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/platformio.ini
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/src/config.h
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/src/bipedal_data.h
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_CAN/SF_CAN.h
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_CAN/SF_CAN.cpp
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_BLDC/SF_BLDC.h
-  - CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_BLDC/SF_BLDC_shared_struct.h
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/platformio.ini
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/src/main.cpp
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/src/config.h
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/src/bipedal_data.h
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_CAN/SF_CAN.h
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_CAN/SF_CAN.cpp
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_BLDC/SF_BLDC.h
+- CEG5003/doc/四足机器人-origin/2程序/SF_serveo_control_device2/lib/SF_BLDC/SF_BLDC_shared_struct.h
 sha256:
   platformio.ini: 611e5dd2bae91f87237df8417b65c5190e97e6843f46c192c5094167feb70497
   src/main.cpp: 6a89cf26a6db3222eec744d563fb41059eb88b4bcebd98aabe25fc61821211bb
@@ -21,6 +20,8 @@ sha256:
   lib/SF_CAN/SF_CAN.h: 1b9ee71dfde9475f9e33f66fd44ea9790cefbe5721f593e1d230447be3ba6e86
   lib/SF_BLDC/SF_BLDC.h: a2d1292bebf3ed6c59f87c4fd78a050a06f9385366748f6c48f29a3e2e51a4dd
   lib/SF_BLDC/SF_BLDC_shared_struct.h: 4e8614b3fadc31814a6fba17780c4a169515c3f59692b8510f6326fbd3d289d3
+status: VALID
+epistemic_role: IMPLEMENTATION
 ---
 
 # E-FW-004 前从控板CAN节点与轮电机驱动固件项目

@@ -1,12 +1,13 @@
 ---
 id: E-DOC-006
 title: 主控板双芯片操作与例程使用必读说明
-type: DOC/SPEC
 track: FIRMWARE_MANUAL
 source_files:
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板例程/0使用前必看说明/使用说明.docx
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板例程/0使用前必看说明/使用说明.docx
 sha256:
   docx: 9fc595f9ab2a8aa54108287882849f6449dff1ef970056b85af5eb9a45e34440
+status: VALID
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-006 主控板双芯片操作与例程使用必读说明

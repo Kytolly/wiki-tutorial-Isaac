@@ -1,12 +1,13 @@
 ---
 id: E-HW-004
 title: 板间TWAI-CAN与RS485总线通信板原理图
-type: DOC/SPEC
 track: HARDWARE_SCHEMATICS
 source_files:
-  - CEG5003/doc/四足机器人-origin/3全套控制板原理图/CAN.pdf
+- CEG5003/doc/四足机器人-origin/3全套控制板原理图/CAN.pdf
 sha256:
   pdf: 01de47aa70e304777ed9ffbc696f03faad8b2bb1971a429a7fb292393acf8484
+status: VALID
+epistemic_role: DOC_SPEC
 ---
 
 # E-HW-004 板间TWAI-CAN与RS485总线通信板原理图

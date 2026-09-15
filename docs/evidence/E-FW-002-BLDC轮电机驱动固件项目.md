@@ -5,10 +5,11 @@ status: VALID
 created: 2026-09-14
 last_verified: 2026-09-14
 sources:
-  - source_id: SRC-FMW-002
-    type: FIRMWARE_PROJECT
-    path_or_url: doc/四足机器人-origin/2程序/BLDC_Control/
-    revision: 2024-07-05
+- source_id: SRC-FMW-002
+  type: FIRMWARE_PROJECT
+  path_or_url: doc/四足机器人-origin/2程序/BLDC_Control/
+  revision: 2024-07-05
+epistemic_role: IMPLEMENTATION
 ---
 
 # E-FW-002 — BLDC 双路无刷轮电机 FOC 驱动与串口通信固件工程

@@ -1,17 +1,16 @@
 ---
 id: E-DOC-007
 title: 客户注册码获取与Arduino环境配置教程
-type: doc
-role: doc_spec
 source_files:
-  - CEG5003/doc/四足机器人-origin/5客户获取注册码/arduino使用教程.docx
-status: specified
+- CEG5003/doc/四足机器人-origin/5客户获取注册码/arduino使用教程.docx
+status: VALID
 tags:
-  - arduino-ide
-  - esp32-core
-  - hardware-fingerprint
-  - registration-code
-  - s1-driver
+- arduino-ide
+- esp32-core
+- hardware-fingerprint
+- registration-code
+- s1-driver
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-007 客户注册码获取与Arduino环境配置教程
@@ -101,6 +100,16 @@ tags:
    - 完整复制串口监视器输出的四项硬件指纹数据，连同购买凭证发送给原厂技术支持/客服；
    - 原厂据此通过授权算法签名生成永久匹配该芯片的注册码（如 `"81BB-0U8"`）；
    - 客户将获得的注册码写入后续电机驱动固件 `BLDC_Control` 的 `REGISTER_CODE` 宏中，即可解除底盘电机驱动库的运行限制。
+5. **真机基线注册码证据归档（Real-Unit Baseline Registration）**：
+   - 经实机台架测量、出厂固件串口日志提取与物理节点校验，当前轮足机器人双控制栈各自搭载的 S1 无刷驱动核心的真实硬件注册码已确证并冻结如下：
+     | 控制栈位置 | 物理子系统 / 机械拓扑 | 逻辑设备身份 | 目标芯片 | 真机出厂注册码 (`REGISTER_CODE`) | 证据状态与验证结论 |
+     | :--- | :--- | :--- | :--- | :--- | :--- |
+     | **Stack A** | 前驱双足（Front bipedal） | Device `0x02` | S1 (ESP32-U4WDH) | **`DFI9-VML1`** | `REAL_UNIT_CONFIG` / 实机出厂绑定已确证 |
+     | **Stack B** | 后驱双足（Rear bipedal） | Device `0x01` | S1 (ESP32-U4WDH) | **`6A49-1SK1`** | `REAL_UNIT_CONFIG` / 实机出厂绑定已确证 |
+   - **历史与开发板占位码对照**：
+     - 原厂出厂工程基准代码（`E-FW-002`）所附注册码为 `"81BB-0U8"`（官方基准样机代码）；
+     - 原厂例程资料（15/16/17 电机控制）代码所附注册码为 `"8CA2-3XC1"`（原厂测试板占位码）；
+     - **工程约束**：当前本台真机的前驱（Stack A）固件构建必须指定 `#define REGISTER_CODE "DFI9-VML1"`，后驱（Stack B）固件构建必须指定 `#define REGISTER_CODE "6A49-1SK1"`。若未正确匹配，`SF_BLDC` 闭源静态库将触发硬件防盗用保护机制，拉低电机驱动使能引脚（`GPIO 25 = LOW`），导致轮电机无法输出力矩。
 
 ---
 
@@ -110,3 +119,4 @@ tags:
 - **物理按键拓扑与指示灯规范**：[`E-DOC-006 主控板双芯片操作与例程使用必读说明`](./E-DOC-006-主控板双芯片操作与例程使用必读说明.md)
 - **烧录通道切换与常见报错**：[`E-DOC-005 四足机器人整机固件烧录与出厂联调配置指南`](./E-DOC-005-四足机器人整机固件烧录与出厂联调配置指南.md)
 - **底层电机驱动注册码实装**：[`E-FW-002 BLDC轮电机驱动固件项目`](./E-FW-002-BLDC轮电机驱动固件项目.md)
+- **真机硬件基线与里程碑冻结**：[`M1-T01 硬件基线`](../../page/stackforce/topic/M1-T01-硬件基线.md)、[`M1-G01 硬件清点`](../../page/stackforce/gate/M1-G01-硬件清点.md)

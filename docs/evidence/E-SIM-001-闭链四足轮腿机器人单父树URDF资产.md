@@ -1,17 +1,16 @@
 ---
 id: E-SIM-001
 title: 闭链四足轮腿机器人单父树URDF资产
-type: sim
-role: config
 source_files:
-  - /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/urdf/stackforce_quadrupedal_wheeled_robot.urdf
-status: specified
+- /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/urdf/stackforce_quadrupedal_wheeled_robot.urdf
+status: VALID
 tags:
-  - urdf
-  - loop-cut
-  - single-parent-tree
-  - featherstone
-  - simulation-asset
+- urdf
+- loop-cut
+- single-parent-tree
+- featherstone
+- simulation-asset
+epistemic_role: CONFIGURATION
 ---
 
 # E-SIM-001 闭链四足轮腿机器人单父树URDF资产
@@ -32,13 +31,13 @@ tags:
 
 ```mermaid
 graph TD
-    base_link["base_link (根节点)"] --> FL_thigh["FL_thigh_Link (外连杆)"]
-    base_link --> FL_inner_upper["FL_inner_upper_Link (内主动臂)"]
-    FL_thigh --> FL_calf["FL_calf_Link (主小腿)"]
-    FL_calf --> FL_foot["FL_foot_Link (驱动轮)"]
+    base_link["base_link (根节点)"] --> FL_thigh["FL_Outer_Thigh_Link (外连杆)"]
+    base_link --> FL_inner_upper["FL_Inner_Thigh_Link (内主动臂)"]
+    FL_thigh --> FL_calf["FL_Outer_Calf_Link (主小腿)"]
+    FL_calf --> FL_foot["FL_Foot_Link (驱动轮)"]
     FL_foot --> FL_W1["FL_W1_frame (切断锚点1)"]
-    FL_inner_upper --> FL_inner_lower["FL_inner_lower_Link (从动小臂)"]
-    FL_inner_lower --> FL_W2["FL_W2_frame (切断锚点2)"]
+    FL_inner_upper --> FL_Inner_Calf_Link["FL_Inner_Calf_Link (从动小臂)"]
+    FL_Inner_Calf_Link --> FL_W2["FL_W2_frame (切断锚点2)"]
     
     FL_W1 -. "闭环虚拟约束 (-44.95mm)" .- FL_W2
 ```
@@ -59,11 +58,11 @@ graph TD
 ### Part 02: Loop-Cut 闭环切断策略与虚参考系定义 (`P02`)
 
 1. **切断选点**：
-   - 五连杆机构包含外侧支链（`thigh -> calf -> foot`）与内侧支链（`inner_upper -> inner_lower`）；
+   - 五连杆机构包含外侧支链（`thigh -> calf -> foot`）与内侧支链（`inner_upper -> Inner_Calf_Link`）；
    - 闭环物理切断点选定在内侧从动小臂末端与轮端连接处（`W2` 锚点）；
 2. **定标参考系（Frames）注入**：
-   - `FL_W1_frame` 通过固定关节 `FL_W1_joint` 刚性固连于 `FL_foot_Link`；
-   - `FL_W2_frame` 通过固定关节 `FL_W2_joint` 刚性固连于 `FL_inner_lower_Link`；
+   - `FL_W1_frame` 通过固定关节 `FL_W1_joint` 刚性固连于 `FL_Foot_Link`；
+   - `FL_W2_frame` 通过固定关节 `FL_W2_joint` 刚性固连于 `FL_Inner_Calf_Link`；
    - 两个参考系提供精确的局部坐标原点与旋转基准，为下游 PhysX 闭环副自动重构提供了不可篡改的数学锚点。
 
 ---
@@ -71,11 +70,11 @@ graph TD
 ### Part 03: 关节类型划分与驱动维度映射 (`P03`)
 
 1. **关节类型统计**：
-   - 20 个旋转关节（`revolute`）：包含 4 个 `thigh_joint`（外侧髋关节）、4 个 `M2_joint`（内侧髋关节）、4 个 `calf_joint`（膝关节）、4 个 `P2_joint`（内侧弯头关节）以及 4 个 `foot_joint`（驱动轮旋转轴）；
+   - 20 个旋转关节（`revolute`）：包含 4 个 `Outer_Hip_Joint`（外侧髋关节）、4 个 `Inner_Hip_Joint`（内侧髋关节）、4 个 `Outer_Knee_Joint`（膝关节）、4 个 `Inner_Knee_Joint`（内侧弯头关节）以及 4 个 `Wheel_Joint`（驱动轮旋转轴）；
    - 8 个固定关节（`fixed`）：包含 4 个 `W1_joint` 与 4 个 `W2_joint`；
 2. **驱动与被动自由度隔离**：
    - 12 个自由度为实际电机可控（4个大腿外侧舵机 + 4个大腿内侧舵机 + 4个BLDC轮电机）；
-   - 8 个旋转关节为机构被动从动关节（`calf_joint` 与 `P2_joint`），其力矩输入由物理闭环约束传递。
+   - 8 个旋转关节为机构被动从动关节（`Outer_Knee_Joint` 与 `Inner_Knee_Joint`），其力矩输入由物理闭环约束传递。
 
 ---
 
@@ -92,9 +91,9 @@ graph TD
 ### Part 05: 轮机驱动关节与末端运动学链结构 (`P05`)
 
 1. **外转子轮电机轴线约定**：
-   - `foot_joint` 沿驱动轮横向旋转轴定义，无机械角度上下限（`continuous` 语义映射为 $]-\infty, +\infty[$ 旋转）；
+   - `Wheel_Joint` 沿驱动轮横向旋转轴定义，无机械角度上下限（`continuous` 语义映射为 $]-\infty, +\infty[$ 旋转）；
 2. **足端接触基准**：
-   - 轮外径胎面作为机器人与地面的唯一接触几何，五杆腿的伸缩运动直接改变 `foot_Link` 相对 `base_link` 的空间坐标 $(x, z)$。
+   - 轮外径胎面作为机器人与地面的唯一接触几何，五杆腿的伸缩运动直接改变 `Foot_Link` 相对 `base_link` 的空间坐标 $(x, z)$。
 
 ---
 

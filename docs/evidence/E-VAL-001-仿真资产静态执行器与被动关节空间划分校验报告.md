@@ -1,17 +1,16 @@
 ---
 id: E-VAL-001
 title: 仿真资产静态执行器与被动关节空间划分校验报告
-type: val
-role: runtime
 source_files:
-  - /home/kytolly/Project/IsaacProject/sf_quad/validation/actuator_partition.json
-status: verified
+- /home/kytolly/Project/IsaacProject/sf_quad/validation/actuator_partition.json
+status: VALID
 tags:
-  - actuator-partition
-  - active-joints
-  - passive-joints
-  - action-space
-  - validation-report
+- actuator-partition
+- active-joints
+- passive-joints
+- action-space
+- validation-report
+epistemic_role: VALIDATION
 ---
 
 # E-VAL-001 仿真资产静态执行器与被动关节空间划分校验报告
@@ -37,14 +36,14 @@ graph TD
     Root --> Passive["从动无源关节 Passive (8维)"]
     Root --> Closure["运动学闭环副 Closure (4维)"]
 
-    Active --> M1["LEG_M1: 大腿外关节 (4)"]
-    Active --> M2["LEG_M2: 大腿内关节 (4)"]
+    Active --> M1["OUTER_SERVO: Outer Hip Joint (4)"]
+    Active --> M2["INNER_SERVO: Inner Hip Joint (4)"]
     Active --> WH["WHEEL: 轮电机驱动轴 (4)"]
 
-    Passive --> Calf["calf_joint: 小腿主铰 (4)"]
-    Passive --> P2["P2_joint: 内连杆弯头 (4)"]
+    Passive --> Calf["Outer_Knee_Joint: 小腿主铰 (4)"]
+    Passive --> P2["Inner_Knee_Joint: 内连杆弯头 (4)"]
 
-    Closure --> W2["W2_closure_joint: 闭环重构副 (4)"]
+    Closure --> W2["Closure_Joint: 闭环重构副 (4)"]
 ```
 
 ---
@@ -56,19 +55,19 @@ graph TD
 1. **维度统计**：
    - 全机主动受控关节数量为 **12**，严格等于物理真机的实际电机执行器总数；
 2. **分组命名空间**：
-   - **`LEG_M1`** (4通道)：`[FR_thigh_joint, FL_thigh_joint, RL_thigh_joint, RR_thigh_joint]`；
-   - **`LEG_M2`** (4通道)：`[FR_M2_joint, FL_M2_joint, RL_M2_joint, RR_M2_joint]`；
-   - **`WHEEL`** (4通道)：`[FR_foot_joint, FL_foot_joint, RL_foot_joint, RR_foot_joint]`；
+   - **`OUTER_SERVO`** (4通道)：`[FR_Outer_Hip_Joint, FL_Outer_Hip_Joint, RL_Outer_Hip_Joint, RR_Outer_Hip_Joint]`；
+   - **`INNER_SERVO`** (4通道)：`[FR_Inner_Hip_Joint, FL_Inner_Hip_Joint, RL_Inner_Hip_Joint, RR_Inner_Hip_Joint]`；
+   - **`WHEEL`** (4通道)：`[FR_Wheel_Joint, FL_Wheel_Joint, RL_Wheel_Joint, RR_Wheel_Joint]`；
 3. **驱动硬件映射**：
-   - `LEG_M1` 与 `LEG_M2` 对应 8 路 PCA9685 扩展板舵机驱动输出；`WHEEL` 对应 4 路 DRV8313 无刷直流电机 FOC 输出。
+   - `OUTER_SERVO` 与 `INNER_SERVO` 对应 8 路 PCA9685 扩展板舵机驱动输出；`WHEEL` 对应 4 路 DRV8313 无刷直流电机 FOC 输出。
 
 ---
 
 ### Part 02: 8 从动被动旋转关节空间划分 (`P02`)
 
 1. **被动自由度辨识**：
-   - 包含 4 个外侧主小腿回转关节 `FR_calf_joint`, `FL_calf_joint`, `RL_calf_joint`, `RR_calf_joint`；
-   - 包含 4 个内侧副小腿弯头关节 `FR_P2_joint`, `FL_P2_joint`, `RL_P2_joint`, `RR_P2_joint`；
+   - 包含 4 个外侧主小腿回转关节 `FR_Outer_Knee_Joint`, `FL_Outer_Knee_Joint`, `RL_Outer_Knee_Joint`, `RR_Outer_Knee_Joint`；
+   - 包含 4 个内侧副小腿弯头关节 `FR_Inner_Knee_Joint`, `FL_Inner_Knee_Joint`, `RL_Inner_Knee_Joint`, `RR_Inner_Knee_Joint`；
 2. **零驱动力矩状态**：
    - 校验报告确认所有 8 个从动关节的驱动刚度（Stiffness）与阻尼（Damping）均配置为自然被动跟随，不允许任何策略直接注入控制力矩。
 
@@ -77,7 +76,7 @@ graph TD
 ### Part 03: 4 动力学闭环副隔离断言 (`P03`)
 
 1. **闭环副集合**：
-   - `FR_W2_closure_joint`, `FL_W2_closure_joint`, `RL_W2_closure_joint`, `RR_W2_closure_joint`；
+   - `FR_Closure_Joint`, `FL_Closure_Joint`, `RL_Closure_Joint`, `RR_Closure_Joint`；
 2. **独立作用域归属**：
    - 4 个闭环约束全部挂载于 `closure_joints` 独立作用域中，完全脱离开环铰接树体系，确保被动机构运动链在 PhysX 中形成封闭约束多边形。
 

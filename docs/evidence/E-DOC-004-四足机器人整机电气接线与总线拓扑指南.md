@@ -5,14 +5,15 @@ status: VALID
 created: 2026-09-14
 last_verified: 2026-09-14
 sources:
-  - source_id: SRC-PRC-007
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/1教程/2接线文档.docx
-    revision: 2024-07-05
-  - source_id: SRC-PRC-008
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/1教程/2接线文档.pdf
-    revision: 2024-07-05
+- source_id: SRC-PRC-007
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/1教程/2接线文档.docx
+  revision: 2024-07-05
+- source_id: SRC-PRC-008
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/1教程/2接线文档.pdf
+  revision: 2024-07-05
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-004 — 四足机器人整机电气接线与总线拓扑指南

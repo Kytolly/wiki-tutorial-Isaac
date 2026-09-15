@@ -1,18 +1,17 @@
 ---
 id: E-FW-006
 title: 双路无刷电机FOC控制与电流采样例程固件
-type: IMPLEMENTATION
 track: FIRMWARE_EXAMPLES
 source_files:
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/11开环速度控制/OpenLoop_S1/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/12开环位置控制/positionLoop_S1/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/13相电流读取/Phasecurrent_S1/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/14电流检测/current_S1/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/15电机扭矩控制/BLDC_Control_S1/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/15电机扭矩控制/torque_S3/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/16电机速度控制/speed_S3/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/17电机位置控制/angle_S3/src/main.cpp
-  - CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/18simlink/WirelessBLDC/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/11开环速度控制/OpenLoop_S1/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/12开环位置控制/positionLoop_S1/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/13相电流读取/Phasecurrent_S1/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/14电流检测/current_S1/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/15电机扭矩控制/BLDC_Control_S1/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/15电机扭矩控制/torque_S3/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/16电机速度控制/speed_S3/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/17电机位置控制/angle_S3/src/main.cpp
+- CEG5003/doc/四足机器人-origin/4例程资料/主控板加小电流板/18simlink/WirelessBLDC/src/main.cpp
 sha256:
   OpenLoop_S1_main.cpp: e1bd80138587b54a4f08dbc3c5e2d527ce05221ceb16cdb80131a4b86214c2dc
   positionLoop_S1_main.cpp: 2624048a156e31dd18084c06140bb5f22225bc355116c66617bdd3522cd65bee
@@ -23,6 +22,8 @@ sha256:
   speed_S3_main.cpp: 0eb1de66dc01e8cc686ae2d6e7596bbff0b5e2977c6cc3705a1be863a6aa95ce
   angle_S3_main.cpp: fc90b8bb55a80408e8ddd615f3641cb11f164f83b1a7e03dc8c9394994ff258e
   WirelessBLDC_main.cpp: de008db3e452c658912e0e7f71412fb1004a0cf0d6822efe892f56aced8f2538
+status: VALID
+epistemic_role: IMPLEMENTATION
 ---
 
 # E-FW-006 双路无刷电机FOC控制与电流采样例程固件

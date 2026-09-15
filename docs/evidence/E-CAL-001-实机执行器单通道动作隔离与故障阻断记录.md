@@ -1,18 +1,17 @@
 ---
 id: E-CAL-001
 title: 实机执行器单通道动作隔离与故障阻断记录
-type: cal
-role: physical
 source_files:
-  - /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/actuator_registration.csv
-  - /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/safety_validation.md
-status: verified
+- /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/actuator_registration.csv
+- /home/kytolly/Project/IsaacProject/doc/StackForceDog/artifacts/safety_validation.md
+status: VALID
 tags:
-  - actuator-registration
-  - fault-isolation
-  - emergency-cutoff
-  - physical-experiment
-  - ground-truth
+- actuator-registration
+- fault-isolation
+- emergency-cutoff
+- physical-experiment
+- ground-truth
+epistemic_role: PHYSICAL
 ---
 
 # E-CAL-001 实机执行器单通道动作隔离与故障阻断记录

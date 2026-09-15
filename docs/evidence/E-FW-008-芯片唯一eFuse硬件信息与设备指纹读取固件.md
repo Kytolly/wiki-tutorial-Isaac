@@ -1,18 +1,17 @@
 ---
 id: E-FW-008
 title: 芯片唯一eFuse硬件信息与设备指纹读取固件
-type: fw
-role: implementation
 source_files:
-  - CEG5003/doc/四足机器人-origin/5客户获取注册码/getInfo/getInfo.ino
-status: implemented
+- CEG5003/doc/四足机器人-origin/5客户获取注册码/getInfo/getInfo.ino
+status: VALID
 tags:
-  - efuse-mac
-  - chip-model
-  - hardware-fingerprint
-  - registration-code
-  - s1-driver
-  - firmware
+- efuse-mac
+- chip-model
+- hardware-fingerprint
+- registration-code
+- s1-driver
+- firmware
+epistemic_role: IMPLEMENTATION
 ---
 
 # E-FW-008 芯片唯一eFuse硬件信息与设备指纹读取固件

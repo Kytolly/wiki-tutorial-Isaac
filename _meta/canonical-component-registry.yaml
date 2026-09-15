@@ -1,0 +1,35 @@
+# Canonical component registry
+# Contract frozen by the repository-local skill; legacy aliases are non-canonical.
+version: 1
+legs: [FR, FL, RL, RR]
+branches: [Outer, Inner]
+components:
+  servo: "{LEG}_{BRANCH}_Servo"
+  wheel_motor: "{LEG}_Wheel_Motor"
+  hip_joint: "{LEG}_Hip_Joint"
+  knee_joint: "{LEG}_Knee_Joint"
+  wheel_joint: "{LEG}_Wheel_Joint"
+  closure_joint: "{LEG}_Closure_Joint"
+  thigh_link: "{LEG}_Thigh_Link"
+  calf_link: "{LEG}_Calf_Link"
+  foot_link: "{LEG}_Foot_Link"
+pca_mapping:
+  PCA1: FR_Outer_Servo
+  PCA2: FR_Inner_Servo
+  PCA3: FL_Inner_Servo
+  PCA4: FL_Outer_Servo
+  PCA5: RL_Outer_Servo
+  PCA6: RL_Inner_Servo
+  PCA7: RR_Inner_Servo
+  PCA8: RR_Outer_Servo
+legacy_aliases:
+  thigh_joint: Hip_Joint
+  calf_joint: Knee_Joint
+  foot_joint: Wheel_Joint
+  thigh_Link: Thigh_Link
+  calf_Link: Calf_Link
+  foot_Link: Foot_Link
+status:
+  naming_changed: true
+  physics_unchanged: pending_external_write
+  closure_mapping: REVIEW_REQUIRED

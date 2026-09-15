@@ -1,14 +1,15 @@
 ---
 id: E-DOC-005
 title: 四足机器人整机固件烧录与出厂联调配置指南
-type: DOC/SPEC
 track: CALIBRATION / FIRMWARE_DEPLOYMENT
 source_files:
-  - CEG5003/doc/四足机器人-origin/1教程/3调试文档 .docx
-  - CEG5003/doc/四足机器人-origin/1教程/3调试文档 .pdf
+- CEG5003/doc/四足机器人-origin/1教程/3调试文档 .docx
+- CEG5003/doc/四足机器人-origin/1教程/3调试文档 .pdf
 sha256:
   docx: 642a960d5963b03ee01cddc9ac4fc2a228ebdfb1b2309c625e0e02533c2551eb
   pdf: 2563bf4d03095d69865831879aba6c29c0ac7454046e5e5f51390a181d40df79
+status: VALID
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-005 四足机器人整机固件烧录与出厂联调配置指南

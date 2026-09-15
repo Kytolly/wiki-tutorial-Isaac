@@ -1,44 +1,28 @@
-# M2-G08 Lab载入
-
-## Goal
-
-证明候选资产能被 `sf_quad` 的 Isaac Lab 任务正确载入、索引和执行最小动作。
-
-## Why
-
-Isaac Sim 可加载不代表训练环境的 asset path、joint mapping、reset 和 observation 合同正确。
-
-## Topics
-
-- [[M2-T06-实验室接入]]
-
-## Known Facts
-
-- Direct 与 Manager-Based 任务均已通过 Gym registration、config resolution、`gym.make()`、正确 `sf_robot` asset、reset/step/close 生命周期和 N=1/N=16 验证。
-- Direct 的 12-action / 48-observation contract 与 vectorized action isolation 已通过。
-- Manager-Based 的 Cartpole scene residue 与 reward API 迁移问题已经修复并验证，当前为 12-action / 48-observation StackForce 环境。
-
-## Completed
-
-- [x] 验证正式 Gym / Isaac Lab 入口与配置解析。
-- [x] 验证 Direct 和 Manager-Based 的 N=1/N=16 lifecycle。
-- [x] 验证 Direct vectorized action isolation 和 Manager 初始化。
-
-## Acceptance Criteria
-
-- [x] Direct 与 Manager-Based 均能无错误创建、reset、step 和 close。
-- [x] 两条工作流的 12 actions / 48 observations 合同一致。
-- [x] N=1/N=16 lifecycle 与 Direct vectorized action isolation 通过。
-
-## Evidence
-
-- `sf_quad/source/sf_quad/sf_quad/tasks/direct/sf_quad/`
-- `doc/StackForceDog/M2_outcome/M2-G08.md`
+# M2-G08 — Lab 载入
 
 ## Status
 
 PASS
 
-## 更新日志
+## Objective
 
-- 2026-09-08：同步 M2-G08 outcome，Direct 与 Manager-Based Lab 接入验收通过。
+在 Isaac Sim / Lab 环境完成自动化门禁校验与 2400 步 CPU 悬空重力烟囱测试。
+
+## Acceptance Criteria
+
+| Criterion ID | Requirement | Required | Evidence#Part | Status | Notes |
+|---|---|---:|---|---|---|
+| `M2-G08-C01` | 16 项静态自动化校验工具全绿通过（Exit Code 0） | Yes | `E-VAL-001#P05` | **PASS** | 树拓扑、网格存在性与闭环残差校验全绿。 |
+| `M2-G08-C02` | 2400 步 CPU 悬空重力烟囱测试通过（最大锚点漂移 <= 0.0595mm） | Yes | `E-VAL-002#P02`<br>`E-VAL-002#P03` | **PASS** | 10 秒连续重力下沉无发散，远优于 1mm 门禁标准。 |
+| `M2-G08-C03` | 禁用闭环副负对照组在 480 步漂移 129mm 崩溃并抛出异常 | Yes | `E-VAL-002#P05` | **PASS** | 确凿证实闭环保持力源于 PhysX 约束而非初始位姿巧合。 |
+| `M2-G08-C04` | 明确资产未完成驱动器动力学标定边界（rl_ready = false） | Yes | `E-VAL-002#P01`<br>`E-VAL-002#P05` | **PASS** | 约束完备但不具备强化学习直接训练就绪状态。 |
+
+## Related Topics
+
+- [[M2-T06-实验室接入]] — M2-T06-实验室接入
+- [[M2-T08-闭环恢复]] — M2-T08-闭环恢复
+- [[T04-工程边界]] — T04-工程边界
+
+## Changelog / 更新日志
+
+- 2026-09-15：重构为标准 Gate 规范；直接引用 Evidence#Part 原子凭证；解耦 Related Topics；严格依据 Acceptance Criteria 重算 Gate 状态。

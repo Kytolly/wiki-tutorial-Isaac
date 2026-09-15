@@ -1,5 +1,12 @@
 # 几何基线证据（geometry-baseline）
 
+> **STATUS**: `ARCHIVED`  
+> **NOTICE**: `NOT A CURRENT SOURCE OF TRUTH`  
+> 本页面属于重构前几何/机械模型归档记录。最新工程分析见 [[M2-T03-几何装配]] 与 E-SIM-002；原子事实真源见 `docs/evidence/`。
+
+---
+
+
 > 本页属于：stackforce 机器狗实战（evidence）  
 > 状态：CANONICAL DELIVERABLE EVIDENCE（四腿机器校验真值）
 
@@ -11,13 +18,13 @@
 
 | 几何参数项 | 标称与实测值 | 机器校验公差 | 状态与判定来源 |
 |---|---:|---|---|
-| **大腿杆长（M1–P1 / M2–P2）** | `60.000 mm` | $\pm 0.25\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
-| **小腿杆长（P1–W1 / P2–W2）** | `100.000 mm` | $\pm 0.25\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
+| **大腿杆长（Outer Hip–Outer Knee / Inner Hip–Inner Knee）** | `60.000 mm` | $\pm 0.25\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
+| **小腿杆长（Outer Knee–Wheel / Inner Knee–Closure）** | `100.000 mm` | $\pm 0.25\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
 | **两 hip 间距（L5 投影）** | `40.000 mm` | $\pm 0.25\text{ mm}$ | **PASS** (`geometry_config.json`) |
-| **P2 轴承轴向错位** | `13.650003 mm` | $\pm 0.05\text{ mm}$ | **PASS** (`closure_frames.json`) |
-| **P2 表面配合间隙** | `0.1499998 mm` ($\approx 0.150\text{ mm}$) | $0.15 \pm 0.10\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
-| **W1/W2 轴向偏置（Axial Offset）** | `-44.949847 mm` ($\approx -44.950\text{ mm}$) | 允许物理层叠错位 | **PASS** (`closure_frames.json`) |
-| **W1/W2 径向残差（Radial Residual）** | $1.83368 \times 10^{-14}\text{ mm}$ ($1.83 \times 10^{-17}\text{ m}$) | $\le 2.0 \times 10^{-6}\text{ m}$ | **PASS** (`validate_asset.py`) |
+| **Inner Knee 轴承轴向错位** | `13.650003 mm` | $\pm 0.05\text{ mm}$ | **PASS** (`closure_frames.json`) |
+| **Inner Knee 表面配合间隙** | `0.1499998 mm` ($\approx 0.150\text{ mm}$) | $0.15 \pm 0.10\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
+| **Wheel/Closure 轴向偏置（Axial Offset）** | `-44.949847 mm` ($\approx -44.950\text{ mm}$) | 允许物理层叠错位 | **PASS** (`closure_frames.json`) |
+| **Wheel/Closure 径向残差（Radial Residual）** | $1.83368 \times 10^{-14}\text{ mm}$ ($1.83 \times 10^{-17}\text{ m}$) | $\le 2.0 \times 10^{-6}\text{ m}$ | **PASS** (`validate_asset.py`) |
 | **四腿镜像对称性误差** | $\le 6.14 \times 10^{-6}\text{ mm}$ | $\le 2.0 \times 10^{-3}\text{ mm}$ | **PASS** (`four_inner_chains_validation.json`) |
 
 ---

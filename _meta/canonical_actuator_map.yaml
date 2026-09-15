@@ -1,0 +1,194 @@
+# ============================================================
+# CANONICAL COMPONENT REGISTRY & ACTUATOR MAP
+# ============================================================
+# Contract frozen by skill-wiki-design; legacy aliases are non-canonical.
+# Language: Chinese body + English technical terminology / proper nouns.
+
+version: 1.0.0
+schema_version: "2026-09-15"
+
+legs: [FR, FL, RL, RR]
+branches: [Outer, Inner]
+
+# ------------------------------------------------------------
+# 1. FROZEN ACTUATOR MAPPING (PCA1~PCA8 & 4 WHEEL MOTORS)
+# ------------------------------------------------------------
+actuators:
+  # Front Right
+  FR_Outer_Servo:
+    leg: FR
+    branch: Outer
+    type: Servo
+    pca_channel: 1
+    actuates_canonical_joint: FR_Outer_Hip_Joint
+    current_sim_joint_id: FR_thigh_joint
+    firmware_legacy_alias: servoRightRear
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  FR_Inner_Servo:
+    leg: FR
+    branch: Inner
+    type: Servo
+    pca_channel: 2
+    actuates_canonical_joint: FR_Inner_Hip_Joint
+    current_sim_joint_id: FR_M2_joint
+    firmware_legacy_alias: servoRightFront
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  FR_Wheel_Motor:
+    leg: FR
+    branch: null # Shared terminal entity
+    type: Wheel_Motor
+    control_interface: "CAN ID 0x02, target1 (Mode 4 Torque)"
+    actuates_canonical_joint: FR_Wheel_Joint
+    current_sim_joint_id: FR_foot_joint
+    firmware_legacy_alias: M4Dir
+    evidence_reference: "E-FW-003#P05, E-FW-004#P03"
+
+  # Front Left
+  FL_Inner_Servo:
+    leg: FL
+    branch: Inner
+    type: Servo
+    pca_channel: 3
+    actuates_canonical_joint: FL_Inner_Hip_Joint
+    current_sim_joint_id: FL_M2_joint
+    firmware_legacy_alias: servoLeftFront
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  FL_Outer_Servo:
+    leg: FL
+    branch: Outer
+    type: Servo
+    pca_channel: 4
+    actuates_canonical_joint: FL_Outer_Hip_Joint
+    current_sim_joint_id: FL_thigh_joint
+    firmware_legacy_alias: servoLeftRear
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  FL_Wheel_Motor:
+    leg: FL
+    branch: null # Shared terminal entity
+    type: Wheel_Motor
+    control_interface: "CAN ID 0x02, target2 (Mode 4 Torque)"
+    actuates_canonical_joint: FL_Wheel_Joint
+    current_sim_joint_id: FL_foot_joint
+    firmware_legacy_alias: M3Dir
+    evidence_reference: "E-FW-003#P05, E-FW-004#P03"
+
+  # Rear Left
+  RL_Outer_Servo:
+    leg: RL
+    branch: Outer
+    type: Servo
+    pca_channel: 5
+    actuates_canonical_joint: RL_Outer_Hip_Joint
+    current_sim_joint_id: RL_thigh_joint
+    firmware_legacy_alias: servoBackRightRear
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  RL_Inner_Servo:
+    leg: RL
+    branch: Inner
+    type: Servo
+    pca_channel: 6
+    actuates_canonical_joint: RL_Inner_Hip_Joint
+    current_sim_joint_id: RL_M2_joint
+    firmware_legacy_alias: servoBackRightFront
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  RL_Wheel_Motor:
+    leg: RL
+    branch: null # Shared terminal entity
+    type: Wheel_Motor
+    control_interface: "Device 0x01 Serial2, M0 (Mode 4 Torque)"
+    actuates_canonical_joint: RL_Wheel_Joint
+    current_sim_joint_id: RL_foot_joint
+    firmware_legacy_alias: M0_Vel
+    evidence_reference: "E-FW-002#P04, E-FW-003#P05"
+
+  # Rear Right
+  RR_Inner_Servo:
+    leg: RR
+    branch: Inner
+    type: Servo
+    pca_channel: 7
+    actuates_canonical_joint: RR_Inner_Hip_Joint
+    current_sim_joint_id: RR_M2_joint
+    firmware_legacy_alias: servoBackLeftFront
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  RR_Outer_Servo:
+    leg: RR
+    branch: Outer
+    type: Servo
+    pca_channel: 8
+    actuates_canonical_joint: RR_Outer_Hip_Joint
+    current_sim_joint_id: RR_thigh_joint
+    firmware_legacy_alias: servoBackLeftRear
+    evidence_reference: "E-CAL-001#P01, E-FW-001#P02, E-HW-002#P04"
+  RR_Wheel_Motor:
+    leg: RR
+    branch: null # Shared terminal entity
+    type: Wheel_Motor
+    control_interface: "Device 0x01 Serial2, M1 (Mode 4 Torque)"
+    actuates_canonical_joint: RR_Wheel_Joint
+    current_sim_joint_id: RR_foot_joint
+    firmware_legacy_alias: M1_Vel
+    evidence_reference: "E-FW-002#P04, E-FW-003#P05"
+
+# ------------------------------------------------------------
+# 2. CANONICAL JOINTS (20 TREE JOINTS + 4 LOOP CLOSURES)
+# ------------------------------------------------------------
+joint_template:
+  Outer_Hip_Joint:
+    parent: base_link
+    child: "{LEG}_Outer_Thigh_Link"
+    joint_type: REVOLUTE
+    actuation: ACTUATED
+    actuator: "{LEG}_Outer_Servo"
+    legacy_identifier: "{LEG}_thigh_joint"
+  Outer_Knee_Joint:
+    parent: "{LEG}_Outer_Thigh_Link"
+    child: "{LEG}_Outer_Calf_Link"
+    joint_type: REVOLUTE
+    actuation: PASSIVE
+    legacy_identifier: "{LEG}_calf_joint"
+  Wheel_Joint:
+    parent: "{LEG}_Outer_Calf_Link"
+    child: "{LEG}_Foot_Link"
+    joint_type: CONTINUOUS
+    actuation: ACTUATED
+    actuator: "{LEG}_Wheel_Motor"
+    legacy_identifier: "{LEG}_foot_joint"
+  Inner_Hip_Joint:
+    parent: base_link
+    child: "{LEG}_Inner_Thigh_Link"
+    joint_type: REVOLUTE
+    actuation: ACTUATED
+    actuator: "{LEG}_Inner_Servo"
+    legacy_identifier: "{LEG}_M2_joint"
+  Inner_Knee_Joint:
+    parent: "{LEG}_Inner_Thigh_Link"
+    child: "{LEG}_Inner_Calf_Link"
+    joint_type: REVOLUTE
+    actuation: PASSIVE
+    legacy_identifier: "{LEG}_P2_joint"
+  Closure_Joint:
+    parent: "{LEG}_Foot_Link" # via W1_frame
+    child: "{LEG}_Inner_Calf_Link" # via W2_frame
+    joint_type: REVOLUTE
+    actuation: NONE
+    role: LOOP_CLOSURE
+    urdf_representation: LOOP_CUT_OMITTED
+    physx_representation: REVOLUTE_JOINT
+    exclude_from_articulation: true
+    legacy_identifier: "{LEG}_W2_closure"
+
+# ------------------------------------------------------------
+# 3. CANONICAL LINKS
+# ------------------------------------------------------------
+link_template:
+  Outer_Thigh_Link:
+    legacy_identifier: "{LEG}_thigh_Link"
+  Outer_Calf_Link:
+    legacy_identifier: "{LEG}_calf_Link"
+  Inner_Thigh_Link:
+    legacy_identifier: "{LEG}_inner_upper_Link"
+  Inner_Calf_Link:
+    legacy_identifier: "{LEG}_inner_lower_Link"
+  Foot_Link:
+    legacy_identifier: "{LEG}_foot_Link"

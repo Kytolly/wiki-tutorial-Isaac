@@ -1,17 +1,16 @@
 ---
 id: E-VAL-002
 title: 强化学习闭环约束收敛与悬空重力烟囱测试报告
-type: val
-role: runtime
 source_files:
-  - /home/kytolly/Project/IsaacProject/sf_quad/validation/rl_qualification.json
-status: verified
+- /home/kytolly/Project/IsaacProject/sf_quad/validation/rl_qualification.json
+status: VALID
 tags:
-  - rl-qualification
-  - chimney-test
-  - closure-residual
-  - contact-sensors
-  - validation-report
+- rl-qualification
+- chimney-test
+- closure-residual
+- contact-sensors
+- validation-report
+epistemic_role: VALIDATION
 ---
 
 # E-VAL-002 强化学习闭环约束收敛与悬空重力烟囱测试报告

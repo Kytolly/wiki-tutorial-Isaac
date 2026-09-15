@@ -158,7 +158,6 @@ nav:
           - G07 实机平衡: M6-G07-实机平衡.md
           - G08 实机运动: M6-G08-实机运动.md
       - Topics:
-          - M1 现场产物归档: M1-现场产物归档.md
           - M1 硬件基线: M1-T01-硬件基线.md
           - M1 执行器映射: M1-T02-执行器映射.md
           - M1 传感器数据: M1-T03-传感器数据.md
@@ -179,13 +178,21 @@ nav:
           - 机器人接口: T01-机器人接口.md
           - 实验日志: T02-实验日志.md
           - 安全联锁: T03-安全联锁.md
-          - 参考工程边界: T04-参考工程边界.md
-          - 闭环恢复架构与产物映射: 闭环恢复架构与产物映射.md
+          - 工程边界: T04-工程边界.md
+          - 构件映射标准: T-ACT-001-Canonical-Real-Sim-Component-Identity.md
+          - 舵机坐标映射契约: T-ACT-002-Servo-Coordinate-Calibration-Contract.md
+          - 控制器注册与硬件身份: T-HW-REG-001-Controller-Registration-Hardware-Identity.md
+          - M3 动力学待办视图: M3-TODO-view.md
+      - Canonical component migration:
+          - Canonical topology: canonical-component-topology.md
+          - Canonical aliases: canonical-component-aliases.md
+          - Migration report: canonical-component-migration-report.md
       - 证据与归档:
-          - 证据注册表: evidence-registry.md
-          - 机械模型证据: mechanical-model.md
-          - 几何基线证据: geometry-baseline.md
-          - 来源清单证据: source-inventory.md
+          - 证据索引表: evidence-registry.md
+          - 技术源索引表: source-inventory.md
+          - 机械模型归档: mechanical-model.md
+          - 几何基线归档: geometry-baseline.md
+          - M1 现场产物归档: M1-现场产物归档.md
           - C6 注册历史: C6-registration-history.md
           - 逆向工程归档: M2-reverse-engineering.md
           - 重构迁移索引: 重构迁移索引.md

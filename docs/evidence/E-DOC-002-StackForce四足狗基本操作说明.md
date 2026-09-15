@@ -5,14 +5,15 @@ status: VALID
 created: 2026-09-14
 last_verified: 2026-09-14
 sources:
-  - source_id: SRC-PRC-002
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/0整机操作说明/StackForce四足狗基本操作说明.docx
-    revision: 2024-07-05
-  - source_id: SRC-PRC-003
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/0整机操作说明/StackForce四足狗基本操作说明.pdf
-    revision: 2024-07-05
+- source_id: SRC-PRC-002
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/0整机操作说明/StackForce四足狗基本操作说明.docx
+  revision: 2024-07-05
+- source_id: SRC-PRC-003
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/0整机操作说明/StackForce四足狗基本操作说明.pdf
+  revision: 2024-07-05
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-002 — StackForce 四轮足机器狗出厂基本操作与运动模式规程

@@ -5,10 +5,11 @@ status: VALID
 created: 2026-09-14
 last_verified: 2026-09-14
 sources:
-  - source_id: SRC-PRC-004
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/0整机操作说明/遥控器对频说明.docx
-    revision: 2024-07-05
+- source_id: SRC-PRC-004
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/0整机操作说明/遥控器对频说明.docx
+  revision: 2024-07-05
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-001 — 遥控器与接收机原厂操作与对频接线指南

@@ -1,17 +1,16 @@
 ---
 id: E-SIM-003
 title: PhysX闭环副自动重构与USD后处理实现
-type: sim
-role: implementation
 source_files:
-  - /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/recover_closed_loops.py
-status: implemented
+- /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/scripts/recover_closed_loops.py
+status: VALID
 tags:
-  - physx
-  - usd-reconstruction
-  - revolute-joint
-  - exclude-from-articulation
-  - simulation-script
+- physx
+- usd-reconstruction
+- revolute-joint
+- exclude-from-articulation
+- simulation-script
+epistemic_role: IMPLEMENTATION
 ---
 
 # E-SIM-003 PhysX闭环副自动重构与USD后处理实现
@@ -36,7 +35,7 @@ graph TD
     B --> C["解析 closure_frames.json 获取切断点参考系"]
     C --> D["遍历四腿: 校验 radial residual <= 2um"]
     D --> E["创建 UsdPhysics.RevoluteJoint"]
-    E --> F["配置 Body0=inner_lower, Body1=foot"]
+    E --> F["配置 Body0=Inner_Calf_Link, Body1=foot"]
     F --> G["设置 excludeFromArticulation=True"]
     G --> H["设置 collisionEnabled=False"]
     H --> I["stage.Flatten().Export 导出闭环 USD"]
@@ -69,8 +68,8 @@ graph TD
 ### Part 03: `UsdPhysics.RevoluteJoint` 闭环副定义与位姿变换解算 (`P03`)
 
 1. **目标刚体绑定**：
-   - 为每条腿创建旋转闭环副 `UsdPhysics.RevoluteJoint.Define(stage, .../{leg}_W2_closure_joint)`；
-   - 约束主副体通过 `CreateBody0Rel().SetTargets([inner_lower])` 与 `CreateBody1Rel().SetTargets([foot])` 建立关联；
+   - 为每条腿创建旋转闭环副 `UsdPhysics.RevoluteJoint.Define(stage, .../{leg}_Closure_Joint)`；
+   - 约束主副体通过 `CreateBody0Rel().SetTargets([Inner_Calf_Link])` 与 `CreateBody1Rel().SetTargets([foot])` 建立关联；
 2. **世界系向局部系坐标投影**：
    - 通过 `local_pose(common_world, body)` 算法：
      $$\mathbf{T}_{\text{local}} = \mathbf{T}_{\text{joint\_world}} \cdot \mathbf{T}_{\text{body\_world}}^{-1}$$
@@ -96,7 +95,7 @@ graph TD
    - 调用 `stage.Flatten().Export(str(output_path))`；
    - 将所有 payload、sublayer 与 composition arc 烘焙为完全独立内聚的单一 USD 文件，确保后续迁移或在集群多节点渲染时不丢失连杆材质与物理属性；
 2. **重新载入完整性断言**：
-   - 导出后重新执行 `Usd.Stage.Open(str(output_path))`，遍历检查所有 4 条腿的 `inner_lower_link` 与 `w2_frame` 节点均唯一存在。
+   - 导出后重新执行 `Usd.Stage.Open(str(output_path))`，遍历检查所有 4 条腿的 `Inner_Calf_Link` 与 `w2_frame` 节点均唯一存在。
 
 ---
 

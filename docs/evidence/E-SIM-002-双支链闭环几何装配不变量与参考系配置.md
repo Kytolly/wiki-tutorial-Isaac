@@ -1,16 +1,15 @@
 ---
 id: E-SIM-002
 title: 双支链闭环几何装配不变量与参考系配置
-type: sim
-role: config
 source_files:
-  - /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/config/closure_frames.json
-status: specified
+- /home/kytolly/Project/IsaacProject/sf_quad/source/sf_quad/sf_quad/assets/robots/stackforce_quadrupedal_wheeled_robot/config/closure_frames.json
+status: VALID
 tags:
-  - closure-frames
-  - geometric-invariants
-  - kinematic-closure
-  - simulation-config
+- closure-frames
+- geometric-invariants
+- kinematic-closure
+- simulation-config
+epistemic_role: CONFIGURATION
 ---
 
 # E-SIM-002 双支链闭环几何装配不变量与参考系配置
@@ -59,9 +58,10 @@ tags:
 
 ---
 
-### Part 03: P2 关节轴向间距与结构装配间隙 (`P03`)
+### Part 03: Inner Knee Joint 轴向间距与结构装配间隙 (`P03`)
 
 1. **物理轴向偏置**：
+   - `p2_axis_offset_m` 保留为几何 Source Alias；其 canonical mechanical identity 为 `Inner_Knee_Joint`；
    - `p2_axis_offset_m = 0.013650002766096564` ($\approx 13.650\,\text{mm}$)，精确表征了从动内连杆副与主动驱动支链之间的横向跨距；
 2. **防干涉表面间隙**：
    - `p2_surface_gap_m = 0.00014999979090898725` ($\approx 0.150\,\text{mm}$)，为 3D 打印件与金属舵盘运转时预留的最小安全物理防摩擦间隙。

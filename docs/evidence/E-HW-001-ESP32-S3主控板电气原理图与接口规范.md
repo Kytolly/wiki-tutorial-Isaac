@@ -1,12 +1,13 @@
 ---
 id: E-HW-001
 title: ESP32-S3主控板电气原理图与接口规范
-type: DOC/SPEC
 track: HARDWARE_SCHEMATICS
 source_files:
-  - CEG5003/doc/四足机器人-origin/3全套控制板原理图/StackForce主控板.pdf
+- CEG5003/doc/四足机器人-origin/3全套控制板原理图/StackForce主控板.pdf
 sha256:
   pdf: 2a4c6bd308b0b52878588973d5fd191283bafd5155c4b720d207870a5a78af4e
+status: VALID
+epistemic_role: DOC_SPEC
 ---
 
 # E-HW-001 ESP32-S3主控板电气原理图与接口规范

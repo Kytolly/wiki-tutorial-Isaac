@@ -5,14 +5,15 @@ status: VALID
 created: 2026-09-14
 last_verified: 2026-09-14
 sources:
-  - source_id: SRC-PRC-005
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/1教程/1安装文档.docx
-    revision: 2024-07-05
-  - source_id: SRC-PRC-006
-    type: PROCEDURE
-    path_or_url: doc/四足机器人-origin/1教程/1安装文档.pdf
-    revision: 2024-07-05
+- source_id: SRC-PRC-005
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/1教程/1安装文档.docx
+  revision: 2024-07-05
+- source_id: SRC-PRC-006
+  type: PROCEDURE
+  path_or_url: doc/四足机器人-origin/1教程/1安装文档.pdf
+  revision: 2024-07-05
+epistemic_role: DOC_SPEC
 ---
 
 # E-DOC-003 — 四足机器人整机机械结构安装与硬件调试指南

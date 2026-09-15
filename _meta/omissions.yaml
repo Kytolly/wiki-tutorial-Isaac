@@ -1,12 +1,168 @@
+# ============================================================
+# PROJECT EVIDENCE DEBTS & OMISSIONS REGISTRY (U01~U24)
+# ============================================================
+# Status: open | deferred | resolved
+
 - id: O-M1-CH7-REPAIR
   topic: ch7/ch8 physical isolation, repair, and return validation
-  reason: Safety blocker; no safe powered work is accepted before repair.
+  reason: P0 Safety blocker; ch7 continuously lifts up; actuator rail powered work prohibited.
   status: open
+  debt_group: Group-B
+  related_unknown: U17
+
 - id: O-M1-ACTION-SIGNS
-  topic: ch1-ch3/ch8 and four-wheel physical identity and polarity
+  topic: Servo/wheel physical polarity and feedback sign calibration
   reason: Incomplete or unsafe to continue after ch7 failure.
   status: open
+  debt_group: Group-A
+  related_unknown: U03, U09
+
 - id: O-M1-HIGH-FIDELITY-DYNAMICS
   topic: Assembled metrology, mass, inertia, CoM, friction, and SI wheel scale
-  reason: Explicit non-blocking evidence debt for the first kinematic model.
+  reason: Explicit non-blocking evidence debt for the first kinematic Reference-B.
+  status: deferred
+  debt_group: Group-C
+  related_unknown: U18, U19, U20, U21, U22
+
+# ------------------------------------------------------------
+# U01~U24 SYSTEMATIC EVIDENCE DEBTS (from legacy M1-T07)
+# ------------------------------------------------------------
+# Group A: High Priority (Directly impacts URDF & RL Action Space)
+- id: DEBT-U01
+  code: U01
+  topic: "舵机关节与物理 Hip/Knee 拓扑语义绑定"
+  status: resolved # Resolved by E-SIM-001 and canonical-component-topology.md
+  resolution: "Outer Hip/Knee and Inner Hip/Knee deterministically mapped via URDF & closure_frames."
+
+- id: DEBT-U02
+  code: U02
+  topic: "舵机真实物理机械零位"
+  status: open
+  note: "servo_off (-8°~+8°) is factory initial trim, not absolute mechanical zero."
+
+- id: DEBT-U03
+  code: U03
+  topic: "舵机正旋转方向与 URDF 轴向对齐"
+  status: open
+  blocker: "Blocked by ch7 failure; requires unloaded tiny-step test (+0.05 rad)."
+
+- id: DEBT-U04
+  code: U04
+  topic: "各连杆物理机械极限 (Joint Limits)"
+  status: open
+  note: "0-300° is API representation range, not physical kinematic limit."
+
+- id: DEBT-U05
+  code: U05
+  topic: "腿部真实关节编码器反馈"
+  status: resolved
+  resolution: "Confirmed hardware has NO leg joint encoder feedback (open-loop PWM position only, E-FW-001#P03)."
+
+- id: DEBT-U06
+  code: U06
+  topic: "IMU 芯片坐标系与机器狗 Base Frame 相对安装旋转"
+  status: resolved
+  resolution: "Resolved via E-FW-001#P04 (pitch=AngleX+2, roll=-AngleY-1) and M1 physical sessions."
+
+- id: DEBT-U07
+  code: U07
+  topic: "IMU 数据单位与更新率实测"
+  status: resolved
+  resolution: "Resolved via E-TEST-001: 175.3 Hz update-call timing, jitter 0.790 ms."
+
+- id: DEBT-U08
+  code: U08
+  topic: "前轮 Device 0x02 内部 M0/M1 左右电机映射"
+  status: resolved
+  resolution: "Resolved via E-FW-004#P03: target1=Right-Front (M4Dir), target2=Left-Front (M3Dir)."
+
+- id: DEBT-U09
+  code: U09
+  topic: "四轮速度命令与反馈物理正方向"
+  status: open
+  note: "Rear wheels confirmed +1/-1; front wheels pending uninhibited ground test."
+
+- id: DEBT-U10
+  code: U10
+  topic: "BLDC Mode 4 力矩模式输入标称单位与端到端换算"
+  status: open
+  note: "[-100, 100] is protocol quantised range, pending dynamometer SI scale calibration."
+
+# Group B: Control, Communication & Performance
+- id: DEBT-U11
+  code: U11
+  topic: "主控制循环 loop() 实际调度频率与 Jitter"
+  status: open
+  note: "loop() has no hardware RTOS fixed timer period; varies with sensor polling."
+
+- id: DEBT-U12
+  code: U12
+  topic: "CAN 差分总线实际发送帧率与延迟"
+  status: resolved
+  resolution: "Resolved via E-TEST-001 & E-FW-003#P05: 1 Mbit/s extended frame."
+
+- id: DEBT-U13
+  code: U13
+  topic: "Serial2 内部波特率与闭源底层封包结构"
+  status: deferred
+  note: "Encapsulated inside closed-source libSF_BLDC.a; protocol details evidence debt."
+
+- id: DEBT-U14
+  code: U14
+  topic: "整机安全指令饱和极值"
+  status: open
+  note: "Defined in T03-安全联锁 as conservative bounds."
+
+- id: DEBT-U15
+  code: U15
+  topic: "轮电机最大堵转与额定力矩"
+  status: deferred
+
+- id: DEBT-U16
+  code: U16
+  topic: "端到端系统控制通信总时延"
+  status: resolved
+  resolution: "Measured upper bound < 0.5 s in E-TEST-001."
+
+- id: DEBT-U17
+  code: U17
+  topic: "硬件与软件 Watchdog 超时停机测定"
+  status: resolved
+  resolution: "Firmware timeout confirmed at 501.535-502.498 ms (E-TEST-001#P03)."
+
+# Group C: Dynamics, Masses & Contact
+- id: DEBT-U18
+  code: U18
+  topic: "整机与各模块实测称重质量"
+  status: deferred
+  note: "Currently using URDF nominal 1.3525 kg prior."
+
+- id: DEBT-U19
+  code: U19
+  topic: "机身 Base 质心位置 (CoM) 与惯量张量"
+  status: deferred
+
+- id: DEBT-U20
+  code: U20
+  topic: "各连杆与电机组件精确实测惯量"
+  status: deferred
+
+- id: DEBT-U21
+  code: U21
+  topic: "连杆轴承关节摩擦与阻尼系数"
+  status: deferred
+
+- id: DEBT-U22
+  code: U22
+  topic: "外转子橡胶轮胎与地面静/动摩擦因数"
+  status: deferred
+
+- id: DEBT-U23
+  code: U23
+  topic: "舵机动态阶跃响应曲线与死区"
+  status: deferred
+
+- id: DEBT-U24
+  code: U24
+  topic: "电池母线压降对电机与舵机特性的影响"
   status: deferred
