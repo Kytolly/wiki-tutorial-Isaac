@@ -33,15 +33,15 @@
 
 ## 3. StackForce 当前工程状态速览（Current Engineering Status）
 
-- **顶级六阶段路线推进（M1–M6）**：全机 44 个 Gate 中当前 **15 / 44 PASS**。
-  - **[[M1-Hardware-Ground-Truth]]（7/10 PASS，IN PROGRESS）**：硬件清单、传感器、时序测频、延迟基线已冻结；Channel 7 舵机硬件已修复，当前聚焦修复后回归测试与 8 舵机物理零位量化标定。
+- **顶级六阶段路线推进（M1–M6）**：全机 44 个 Gate 中当前 **18 / 44 PASS**。
+  - **[[M1-Hardware-Ground-Truth]]（10/10 PASS WITH DECLARED GAPS）**：真实机构、12 个执行器身份、PCA/Wheel mapping 与 S3 控制关系已冻结；历史 ch7 failure 保留为 provenance，powered all-channel regression 已正常完成。绝对 physical sign、mechanical u0、q_real/qd_real 不冒充 M1 blocker。
   - **[[M2-Simulation-Asset]]（8/8 PASS）**：严格单父树闭链 URDF（29 links, 28 joints）与 PhysX 闭环副重构全部通过；2400 步 CPU 悬空下沉重力烟囱测试通过（漂移 $\le 0.0595\text{ mm}$）；明确保持 **`rl_ready = false`** 动力学未标定边界。
   - **[[M3-Dynamics-Calibration]]（0/6 PASS，IN PROGRESS）**：当前核心推进阶段。基础构件映射与数字资产已具备，待实机连接采集高频动态遥测。
   - **[[M4-Locomotion]]（0/6 TODO）**：等待 M3 动力学参数对齐后解除门禁锁定。
   - **[[M5-Robustness]]（0/6 TODO）**：等待 M4 基础步态收敛后开展域随机化。
   - **[[M6-Sim-to-Real]]（0/8 TODO）**：等待 M1 安全解封与 M5 策略导出后开展真机落地。
-- **当前核心焦点（Current Focus）**：M3-G01 激励协议冻结与真机架空动态响应数据采样。
-- **下一步行动（Next Action）**：连接真机运行架空激励实验，录制标准 CSV 遥测数据集。
+- **当前核心焦点（Current Focus）**：M3-G01 激励协议冻结与 Real↔Sim dynamics response alignment；M1 physical contract 已闭合。
+- **下一步行动（Next Action）**：继续 M3 dynamics analysis；不得把 M1 的 external sign/u0/q_real gaps 重新打开为阻塞项。
 
 ---
 
@@ -56,4 +56,4 @@
 
 ## 5. 更新日志
 
-- 2026-09-15：重构为纯 Summary / View 门户；修正主验收架构链条描述；同步各 Milestone 最新状态（M1 7/10 IN PROGRESS, M2 8/8 PASS, M3 IN PROGRESS）；全面应用 Canonical 构件命名。
+- 2026-09-17：同步 M1 offline re-audit 与 powered Dataset 004 reproduction，更新为 18/44；M1 置为 10/10 PASS WITH DECLARED GAPS。

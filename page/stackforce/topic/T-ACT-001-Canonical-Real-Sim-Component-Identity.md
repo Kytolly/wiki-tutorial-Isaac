@@ -29,7 +29,7 @@ PCA channel、real servo alias、canonical Servo、canonical Sim Hip Joint 与 O
 | Firmware alias ↔ canonical Servo | `E-FW-003#p03` vs registry | VERIFIED | `servoRightRear→FR_Outer_Servo`, `servoRightFront→FR_Inner_Servo`, `servoLeftRear→FL_Outer_Servo`, `servoLeftFront→FL_Inner_Servo`, and the four rear aliases are recorded as SOURCE_ALIAS. |
 | Canonical Servo ↔ canonical Hip Joint | registry vs `E-SIM-001#P03` | VERIFIED | Outer Servo actuates Outer Hip; Inner Servo actuates Inner Hip. Actuation state is metadata and is not encoded in joint identity. |
 | Canonical branch ↔ legacy M1/M2 | raw source vs registry | CONSISTENT | M1/M2 are retained only as historical/source aliases; current code uses Outer/Inner. |
-| Canonical Wheel Motor ↔ Wheel Joint | `E-FW-003#p05-twai-can-protocol-and-compression` vs `E-SIM-001#P05` | MISSING | Current simulation topology verifies the rotational joint, but no new physical wheel registration Evidence is created here. |
+| Canonical Wheel Motor ↔ Wheel Joint | `E-M1-002#P02/P04` vs `E-SIM-001#P05` | VERIFIED | Four physical Wheel command identities and the canonical Wheel Joints are uniquely linked; powered +/- raw behavior and zero were observed. |
 | Canonical Closure Joint ↔ loop-cut/PhysX | `E-SIM-001#P02` vs `E-SIM-003#P03-P04` | VERIFIED | URDF omits the loop edge; closed USD restores a revolute joint with `excludeFromArticulation=true`. |
 
 ## 4. Canonical identity table
@@ -52,9 +52,10 @@ Wheel identity is branch-independent: `{LEG}_Wheel_Motor → {LEG}_Wheel_Joint`.
 - **SUPPORTED**：PCA1–PCA8 map uniquely to the eight canonical Servo identities above; the corresponding Sim Hip Joint is deterministic from URDF parent/child and actuator partition.
 - **SUPPORTED**：the active action set remains 12 entries: Outer Hip group, Inner Hip group, then Wheel group; passive knees and Closure Joints remain outside policy action space.
 - **INFERRED**：firmware parameter names describe physical servo registration aliases, while command sign, zero, scale, and feedback remain calibration properties.
-- **UNRESOLVED**：wheel motor PCA-like registration and physical feedback sign require separate physical Evidence; this Topic does not infer them.
+- **SUPPORTED**：four Wheel_Motor identities and controller routes are frozen by `E-M1-002#P02/P04`.
+- **UNRESOLVED**：absolute forward-positive and feedback sign remain Deployment/M3 properties; this Topic does not infer them.
 
 ## 6. Conflicts and open questions
 
-- **Q-01**: complete real wheel registration and feedback sign in the dedicated hardware Evidence chain.
+- **Q-01**: wheel identity is complete; only forward-positive/feedback sign remains outside M1.
 - **Q-02**: keep registration-code claims under `T-HW-REG-001`; this migration does not infer a physical registration code.

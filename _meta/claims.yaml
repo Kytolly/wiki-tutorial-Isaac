@@ -1,16 +1,30 @@
 - id: C-M1-STATUS
-  claim: "M1 is BLOCKED: G01 and G02 are PASS, G05-G09 are closed with stated evidence debt, and G03/G04/G10 are blocked."
+  claim: "Historical 2026-09-10 M1 disposition was BLOCKED before the later powered all-channel regression."
   claim_type: status
   concept_ids: [M1-hardware-ground-truth]
   evidence_ids: [E-M1-OUTCOME-20260910]
   status: verified
   confidence: high
+- id: C-M1-STATUS-20260917
+  claim: "M1 real physical mechanism, actuator identity, PCA/Wheel mapping and S3 control relationship are frozen; historical ch7 failure is retained but is no longer a current blocker after powered all-channel regression."
+  claim_type: status
+  concept_ids: [M1-hardware-ground-truth, actuator-safety]
+  evidence_ids: [E-M1-002]
+  status: superseded
+  confidence: high
+- id: C-M1-ACTUATOR-CONTRACT-20260917
+  claim: "Powered Dataset 004 reproduction confirmed visible bounded Servo motion, visible opposite Wheel behavior, normal return/zero and normal safety without quantitative external joint ground truth."
+  claim_type: physical-observation
+  concept_ids: [actuator-registration, actuator-safety]
+  evidence_ids: [E-M1-002]
+  status: verified
+  confidence: high
 - id: C-M1-CH7-SAFETY
-  claim: "Channel 7 continued raising after firmware timeout and explicit STOP; actuator power must remain off pending isolation, repair, and unloaded return validation."
+  claim: "Channel 7 continued raising after firmware timeout and explicit STOP during the 2026-09-10 session; later powered regression supersedes this as a current blocker without deleting the event."
   claim_type: safety
   concept_ids: [actuator-safety, actuator-registration]
   evidence_ids: [E-M1-PHYSICAL-20260910]
-  status: verified
+  status: historical-verified
   confidence: high
 - id: C-M1-IMU
   claim: "The current-real IMU update-call timing was measured at about 175.3 Hz with mean period 5.704 ms and jitter about 0.790 ms."
@@ -27,11 +41,11 @@
   status: verified
   confidence: medium
 - id: C-M1-OFFLINE-BOUNDARY
-  claim: "Offline interface design and first kinematic Reference-B may continue, while powered real-robot actuation and locomotion are not accepted."
+  claim: "Historical 2026-09-10 boundary allowed offline work but did not accept powered actuation; later powered all-channel regression supersedes this restriction."
   claim_type: decision
   concept_ids: [m1-hardware-ground-truth]
   evidence_ids: [E-M1-OUTCOME-20260910]
-  status: verified
+  status: superseded
   confidence: high
 - id: C-GEOMETRY-PASS
   claim: "Four-leg inner-chain rod lengths (60mm/100mm), P2 surface gap (0.150mm), W1/W2 axial offset (-44.950mm), and collinear radial residual (<2e-14m) verified PASS."

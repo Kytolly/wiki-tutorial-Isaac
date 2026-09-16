@@ -1,53 +1,57 @@
 # M1 — Hardware Ground Truth
 
+> **Links / 链接:** [[Home]] · [[Roadmap与里程碑]] · [[evidence-registry]] · [[T-ACT-001-Canonical-Real-Sim-Component-Identity]]
+
 ## Objective
 
-建立真实四足轮腿机器人的硬件物理基线，摸清控制器、执行器、传感器与总线时序，规范软硬件安全联锁，排除致命人身安全隐患。
+冻结真实四足轮腿机器人的 physical mechanism、actuator identity、controller routing 与 command semantics；未知的 dynamics、Deployment action adapter 和 Optional External Ground Truth 保持分离。
 
 ## Status
 
-IN PROGRESS
+**PASS WITH DECLARED NON-BLOCKING GAPS**
 
 ## Progress
 
-7 / 10 PASS (7 PASS, 3 IN PROGRESS)
+**10 / 10 PASS**
 
 ## Gates
 
-| Gate | Title | Status | Required Criteria | Passed | Next Action |
-|---|---|---|---:|---:|---|
-| [[M1-G01-硬件清点]] | 硬件清点 | **PASS** | 4 / 4 | 4 | 已归档，作为全项目硬件基线 |
-| [[M1-G02-传感器映射]] | 传感器映射 | **PASS** | 3 / 3 | 3 | 已归档，观测符号与坐标轴对齐 |
-| [[M1-G03-执行器映射]] | 执行器映射 | **IN PROGRESS** | 4 / 4 | 3 | 执行 Channel 7 检修后回归测试复测 |
-| [[M1-G04-关节标定]] | 关节标定 | **IN PROGRESS** | 4 / 4 | 2 | 开展 8 舵机物理零位与死区量化标定 |
-| [[M1-G05-指令定性]] | 指令定性 | **PASS** | 3 / 3 | 3 | 已归档，开环闭环模态与 IK 解析已证实 |
-| [[M1-G06-控制测频]] | 控制测频 | **PASS** | 3 / 3 | 3 | 已归档，50Hz PWM / 100Hz 任务周期测定 |
-| [[M1-G07-延迟测量]] | 延迟测量 | **PASS** | 3 / 3 | 3 | 已归档，501.5ms 硬件看门狗停机触发 |
-| [[M1-G08-尺寸测量]] | 尺寸测量 | **PASS** | 3 / 3 | 3 | 已归档，连杆 60/100/40mm 与 -44.95mm 对齐 |
-| [[M1-G09-质量测量]] | 质量测量 | **PASS** | 2 / 2 | 2 | 已归档，整机毛重与模型质量完备性断言通过 |
-| [[M1-G10-停机验证]] | 停机验证 | **IN PROGRESS** | 4 / 4 | 3 | 执行整机修复后联动停机回归复测 |
+| Gate | Title | Status | Current result |
+|---|---|---|---|
+| [[M1-G01-硬件清点]] | 硬件清点 | **PASS** | controller/board/actuator inventory frozen |
+| [[M1-G02-传感器映射]] | 传感器映射 | **PASS** | onboard observation availability frozen |
+| [[M1-G03-执行器映射]] | 执行器映射 | **PASS** | PCA1-PCA8 and four Wheel identities frozen; powered all-channel regression normal |
+| [[M1-G04-关节标定]] | 关节标定边界 | **PASS** | reference command and servo_off frozen; mechanical u0/q remain optional external ground truth |
+| [[M1-G05-指令定性]] | 指令定性 | **PASS** | Servo degree command and Wheel raw command semantics frozen |
+| [[M1-G06-控制测频]] | 控制测频 | **PASS** | controller timing contract retained |
+| [[M1-G07-延迟测量]] | 延迟测量 | **PASS** | measured timing retained under M3 dynamics ownership |
+| [[M1-G08-尺寸测量]] | 尺寸测量 | **PASS** | nominal physical geometry sufficient for M1 |
+| [[M1-G09-质量测量]] | 质量测量 | **PASS** | higher-fidelity mass/inertia moved to M3 dynamics fidelity |
+| [[M1-G10-停机验证]] | 停机验证 | **PASS** | post-flash timeout/STOP and powered return/zero evidence PASS |
 
-## Current Focus
+## Frozen Result
 
-1. 组织实机架空复测，针对 Channel 7 执行检修后动作隔离与正常回中回归验证（`M1-G03-C04`）。
-2. 使用物理测量工具实测 8 舵机机械零位偏置（u0）与指令符号（`M1-G04-C02`）。
-3. 验证母线切断与通信丢失下整机联动停机（`M1-G10-C04`）。
+- REAL_SINGLE_LEG_MECHANISM_CONTRACT = FROZEN
+- REAL_ACTUATOR_IDENTITY_CONTRACT = FROZEN
+- REAL_PCA_SERVO_MAPPING = FROZEN
+- REAL_WHEEL_IDENTITY_CONTRACT = FROZEN
+- REAL_COMMAND_PHYSICAL_CONTRACT = PARTIAL
+- OFFLINE_M1_COMPLETE = YES
+- ADDITIONAL_REAL_M1_EXPERIMENT_REQUIRED = NO
 
-## Dependencies
+The historical ch7 non-return event remains in E-CAL-001; E-M1-002#P04 records the later powered all-channel regression that removes it as a current blocker. Absolute Servo joint-positive direction and Wheel chassis-forward sign remain Deployment work. Servo q_real/qd_real and precision mechanical u0 remain Optional External Ground Truth.
 
-- 真实四足轮腿机器人（当前可用）。
-- 架空测试安全台架与动力电池安全断电开关。
+## Remaining Boundaries
 
-## Remaining Blockers / Evidence Debt
-
-- **Historical Failure**: 通道 7 历史持续上抬失控已在 `E-CAL-001#P04` 忠实记录为历史事实；当前硬件故障已物理修复，不再构成外部永久性阻断。
-- **Evidence Debt**:
-  - `M1-G03-C04`: Channel 7 修复后实机回归复测报告。
-  - `M1-G04-C02`: 8 舵机物理零位与绝对弧度真值标定。
-  - `M1-G04-C04`: 舵机指令到弧度 Scale 与开环死区特性。
-  - `M1-G09-C03`: 单连杆精密拆解物理秤重。
-  - `M1-G10-C04`: 整机修复后安全停机联动复测。
+| Ownership | Open work |
+|---|---|
+| M1_PHYSICAL_CONTRACT | None requiring another powered experiment |
+| M2_SIM_ASSET | PhysX closure/runtime |
+| M3_DYNAMICS | response, delay, stiffness, damping, Wheel SI, contact/friction |
+| DEPLOYMENT | policy-to-hardware sign/scale/saturation/routing |
+| OPTIONAL_GROUND_TRUTH | external Servo angle/velocity and precision mechanical zero |
 
 ## Changelog / 更新日志
 
-- 2026-09-15：重构为标准 Milestone 规范；移除过期的硬编码 7/10 BLOCKED 状态，重算为 7/10 PASS (IN PROGRESS)；厘清 ch7 历史故障与修复事实；严格直接引用 Gate。
+- 2026-09-17：依据 E-M1-002 与 powered Dataset 004 reproduction，将 M1 冻结为 10/10 PASS WITH DECLARED NON-BLOCKING GAPS；保留历史 ch7 failure，不再将其列为当前 blocker。
+- 2026-09-15：重构为标准 Milestone 规范并保留当时 7/10 状态。

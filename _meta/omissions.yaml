@@ -5,14 +5,14 @@
 
 - id: O-M1-CH7-REPAIR
   topic: ch7/ch8 physical isolation, repair, and return validation
-  reason: P0 Safety blocker; ch7 continuously lifts up; actuator rail powered work prohibited.
-  status: open
+  reason: Historical 2026-09-10 ch7 non-return retained as provenance; later powered all-channel regression was normal.
+  status: resolved
   debt_group: Group-B
   related_unknown: U17
 
 - id: O-M1-ACTION-SIGNS
   topic: Servo/wheel physical polarity and feedback sign calibration
-  reason: Incomplete or unsafe to continue after ch7 failure.
+  reason: Absolute physical sign remains a Deployment adapter question; powered response is safe but not a canonical frame measurement.
   status: open
   debt_group: Group-A
   related_unknown: U03, U09
@@ -44,7 +44,7 @@
   code: U03
   topic: "舵机正旋转方向与 URDF 轴向对齐"
   status: open
-  blocker: "Blocked by ch7 failure; requires unloaded tiny-step test (+0.05 rad)."
+  blocker: "No M1 blocker; close only if Deployment requires canonical frame sign registration."
 
 - id: DEBT-U04
   code: U04

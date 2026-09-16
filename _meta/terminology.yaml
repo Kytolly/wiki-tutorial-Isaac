@@ -2,7 +2,7 @@
   canonical_en: actuator rail
   zh: 执行器供电轨
   abbreviation: null
-  definition: Powers the robot actuators; it remains off while the ch7 safety blocker is open.
+  definition: Powers the robot actuators; historical ch7 blocker is resolved by later powered regression, while ground-contact work remains separately gated.
   source_definition: E-M1-PHYSICAL-20260910
   first_occurrence: page/stackforce/topic/M1-现场产物归档.md
   related_concepts: [actuator-safety]

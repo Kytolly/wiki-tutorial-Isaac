@@ -7,6 +7,15 @@
   claim_ids: [C-M1-STATUS, C-M1-OFFLINE-BOUNDARY]
   confidence: high
   notes: Authoritative final M1 disposition and explicit evidence-debt boundary.
+- id: E-M1-002
+  source_type: physical-and-audit
+  source_title: M1实机物理契约复审与Powered全通道回归
+  source_url: docs/evidence/E-M1-002-M1实机契约复审与Powered全通道回归.md
+  source_locator: E-M1-002#P01-P05
+  accessed_at: 2026-09-17
+  claim_ids: [C-M1-STATUS-20260917, C-M1-ACTUATOR-CONTRACT-20260917]
+  confidence: high
+  notes: Later powered Dataset 004 reproduction closes the former current ch7 blocker while retaining historical failure provenance.
 - id: E-M1-PHYSICAL-20260910
   source_type: local-artifact
   source_title: StackForceDog M1 lifted physical-session records
@@ -55,7 +64,7 @@
   accessed_at: 2026-09-13
   claim_ids: [C-STATIC-ASSET-PASS]
   confidence: high
-  notes: Output 'PASS: 29 links, 28 joints, 21 meshes, 4 closure-frame pairs'.
+  notes: "Output 'PASS: 29 links, 28 joints, 21 meshes, 4 closure-frame pairs'."
 - id: E-RECOVER-CLOSED-LOOPS-PY
   source_type: local-artifact
   source_title: Post-import PhysX closed loop recovery script and generated USD

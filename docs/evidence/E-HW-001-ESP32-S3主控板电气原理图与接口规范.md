@@ -118,6 +118,12 @@ StackForce 主控板电气原理图（图号 V1.0）定义了机器人的核心�
 
 ---
 
+### E-HW-001#P06: 双 MCU 独立复位按键网络
+- **图纸位号与网络**：`SW1: KFC-1109DEB-F`、`SW3: KFC-1109DEB-F`、`Ex_RST`、`Mot_RST`。
+- **Raw Source Faithful Reproduction（原始证据忠实复刻）**：原图 `StackForce主控板.pdf` 在 ESP32-S3 区域将 `SW1` 接于 `Ex_RST` 与 `GND`；在 ESP32-U4WDH / motor 区域将 `SW3` 接于 `Mot_RST` 与 `GND`。`Ex_RST` 标于 ESP32-S3 `U1` 的 reset 输入，`Mot_RST` 标于 ESP32-U4WDH `U7` 的 reset 输入。
+- **Engineering Statement**：`[SPECIFIED]` `SW1` 是 `Ex_RST` 的低有效人工复位开关，控制 ESP32-S3 运控芯片；`SW3` 是 `Mot_RST` 的低有效人工复位开关，控制 motor-side ESP32-U4WDH。
+- **Limitations**：图纸指定 PCB 设计，不能单独证明任一实物板未改版或按键实际被按下；物理位置与可见 `RST` 丝印由 `E-DOC-006#P03` 的官方板照交叉定位。
+
 ## 认识论状态判定 (Epistemic Status)
 
 | 证据项编号 | 事实断言内容 | 认识论判定 | 严谨边界与审计说明 |
@@ -127,6 +133,7 @@ StackForce 主控板电气原理图（图号 V1.0）定义了机器人的核心�
 | `E-HW-001#P03` | CH340K 与 DDC114TU-7 构成的自动下载重置电路 | `[CIRCUIT_DEFINED]` | 确立 DTR#/RTS# 配合三极管的反相与拉低时序 |
 | `E-HW-001#P04` | XC6210B332MR 稳压供电架构与 Mot/Ex 3.3V 双电源域 | `[SPECIFIED]` | 确立 3.3V/700mA 稳压输出及去耦滤波电容参数 |
 | `E-HW-001#P05` | 20P 驱动板插座与 28P 顶层扩展排针引脚物理分配 | `[SPECIFIED]` | 严格对应 GPIO 40 (PPM) 与 GPIO 35/41 (CAN) 硬件连接 |
+| `E-HW-001#P06` | `SW1 -> Ex_RST -> ESP32-S3` 及 `SW3 -> Mot_RST -> ESP32-U4WDH` | `[SPECIFIED]` | 与 `E-DOC-006#P03` 板照的 S3/S1 reset 按键位置形成 DOC↔schematic 互证 |
 
 ---
 

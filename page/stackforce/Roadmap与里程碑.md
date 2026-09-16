@@ -11,14 +11,14 @@ StackForce 项目坚持以六阶段宏观路线为唯一顶级推进体系：
 
 | Milestone | 目标与范围 | 门禁总数 | 已关闭 | 当前状态 | 前置依赖 | 当前核心焦点 / 下一步行动 |
 |---|---|---:|---:|---|---|---|
-| [[M1-Hardware-Ground-Truth]] | 建立真实机器人物理基线与硬件拓扑 | 10 | 7 | **IN PROGRESS** | 无 | 执行 Channel 7 检修后回归测试复测；量化标定 8 舵机物理零位偏置 |
+| [[M1-Hardware-Ground-Truth]] | 建立真实机器人物理基线与硬件拓扑 | 10 | 10 | **PASS_WITH_DECLARED_GAPS** | 无 | 真实机构/执行器/PCA/Wheel identity 已冻结；sign/u0/q_real 保持独立边界 |
 | [[M2-Simulation-Asset]] | 建立闭链数字资产与物理稳定性验证 | 8 | 8 | **PASS** | CAD/STL 图纸 | 保持资产完全冻结，输出单父树 URDF/USD 资产供动力学校验 |
 | [[M3-Dynamics-Calibration]] | 对齐 Real↔Sim 响应与执行器动力学 | 6 | 0 | **IN PROGRESS** | M1, M2 | 冻结阶跃/正弦实验协议（G01）；连接真机采集高频遥测数据集 |
 | [[M4-Locomotion]] | 完成仿真轮足运动与自稳步态策略 | 6 | 0 | **TODO** | M2, M3 | 等待 M3 动力学参数对齐并解除 `rl_ready = false` 边界锁定 |
 | [[M5-Robustness]] | 域随机化与复杂地形抗扰泛化 | 6 | 0 | **TODO** | M4 | 待 M4 基础策略就绪后开展质量、摩擦与时延扰动训练 |
 | [[M6-Sim-to-Real]] | 实机影子推理、悬空驱动与实机运动 | 8 | 0 | **TODO** | M1, M5 | 待 M1 硬件安全解封与 M5 策略导出后执行真机部署与终验 |
 
-**宏观进度**：15 / 44 Gates PASS（M1: 7/10, M2: 8/8, M3: 0/6, M4: 0/6, M5: 0/6, M6: 0/8）。  
+**宏观进度**：18 / 44 Gates PASS（M1: 10/10, M2: 8/8, M3: 0/6, M4: 0/6, M5: 0/6, M6: 0/8）。
 **当前推进阶段（Current Next Milestone）**：[[M3-Dynamics-Calibration]]（动力学系统辨识与响应对齐）。
 
 ---
@@ -27,7 +27,7 @@ StackForce 项目坚持以六阶段宏观路线为唯一顶级推进体系：
 
 ```mermaid
 flowchart LR
-    M1["M1 Hardware Ground Truth<br>(7/10 IN PROGRESS)"] --> M3["M3 Dynamics Calibration<br>(0/6 IN PROGRESS)"]
+    M1["M1 Hardware Ground Truth<br>(10/10 PASS_WITH_DECLARED_GAPS)"] --> M3["M3 Dynamics Calibration<br>(0/6 IN PROGRESS)"]
     M2["M2 Simulation Asset<br>(8/8 PASS)"] --> M3
     M2 -. 仿真环境接入 .-> M4["M4 Locomotion<br>(0/6 TODO)"]
     M3 -->|解除 rl_ready 锁定| M4
@@ -66,4 +66,4 @@ flowchart LR
 
 ## 4. 更新日志
 
-- 2026-09-15：重构为纯 Summary / View 视图；同步最新 Gate 审计结果，重算宏观进度为 15/44；修正 M1/M3 为 IN PROGRESS；全面应用 Canonical Component Naming。
+- 2026-09-17：同步 M1 offline re-audit 与 powered Dataset 004 reproduction；M1 更新为 10/10 PASS_WITH_DECLARED_GAPS，宏观进度更新为 18/44。

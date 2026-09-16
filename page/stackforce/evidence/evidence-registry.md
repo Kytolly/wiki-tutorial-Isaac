@@ -12,6 +12,7 @@
 | Evidence ID | 证据文档标题 (Title) | 规范状态 (Status) | 认识论角色 (Epistemic Role) | 领域类别 (Domain) | 包含原子分部 (Parts) | 主要消费方 (Consumers) |
 |---|---|---|---|---|---|---|
 | **`E-CAL-001`** | 实机执行器单通道动作隔离与故障阻断记录 | **VALID** | `PHYSICAL` | Physical Calibration | `P01`~`P05`: 通道映射、阶跃测试、极性定性、ch7 故障事实、ch8 耦合分析 | `M1-G03`, `M1-G04`, `M1-G05`, `M1-G10`, `T-ACT-001`, `T03` |
+| **`E-M1-002`** | M1实机物理契约复审与Powered全通道回归 | **VALID** | `PHYSICAL_AND_AUDIT` | M1 Real Contract | `P01`~`P05`: 机构、身份、command boundary、powered all-channel regression、ownership boundary | `M1-G03`, `M1-G04`, `M1-G10`, `T-ACT-001`, `T-ACT-002` |
 | **`E-DOC-001`** | 遥控器原厂操作与对频接线指南 | **VALID** | `DOC_SPEC` | Hardware Document | `P01`~`P04`: 接收机线序、S3 接口接线、对频时序、开机安全位姿 | `M1-G05`, `T-ACT-001`, `T03` |
 | **`E-DOC-002`** | StackForce四足狗基本操作说明 | **VALID** | `DOC_SPEC` | Hardware Document | `P01`~`P04`: 开关机规程、拨杆模式真值、摇杆量程、行走自稳条件 | `M1-G05`, `M1-G10`, `M6-G06`~`G08`, `T03` |
 | **`E-DOC-003`** | 四足机器人整机机械安装与调试指南 | **VALID** | `DOC_SPEC` | Hardware Document | `P01`~`P05`: 紧固件与轴承、机干主架、五杆组装与防松、调试按键、驱动轮与编码器 | `M1-G01`, `M1-G08`, `M1-G09`, `M2-G01`, `M3-G05` |
@@ -27,7 +28,7 @@
 | **`E-FW-006`** | 双路无刷电机FOC控制与电流采样例程固件 | **VALID** | `IMPLEMENTATION` | Embedded Firmware | `P01`~`P05`: 30kHz 开环算法、INA199 相电流差分采样、Mode 4 力矩闭环模式、Mode 1/2 模式、UDP 遥测 | `M1-G05`, `M1-G06`, `M3-G01`, `M3-G04` |
 | **`E-FW-007`** | 舵机扩展板PCA9685与MPU6050驱动例程固件 | **VALID** | `IMPLEMENTATION` | Embedded Firmware | `P01`~`P02`: PCA9685 16通道 12-bit PWM 驱动、MPU6050 姿态角与角速度读取 | `M1-G02`, `M1-G06` |
 | **`E-FW-008`** | 芯片唯一eFuse硬件信息与设备指纹读取固件 | **VALID** | `IMPLEMENTATION` | Embedded Firmware | `P01`~`P05`: S1 运行时架构、115200 串口通信、64 位 eFuse MAC 提取、硅片元数据、授权闭环校验 | `M1-G01`, `T-HW-REG-001` |
-| **`E-HW-001`** | ESP32-S3主控板电气原理图与接口规范 | **VALID** | `DOC_SPEC` | Hardware Schematic | `P01`~`P05`: ESP32-S3-WROOM-1U-N16R2 最小系统、CH440R 复用切换、CH340K 下载、电源树、排针总线 | `M1-G01`, `T01` |
+| **`E-HW-001`** | ESP32-S3主控板电气原理图与接口规范 | **VALID** | `DOC_SPEC` | Hardware Schematic | `P01`~`P06`: ESP32-S3 最小系统、USB/UART、电源树、排针总线、SW1 Ex_RST 与 SW3 Mot_RST | `M1-G01`, `T01` |
 | **`E-HW-002`** | PCA9685多路舵机与MPU6050扩展板原理图 | **VALID** | `DOC_SPEC` | Hardware Schematic | `P01`~`P05`: PCA9685PW 拓扑、MPU6050 传感电路、TPS5450 5A Buck 降压、8 路舵机隔离排针、CN1/CN2 互联 | `M1-G01`, `M1-G02`, `M1-G03`, `M1-G06`, `T-ACT-001` |
 | **`E-HW-003`** | 双路无刷轮机驱动器与逆变电路原理图 | **VALID** | `DOC_SPEC` | Hardware Schematic | `P01`~`P05`: DRV8313 驱动逆变拓扑、INA199 电流采样、磁编码器物理接口、TPS5450 稳压、动力端子 | `M1-G01`, `M1-G02`, `M1-G03` |
 | **`E-HW-004`** | 板间TWAI-CAN与RS485总线通信板原理图 | **VALID** | `DOC_SPEC` | Hardware Schematic | `P01`~`P05`: SN65HVD230 CAN 收发、SP3485 RS-485 扩展、120Ω 终端电阻、B0505S 隔离电源、TVS 防护 | `M1-G01`, `T01` |

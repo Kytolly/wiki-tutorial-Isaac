@@ -18,14 +18,14 @@
 
 | Milestone | Closed Gates | Total | Status |
 |---|---:|---:|---|
-| M1 Hardware Ground Truth | 7 | 10 | BLOCKED |
+| M1 Hardware Ground Truth | 10 | 10 | PASS_WITH_DECLARED_GAPS |
 | M2 Simulation Asset | 8 | 8 | PASS |
 | M3 Dynamics Calibration | 0 | 6 | TODO |
 | M4 Locomotion | 0 | 6 | IN PROGRESS |
 | M5 Robustness | 0 | 6 | TODO |
 | M6 Sim-to-Real | 0 | 8 | TODO |
 
-总进度：15 / 44 Gates closed。
+总进度：18 / 44 Gates closed；M1 physical contract is 10/10 PASS_WITH_DECLARED_GAPS。
 
 ## StackForce Closed-Link Asset Sub-Progression（闭链数字资产研发子阶段）
 
@@ -42,7 +42,7 @@
 
 ## Current Findings & Validation Boundary
 
-- **实机与硬件基线（M1）**：已完成两次可审计架空 session：G01/G02 PASS，G05–G09 在明确 evidence debt 下关闭，G03/G04/G10 BLOCKED。当前最高优先级 blocker 是 ch7 在 firmware return/STOP 后物理回中失败，修复前 actuator rail 必须保持断电隔离；离线 interface 与首版 kinematic Reference-B 可继续（`E-HW-001`）。
+- **实机与硬件基线（M1）**：机构、12 个执行器身份、PCA/Wheel mapping 与 S3 控制关系已冻结；powered Dataset 004 reproduction 记录全通道 visible bounded response、正常 return/zero 与 NORMAL safety。历史 ch7 failure 保留在原 Evidence，但不再是当前 blocker；绝对 physical sign、mechanical u0 与 q_real 仍分属 Deployment/Optional Ground Truth。
 - **闭链数字资产（M2/Simulation Asset）**：
   - 8/8 门禁全检 PASS；
   - 几何与拓扑：四腿内外八链几何对齐，URDF 保持严格单父树（29 links / 28 joints，唯一根 `base_link`，W2 显式 loop-cut 切断）；
@@ -63,9 +63,9 @@
 
 ## Last Update
 
-- 2026-09-14：重构宏观工程状态为标准 M1–M6 顶级架构；建立便携式 [[evidence-registry]] 关联；更新 M2 闭链资产 2400 步 CPU 重力下沉实验 PASS（0.060 mm）与负对照（129 mm）实验；确立自由度划分（20 树关节 / 12 主动 / 8 被动 / 4 约束）与 `rl_ready = false` 边界。
+- 2026-09-17：依据 E-M1-002 更新 M1 为 10/10 PASS_WITH_DECLARED_GAPS；历史 ch7 failure 保留为 provenance，解除其当前 blocker 状态。
 - 2026-09-13：根据真实交付物（URDF、USD、`closure_frames.json`、`validate_asset.py`、`recover_closed_loops.py`）确立静态门禁 PASS 与动态验证边界。
-- 2026-09-11：同步 M1 两次架空实机 session；更新宏观进度为 15/44，并记录 ch7 powered-actuation blocker。
+- 2026-09-11：同步 M1 两次架空实机 session；当时记录 ch7 powered-actuation blocker，现由后续 E-M1-002 保留为历史 provenance。
 - 2026-09-08：同步 M1-T01–T05 与 M2-T01–T07，清理旧 evidence 路径并消除与 M2 PASS 冲突的专题描述。
 - 2026-09-08：为 M1/M2 Milestone Dashboard 增加逐 Gate Evidence Snapshot、PASS 边界和剩余验收项。
 - 2026-09-08：同步 `doc/StackForceDog/M1_outcome` 与 `M2_outcome`；M2 以 8/8 PASS 收口，总进度更新为 8/44，并记录 M1-G10 P0 安全缺口。

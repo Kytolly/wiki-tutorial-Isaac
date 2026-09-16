@@ -1,16 +1,16 @@
 wiki_mode: project-docs
-last_verified: 2026-09-15
+last_verified: 2026-09-17
 ingestion:
   source: $PROJECT_ROOT/sf_quad/ and doc/StackForceDog/
   scope: M1 physical outcome, M2 closed-link asset and physics smoke validation, M3 experiment contract
   visual_evidence_status: unverified
 milestones:
   M1:
-    strict_pass: 7
-    in_progress: 3
+    strict_pass: 10
+    in_progress: 0
     blocked: 0
     total_gates: 10
-    status: IN_PROGRESS
+    status: PASS_WITH_DECLARED_GAPS
   M2:
     strict_pass: 8
     in_progress: 0
@@ -40,6 +40,6 @@ milestones:
     status: TODO
 summary:
   total_gates: 44
-  total_passed: 15
-  total_in_progress: 4
+  total_passed: 18
+  total_in_progress: 1
   total_todo: 25
