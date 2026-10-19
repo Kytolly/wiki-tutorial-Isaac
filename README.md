@@ -14,6 +14,8 @@ A wiki repository about tutorials of IsaacLab and IsaacSim.
 ```bash
 ./script/publish-wiki.sh
 ```
+## 在线预览
+📖 在线阅读：https://kytolly.github.io/wiki-tutorial-Isaac/
 
 ## 本地预览
 
