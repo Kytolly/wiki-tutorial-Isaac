@@ -18,6 +18,19 @@ EXTRA_CSS = """.md-typeset .grid.cards > ul > li {
   color: var(--md-default-fg-color--light);
   font-size: 0.82rem;
 }
+
+:root {
+  --md-code-wrap-icon: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h12.5a2.5 2.5 0 0 1 0 5H13v-2h2.5a.5.5 0 0 0 0-1H3zm0 5h6v2H3z"/></svg>');
+}
+
+.md-typeset .md-code__button[data-md-type=wrap]:after {
+  -webkit-mask-image: var(--md-code-wrap-icon);
+  mask-image: var(--md-code-wrap-icon);
+}
+
+.md-typeset .md-code__button[hidden] {
+  display: none !important;
+}
 """
 
 def target_name(name):
@@ -60,3 +73,9 @@ css_dir = os.path.join(DOCS, "stylesheets")
 os.makedirs(css_dir, exist_ok=True)
 open(os.path.join(css_dir, "extra.css"), "w", encoding="utf-8").write(EXTRA_CSS)
 print("built stylesheets/extra.css")
+
+# 复制自定义 JS（script/assets/** → docs/javascripts/**），供 extra_javascript 引用
+js_src = os.path.join(HERE, "assets")
+if os.path.isdir(js_src):
+    shutil.copytree(js_src, os.path.join(DOCS, "javascripts"), dirs_exist_ok=True)
+    print("built javascripts/")
