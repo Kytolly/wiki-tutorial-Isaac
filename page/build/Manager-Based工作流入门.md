@@ -54,9 +54,10 @@ from isaaclab.managers import (
     TerminationTermCfg, EventTermCfg, CurriculumTermCfg,
 )
 from isaaclab.envs.mdp.actions import JointPositionActionCfg
-from isaaclab.envs.mdp.observations import joint_pos, joint_vel, base_lin_vel
+from isaaclab.envs.mdp.observations import joint_pos, base_lin_vel
 from isaaclab.envs.mdp.rewards import alive_reward
 from isaaclab.envs.mdp.terminations import time_out
+from isaaclab.envs.mdp.events import reset_joints, randomize_rigid_body_properties
 
 @configclass
 class MyEnvCfg(ManagerBasedRLEnvCfg):
